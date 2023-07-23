@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Login</title>
 </head>
+
 <body>
     <h2>Login</h2>
     <form method="POST">
@@ -49,7 +51,7 @@
                 header("Location: student-dashboard.php");
                 exit();
             } elseif ($userType === "teacher") {
-                header("Location: teacher-dashboard.php");
+                header("Location: instructor-dashboard.php");
                 exit();
             } elseif ($userType === "admin") {
                 header("Location: admin-dashboard.php");
@@ -63,4 +65,5 @@
     }
     ?>
 </body>
+
 </html>
