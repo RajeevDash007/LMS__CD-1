@@ -14,15 +14,9 @@
     margin-top: 100px;
   }
   
-  input,
-  select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-  }
   .inputField{
     padding:10px 30px;
-    margin-right: 30px;
+    margin-right: 0px;
   }
   .selectField{
     padding: 5px 80px;
