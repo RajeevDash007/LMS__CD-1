@@ -9,20 +9,13 @@
 </head>
 
 <body>
-    <div class="registrationContainer">
-        <div class="formHeading">
-            <h2>Registration Form</h2>
-        </div>
+    
+        <h2>Registration Form</h2>
         <form method="POST">
-            <div class="inputField">
                 <input type="text" name="name" placeholder="Name" required>
-            </div>
-            <div class="inputField">
                 <input type="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="inputField">
                 <input type="password" name="password" placeholder="Password" required><br>
-            </div>
+
             <div class="selectField">
                 <select name="role" id="role" onchange="toggleBatchOption()" required>
                     <option value="student">Student</option>
@@ -46,14 +39,12 @@
             <div id="batchDiv">
                 <input type="text" name="batch" placeholder="Batch">
             </div>
-            <div class="inputField">
+            
                 <input type="text" name="photo" placeholder="Photo URL">
-            </div>
-            <div class="submitButton">
                 <button type="submit">Register</button>
-            </div>
+            
         </form>
-    </div>
+    
 
     <?php
     require_once('config.php');
@@ -116,6 +107,7 @@
         <input type="submit" value="Login">
     </form>
 
+
     <?php
     require_once('config.php');
 
@@ -163,6 +155,7 @@
         }
     }
     ?>
+    </div>
 
     
 </body>
