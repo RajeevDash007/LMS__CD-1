@@ -9,12 +9,15 @@
 </head>
 
 <body>
-    
+<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+        <div class="Registration">
         <h2>Registration Form</h2>
         <form method="POST">
+               
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required><br>
+                <input type="password" name="password" placeholder="Password" required>
 
             <div class="selectField">
                 <select name="role" id="role" onchange="toggleBatchOption()" required>
@@ -44,6 +47,7 @@
                 <button type="submit">Register</button>
             
         </form>
+        <div>
     
 
     <?php
@@ -106,6 +110,7 @@
 
         <input type="submit" value="Login">
     </form>
+</div>
 
 
     <?php
