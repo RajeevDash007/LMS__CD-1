@@ -61,3 +61,25 @@ input{
 	outline: none;
 	border-radius: 5px;
 }
+
+button{
+	width: 25%;
+	height: 30px;
+	margin: 2px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #573b8a;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 10px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+
+button:hover{
+	background: #6d44b8;
+}
