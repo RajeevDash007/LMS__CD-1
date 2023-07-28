@@ -102,10 +102,10 @@
 <div class="login">
 <h2>Login</h2>
     <form method="POST">
-    
+    <label for="chk" aria-hidden="true"></label>
         <input type="email" name="email" placeholder="email" required><br>
         <input type="password" name="password" placeholder="password"required><br>
-        <input type="submit" value="Login">
+        <button type="submit">Login</button>
     </form>
 </div>
 </div>

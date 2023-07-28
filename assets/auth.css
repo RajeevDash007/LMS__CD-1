@@ -30,6 +30,7 @@ form{
   flex-direction: column;
   align-items: center;
   justify-items: center;
+  margin-bottom: -20px;
 }
 
 .registration{
@@ -47,6 +48,7 @@ h2{
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
+	
 }
 
 input{
@@ -83,3 +85,27 @@ button{
 button:hover{
 	background: #6d44b8;
 }
+
+.login{
+	height: 460px;
+	background: #eee;
+	border-radius: 60% / 10%;
+	transform: translateY(-340px);
+	transition: .8s ease-in-out;
+}
+
+.login h2{
+	color: #573b8a;
+	transform: scale(1);
+}
+
+#chk:checked ~ .login{
+	transform: translateY(-500px);
+}
+#chk:checked ~ .login h2{
+	transform: scale(1);	
+}
+#chk:checked ~ .registration h2{
+	transform: scale(.6);
+}
+
