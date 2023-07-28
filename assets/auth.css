@@ -39,7 +39,7 @@ form{
 	height: 100%;
 }
 
-h2{
+label{
 	color: #fff;
 	font-size: 1.6em;
 	justify-content: center;
@@ -90,22 +90,23 @@ button:hover{
 	height: 460px;
 	background: #eee;
 	border-radius: 60% / 10%;
-	transform: translateY(-340px);
+	transform: translateY(-280px);
 	transition: .8s ease-in-out;
 }
 
-.login h2{
+.login label{
 	color: #573b8a;
 	transform: scale(1);
+	margin-top: 10px;
 }
 
 #chk:checked ~ .login{
-	transform: translateY(-500px);
+	transform: translateY(50px);
 }
-#chk:checked ~ .login h2{
+#chk:checked ~ .login label{
 	transform: scale(1);	
 }
-#chk:checked ~ .registration h2{
+#chk:checked ~ .registration label{
 	transform: scale(.6);
 }
 
