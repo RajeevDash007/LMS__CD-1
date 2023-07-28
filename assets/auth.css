@@ -30,7 +30,7 @@ form{
   flex-direction: column;
   align-items: center;
   justify-items: center;
-  margin-bottom: -20px;
+  margin-bottom: -30px;
 }
 
 .registration{
@@ -96,7 +96,7 @@ button:hover{
 
 .login h2{
 	color: #573b8a;
-	transform: scale(1);
+	transform: scale(.9);
 }
 
 #chk:checked ~ .login{
@@ -108,4 +108,8 @@ button:hover{
 #chk:checked ~ .registration h2{
 	transform: scale(.6);
 }
+
+
+
+
 
