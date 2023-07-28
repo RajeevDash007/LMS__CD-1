@@ -102,11 +102,9 @@
 <div class="login">
 <h2>Login</h2>
     <form method="POST">
-    <label>Email:</label>
-        <input type="email" name="email" required><br>
-
-        <label>Password:</label>
-        <input type="password" name="password" required><br>
+    
+        <input type="email" name="email" placeholder="email" required><br>
+        <input type="password" name="password" placeholder="password"required><br>
         <input type="submit" value="Login">
     </form>
 </div>
