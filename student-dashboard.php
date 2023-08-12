@@ -136,7 +136,7 @@
 
                                             </ul>
                                         </nav>
-                                        <div class="content-wrap news mt-2 text-right">
+                                        <div class="contentc-wrap news">
                                             <!-- <section id="section-linemove-5">
                                                 <a href="#" class="card-news shadow-card rounded-lg">
                                                     <i class="lni lni-star-fill"></i>
@@ -1125,3 +1125,4 @@
 </body>
 
 </html>
+

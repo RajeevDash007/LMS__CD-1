@@ -1,13 +1,17 @@
+.contentc-wrap.news {
+    display: flex;
+    flex-direction: row; /* Change to row for horizontal layout */
+    align-items: flex-start; /* Align the cards to the top */
+    justify-content: space-between; /* Add spacing between cards */
+  }
 .cardc {
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(20px);
     padding: 1rem;
     border-radius: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    min-height: 300px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    min-height: 210px;
+    width: 38%;
     margin-bottom: 1rem;
   }
   
