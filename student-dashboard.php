@@ -169,19 +169,19 @@
                                             </section> -->
 
                                             <div class="cardc">
-                                                <h2 class="header">Setup Guides</h2>
-                                                <p class="content">Our step-by-step guides helps you configure the features you need.</p>
-                                                <button class="button">Go to the Guides</button>
+                                                <h2 class="headerc">Setup Guides</h2>
+                                                <p class="contentc">Our step-by-step guides helps you configure the features you need.</p>
+                                                
                                                 </div>
                                             <div class="cardc">
-                                            <h2 class="header">Documentation</h2>
-                                            <p class="content">Check out our world-class documantation to learn everything there is to know about our product.</p>
-                                            <button class="button">Go to the documantation</button>
+                                            <h2 class="headerc">Documentation</h2>
+                                            <p class="contentc">Check out our world-class documantation to learn everything there is to know about our product.</p>
+                                            
                                             </div>
                                             <div class="cardc">
-                                            <h2 class="header">FAQ</h2>
-                                            <p class="content">Many users have the same questions. We have collected the answears to many of them in our frequently asked questions section.</p>
-                                            <button class="button">Go to the FAQ</button>
+                                            <h2 class="headerc">FAQ</h2>
+                                            <p class="contentc">Many users have the same questions. We have collected the answears to many of them in our frequently asked questions section.</p>
+                                            
                                             </div>
 
                                         </div><!-- /content -->

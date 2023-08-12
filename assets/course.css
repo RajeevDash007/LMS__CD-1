@@ -11,20 +11,20 @@
     margin-bottom: 1rem;
   }
   
-  .cardc .header {
+  .cardc .headerc {
     color: #122b61;
     margin: 0;
     font-weight: 600;
   }
   
-  .cardc .content {
+  .cardc .contentc {
     max-width: 60ch;
     font-weight: 200;
     font-size: 0.85rem;
     line-height: 1.35;
   }
   
-  .cardc .button {
+  /* .cardc .buttonc {
     position: relative;
     background: rgba(255, 255, 255, 0.8);
     color: #828282;
@@ -37,7 +37,7 @@
     transition: all 200ms ease-in-out;
   }
   
-  .cardc .button::before {
+  .cardc .buttonc::before {
     content: "";
     display: block;
     position: absolute;
@@ -52,18 +52,18 @@
     transition: all 200ms ease-in-out;
   }
   
-  .cardc .button:focus {
+  .cardc .buttonc:focus {
     outline: none;
     border-color: #122b61;
   }
   
-  .cardc .button:hover,
+  .cardc .buttonc:hover,
   .cardc .button:focus {
     background: rgba(255, 255, 255, 1);
     color: #4f4f4f;
   }
   
-  .cardc .button:hover::before,
-  .cardc .button:focus::before {
+  .cardc .buttonc:hover::before,
+  .cardc .buttonc:focus::before {
     filter: blur(20px);
-  }
+  } */
