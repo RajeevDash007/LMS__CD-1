@@ -12,9 +12,10 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     min-height: 210px;
     width: 38%;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-right: 20px;
   }
-  
+
   .cardc .headerc {
     color: #122b61;
     margin: 0;
@@ -27,6 +28,7 @@
     font-size: 0.85rem;
     line-height: 1.35;
   }
+  
   
   /* .cardc .buttonc {
     position: relative;

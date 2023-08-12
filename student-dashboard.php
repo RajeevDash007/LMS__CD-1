@@ -137,54 +137,24 @@
                                             </ul>
                                         </nav>
                                         <div class="contentc-wrap news">
-                                            <!-- <section id="section-linemove-5">
-                                                <a href="#" class="card-news shadow-card rounded-lg">
-                                                    <i class="lni lni-star-fill"></i>
-                                                    <div class="text">
-                                                        <h5 class="card-news-title pb-2">Course 1( from backend ) </h5>
-                                                        <span class="card-news-description">Teacher Name<br>batch
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                                <a href="#" class="card-news shadow-card rounded-lg">
-                                                    <i class="lni lni-star-fill"></i>
-                                                    <div class="text">
-                                                        <h5 class="card-news-title pb-2">Course 1( from backend ) </h5>
-                                                        <span class="card-news-description">Teacher Name<br>batch
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </section> -->
-                                            <!-- <section id="section-linemove-4">
-                                                <a href="#" class="card-news shadow-card rounded-lg">
-                                                    <i class="lni lni-star-fill"></i>
-                                                    <div class="text">
-                                                        <h5 class="card-news-title pb-2">Registration open for MBA</h5>
-                                                        <span class="card-news-description">More customers, more
-                                                            complexity. Now what? Market smarter with our pre-built and
-                                                            custom segments. That’s what.
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </section> -->
+                                        <div class="cardc">
+                                         <h2 class="headerc">Setup Guides</h2>
+                                         <p class="contentc">Our step-by-step guides help you configure the features you need.</p>
+                                        </div>
 
-                                            <div class="cardc">
-                                                <h2 class="headerc">Setup Guides</h2>
-                                                <p class="contentc">Our step-by-step guides helps you configure the features you need.</p>
-                                                
-                                                </div>
-                                            <div class="cardc">
-                                            <h2 class="headerc">Documentation</h2>
-                                            <p class="contentc">Check out our world-class documantation to learn everything there is to know about our product.</p>
-                                            
-                                            </div>
-                                            <div class="cardc">
-                                            <h2 class="headerc">FAQ</h2>
-                                            <p class="contentc">Many users have the same questions. We have collected the answears to many of them in our frequently asked questions section.</p>
-                                            
-                                            </div>
+                                        <div class="cardc">
+                                         <h2 class="headerc">Documentation</h2>
+                                         <p class="contentc">Check out our world-class documentation to learn everything there is to know about our product.</p>
+                                        </div>
 
-                                        </div><!-- /content -->
+                                        <div class="cardc">
+                                         <h2 class="headerc">FAQ</h2>
+                                         <p class="contentc">Many users have the same questions. We have collected the answers to many of them in our frequently asked questions section.</p>
+                                        </div>
+                                        </div>
+                                        
+
+                                        
                                     </div><!-- Fim Grids -->
                                 </div>
 
