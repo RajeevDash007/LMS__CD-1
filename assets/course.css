@@ -1,0 +1,69 @@
+.cardc {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .cardc .header {
+    color: #122b61;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .cardc .content {
+    max-width: 60ch;
+    font-weight: 200;
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+  
+  .cardc .button {
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    color: #828282;
+    font-size: 0.85rem;
+    font-weight: 400;
+    padding: 0.85rem 1rem;
+    border-color: transparent;
+    border-radius: 0.85rem;
+    margin-top: auto;
+    transition: all 200ms ease-in-out;
+  }
+  
+  .cardc .button::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: conic-gradient(#98d6f3, #fea2b1, #f7f1fa, #98d6f3);
+    filter: blur(30px);
+    border-radius: 5px;
+    transition: all 200ms ease-in-out;
+  }
+  
+  .cardc .button:focus {
+    outline: none;
+    border-color: #122b61;
+  }
+  
+  .cardc .button:hover,
+  .cardc .button:focus {
+    background: rgba(255, 255, 255, 1);
+    color: #4f4f4f;
+  }
+  
+  .cardc .button:hover::before,
+  .cardc .button:focus::before {
+    filter: blur(20px);
+  }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/dashboard.css">
+    <link rel="stylesheet" href="./assets/course.css">
     <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -136,7 +137,7 @@
                                             </ul>
                                         </nav>
                                         <div class="content-wrap news mt-2 text-right">
-                                            <section id="section-linemove-5">
+                                            <!-- <section id="section-linemove-5">
                                                 <a href="#" class="card-news shadow-card rounded-lg">
                                                     <i class="lni lni-star-fill"></i>
                                                     <div class="text">
@@ -153,8 +154,8 @@
                                                         </span>
                                                     </div>
                                                 </a>
-                                            </section>
-                                            <section id="section-linemove-4">
+                                            </section> -->
+                                            <!-- <section id="section-linemove-4">
                                                 <a href="#" class="card-news shadow-card rounded-lg">
                                                     <i class="lni lni-star-fill"></i>
                                                     <div class="text">
@@ -165,7 +166,23 @@
                                                         </span>
                                                     </div>
                                                 </a>
-                                            </section>
+                                            </section> -->
+
+                                            <div class="cardc">
+                                                <h2 class="header">Setup Guides</h2>
+                                                <p class="content">Our step-by-step guides helps you configure the features you need.</p>
+                                                <button class="button">Go to the Guides</button>
+                                                </div>
+                                            <div class="cardc">
+                                            <h2 class="header">Documentation</h2>
+                                            <p class="content">Check out our world-class documantation to learn everything there is to know about our product.</p>
+                                            <button class="button">Go to the documantation</button>
+                                            </div>
+                                            <div class="cardc">
+                                            <h2 class="header">FAQ</h2>
+                                            <p class="content">Many users have the same questions. We have collected the answears to many of them in our frequently asked questions section.</p>
+                                            <button class="button">Go to the FAQ</button>
+                                            </div>
 
                                         </div><!-- /content -->
                                     </div><!-- Fim Grids -->
