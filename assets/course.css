@@ -28,6 +28,41 @@
     font-size: 0.85rem;
     line-height: 1.35;
   }
+
+  .circle-container{
+    max-width: 1100px;
+  width: 100%;
+  position: relative;
+  }
+
+  .circle-container i {
+    top: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+  }
+  .circle-container i:active{
+    transform: translateY(-50%) scale(0.85);
+  }
+  .circle-container i:first-child{
+    left: 3px;
+  }
+  .circle-container i:last-child{
+    right: 0px;
+  }
+
+
+  
+  
   
   
   /* .cardc .buttonc {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/course.css">
     <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Student Dashboard</title>
@@ -136,25 +137,30 @@
 
                                             </ul>
                                         </nav>
-                                        <div class="contentc-wrap news">
-                                        <div class="cardc">
-                                         <h2 class="headerc">Setup Guides</h2>
-                                         <p class="contentc">Our step-by-step guides help you configure the features you need.</p>
+                                        <div class="circle-container">
+                                            <i id="left" class="fas fa-angle-left arrow"></i>
+                                            <ul class="contentc-wrap news">
+                                                <li class="cardc">
+                                                    <h2 class="headerc">Setup Guides</h2>
+                                                    <p class="contentc">Our step-by-step guides help you configure the features you need.</p>
+                                                </li>
+
+                                                <li class="cardc">
+                                                    <h2 class="headerc">Setup Guides</h2>
+                                                    <p class="contentc">Our step-by-step guides help you configure the features you need.</p>
+                                                </li>
+
+                                                <li class="cardc">
+                                                    <h2 class="headerc">Setup Guides</h2>
+                                                    <p class="contentc">Our step-by-step guides help you configure the features you need.</p>
+                                                </li>
+                                            </ul>
+                                            <i id="right" class="fas fa-angle-right arrow"></i>
                                         </div>
 
-                                        <div class="cardc">
-                                         <h2 class="headerc">Documentation</h2>
-                                         <p class="contentc">Check out our world-class documentation to learn everything there is to know about our product.</p>
-                                        </div>
-
-                                        <div class="cardc">
-                                         <h2 class="headerc">FAQ</h2>
-                                         <p class="contentc">Many users have the same questions. We have collected the answers to many of them in our frequently asked questions section.</p>
-                                        </div>
-                                        </div>
                                         
 
-                                        
+
                                     </div><!-- Fim Grids -->
                                 </div>
 
