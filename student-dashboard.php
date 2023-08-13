@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
     <title>Student Dashboard</title>
 </head>
 
@@ -139,6 +141,8 @@
                                         </nav>
                                         <div class="circle-container">
                                             <i id="left" class="fas fa-angle-left arrow"></i>
+                                            
+                                            <div class="slider-function">
                                             <ul class="contentc-wrap news">
                                                 <li class="cardc">
                                                     <h2 class="headerc">Setup Guides</h2>
@@ -154,11 +158,118 @@
                                                     <h2 class="headerc">Setup Guides</h2>
                                                     <p class="contentc">Our step-by-step guides help you configure the features you need.</p>
                                                 </li>
-                                            </ul>
+
+                                                <li class="cardc">
+                                                    <h2 class="headerc">Setup Guides</h2>
+                                                    <p class="contentc">Our step-by-step guides help you configure the features you need.</p>
+                                                </li>
+
+                                               
+                                                
+</div>
+
+                                                
+                                         
                                             <i id="right" class="fas fa-angle-right arrow"></i>
                                         </div>
+                                        <script>
+                                        document.addEventListener("DOMContentLoaded", function () {
+    const sliderFunction = document.querySelector(".slider-function");
+    const cardWidth = sliderFunction.querySelector(".cardc").offsetWidth;
+    const arrowLeft = document.getElementById("left");
+    const arrowRight = document.getElementById("right");
+    let currentIndex = 0;
 
-                                        
+    arrowLeft.addEventListener("click", function () {
+        if (currentIndex > 0) {
+            currentIndex--;
+            sliderFunction.scrollLeft = currentIndex * cardWidth;
+        }
+    });
+
+    arrowRight.addEventListener("click", function () {
+        if (currentIndex < sliderFunction.children.length - 1) {
+            currentIndex++;
+            sliderFunction.scrollLeft = currentIndex * cardWidth;
+        }
+    });
+
+    const cards = document.querySelectorAll('.cardc');
+    let card;
+    const modal = document.querySelector('.modal');
+    const closeButton = document.querySelector('.modal__close-button');
+    const page = document.querySelector('.page');
+    const cardBorderRadius = 20;
+    const openingDuration = 600; //ms
+    const closingDuration = 600; //ms
+    const timingFunction = 'cubic-bezier(.76,.01,.65,1.38)';
+
+    function flipAnimation(first, last, options) {
+        let firstRect = first.getBoundingClientRect();
+        let lastRect = last.getBoundingClientRect();
+
+        let deltas = {
+            top: firstRect.top - lastRect.top,
+            left: firstRect.left - lastRect.left,
+            width: firstRect.width / lastRect.width,
+            height: firstRect.height / lastRect.height
+        };
+
+        return last.animate([{
+            transformOrigin: 'top left',
+            borderRadius: `${cardBorderRadius / deltas.width}px / ${cardBorderRadius / deltas.height}px`,
+            transform: `
+                translate(${deltas.left}px, ${deltas.top}px) 
+                scale(${deltas.width}, ${deltas.height})
+            `
+        },{
+            transformOrigin: 'top left',
+            transform: 'none',
+            borderRadius: `${cardBorderRadius}px`
+        }], options);
+    }
+
+    cards.forEach((item)=>{
+        item.addEventListener('click', (e)=>{
+            card = e.currentTarget;
+            page.dataset.modalState = 'opening';
+            card.classList.add('card--opened');
+            card.style.opacity = 0;
+            document.querySelector('body').classList.add('no-scroll');
+
+            let animation = flipAnimation(card, modal, {
+                duration: openingDuration,
+                easing: timingFunction,
+                fill: 'both'
+            });
+
+            animation.onfinish = ()=>{
+                page.dataset.modalState = 'open';
+                animation.cancel();
+            };
+        });
+    });
+
+    closeButton.addEventListener('click', (e)=>{
+        page.dataset.modalState = 'closing';
+        document.querySelector('body').classList.remove('no-scroll');
+
+        let animation = flipAnimation(card, modal, {
+            duration: closingDuration,
+            easing: timingFunction,
+            direction: 'reverse',
+            fill: 'both'
+        });
+
+        animation.onfinish = ()=>{
+            page.dataset.modalState = 'closed';
+            card.style.opacity = 1;
+            card.classList.remove('card--opened');
+            animation.cancel();
+        };
+    });
+});
+</script>                                
 
 
                                     </div><!-- Fim Grids -->

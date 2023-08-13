@@ -60,6 +60,12 @@
     right: 0px;
   }
 
+  @media screen and (max-width: 600px) {
+    .circle-container .news {
+      grid-auto-columns: 100%;
+    }
+  }
+
 
   
   
