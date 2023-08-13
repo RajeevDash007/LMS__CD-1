@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <title>Student Dashboard</title>
 </head>
 
@@ -23,16 +23,13 @@
         </button>
 
         <div class="col-4 col-sm-3">
-            <img src="https://www.logolynx.com/images/logolynx/0d/0d423bda04a7a684609b06cd46bb699b.png"
-                class="img-fluid logo ml-sm-4" style="opacity: .5;width:100px;" />
+            <img src="https://www.logolynx.com/images/logolynx/0d/0d423bda04a7a684609b06cd46bb699b.png" class="img-fluid logo ml-sm-4" style="opacity: .5;width:100px;" />
         </div>
 
         <div class="col-4 col-md-5 d-none d-md-flex  flex-column">
             <!-- Pesquisa responsiva -->
             <div class="input-group m-2 d-none d-md-flex">
-                <input type="search" class="form-control animated-search-filter search" id="pesquisageral"
-                    name="pesquisageral" placeholder="search infos and modules" aria-label="Pesquise"
-                    aria-describedby="button-addon2">
+                <input type="search" class="form-control animated-search-filter search" id="pesquisageral" name="pesquisageral" placeholder="search infos and modules" aria-label="Pesquise" aria-describedby="button-addon2">
             </div>
 
         </div>
@@ -41,11 +38,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-md-2">
                     <li class="nav-item pl-4 dropdown">
-                        <a class="nav-link dropdown-toggle" style="white-space: normal" data-toggle="collapse"
-                            href="#collapseExample" role="button" aria-expanded="false"
-                            aria-controls="collapseExample"><i
-                                class="lni lni-user border rounded-circle border-primary p-1 mr-1"></i> Options<span
-                                class="sr-only">(current)</span>
+                        <a class="nav-link dropdown-toggle" style="white-space: normal" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="lni lni-user border rounded-circle border-primary p-1 mr-1"></i> Options<span class="sr-only">(current)</span>
                         </a>
 
                     </li>
@@ -72,8 +65,7 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper" style="z-index: 1">
             <div class="list-group list-group-flush bg-white" id="sidenav">
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary home active"><i
-                        class="lni lni-home size-sm pr-4 font-24"></i>Home</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary home active"><i class="lni lni-home size-sm pr-4 font-24"></i>Home</a>
                 <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i
                         class="lni lni-graduation size-sm pr-4 font-24"></i></i>Study</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i
@@ -94,16 +86,14 @@
             <div class="container-fluid px-4">
                 <!-- Mode Escuro para dispositivos mobile -->
                 <div class="row mx-auto mt-3 justify-content-center d-flex d-md-none">
-                    <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false"
-                        autocomplete="off" onclick="toggleDarkLight()">
+                    <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="toggleDarkLight()">
                         <div class="handle"></div>
                     </button>
                     <p class="mb-0">Dark mode </p>
                 </div>
                 <!-- Pesquisa mobile responsiva -->
                 <div class="input-group m-2 d-flex d-md-none mx-auto mt-4 w-100">
-                    <input type="search" class="form-control" placeholder="Search information and modules in general"
-                        aria-label="Pesquise" aria-describedby="button-addon2">
+                    <input type="search" class="form-control" placeholder="Search information and modules in general" aria-label="Pesquise" aria-describedby="button-addon2">
                 </div>
 
                 <div class="row py-3">
@@ -116,13 +106,11 @@
                                             <div class="col-sm-6 order-1 order-sm-1">
                                                 <h4 class="text-primary pt-3 pt-sm-5 pl-3 pl-lg-4 pr-3">Hi, welcome</h4>
                                             </div>
-                                            <div
-                                                class="col-sm-6 d-flex d-lg-block d-lg-block align-items-center justify-content-center order-0 order-sm-1">
+                                            <div class="col-sm-6 d-flex d-lg-block d-lg-block align-items-center justify-content-center order-0 order-sm-1">
 
                                             </div>
                                             <div class="col-12 order-2 order-sm-1">
-                                                <p class="px-3 pt-2 pb-3 text-banner"
-                                                    style="color: #5584bc; font-size: 15px">Lorem ipsum dolor sit amet,
+                                                <p class="px-3 pt-2 pb-3 text-banner" style="color: #5584bc; font-size: 15px">Lorem ipsum dolor sit amet,
                                                     consectetur adipiscing elit. Morbi sed metus quis mauris tempor
                                                     lacinia. Etiam maximus arcu a erat dapibus tempus eget et justo. Nam
                                                     eget iaculis arcu, eu aliquam risus.</p>
@@ -130,80 +118,81 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row my-4 fadeInUp delay-1">
-                                    <div class="tabs tabs-style-linemove homenews">
-                                        <nav class="rounded-menu">
-                                            <ul style="max-width: 250px !important;margin: 0">
-                                                <li><a href="#section-linemove-5"><span>Courses</span></a></li>
+                                    <div id="card-carousel" class="carousel slide w-100" data-ride="carousel">
+                                        <div class="carousel-inner">
 
-                                            </ul>
-                                        </nav>
-                                        <div class="circle-container">
-                                            <i id="left" class="fas fa-angle-left arrow"></i>
-                                            
-                                            <div class="slider-function">
-                                            <ul class="contentc-wrap news">
-                                                <li class="cardc">
-                                                    <h2 class="headerc">Setup Guides</h2>
-                                                    <p class="contentc">Our step-by-step guides help you configure the features you need.</p>
-                                                </li>
-
-                                                <li class="cardc">
-                                                    <h2 class="headerc">Setup Guides</h2>
-                                                    <p class="contentc">Our step-by-step guides help you configure the features you need.</p>
-                                                </li>
-
-                                                <li class="cardc">
-                                                    <h2 class="headerc">Setup Guides</h2>
-                                                    <p class="contentc">Our step-by-step guides help you configure the features you need.</p>
-                                                </li>
-
-                                                <li class="cardc">
-                                                    <h2 class="headerc">Setup Guides</h2>
-                                                    <p class="contentc">Our step-by-step guides help you configure the features you need.</p>
-                                                </li>
-
-                                               
-                                                
-</div>
-
-                                                
-                                         
-                                            <i id="right" class="fas fa-angle-right arrow"></i>
                                         </div>
-                                        <script>
-                                        document.addEventListener("DOMContentLoaded", function () {
-    const sliderFunction = document.querySelector(".slider-function");
-    const cardWidth = sliderFunction.querySelector(".cardc").offsetWidth;
-    const arrowLeft = document.getElementById("left");
-    const arrowRight = document.getElementById("right");
-    let currentIndex = 0;
 
-    arrowLeft.addEventListener("click", function () {
-        if (currentIndex > 0) {
-            currentIndex--;
-            sliderFunction.scrollLeft = currentIndex * cardWidth;
-        }
-    });
-
-    arrowRight.addEventListener("click", function () {
-        if (currentIndex < sliderFunction.children.length - 1) {
-            currentIndex++;
-            sliderFunction.scrollLeft = currentIndex * cardWidth;
-        }
-    });
-});  
-</script>
-
-
-                                    </div><!-- Fim Grids -->
+                                        <a class="carousel-control-prev" href="#card-carousel" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#card-carousel" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
                                 </div>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        const cardData = [{
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+                                            {
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+                                            {
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+                                            {
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+                                            {
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+                                            {
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+
+                                        ];
+
+                                        const carouselInner = document.querySelector(".carousel-inner");
+                                        const itemsPerSlide = 3;
+
+                                        for (let i = 0; i < cardData.length; i += itemsPerSlide) {
+                                            const item = document.createElement("div");
+                                            item.classList.add("carousel-item");
+                                            if (i === 0) {
+                                                item.classList.add("active");
+                                            }
+
+                                            const cardsInSlide = cardData.slice(i, i + itemsPerSlide);
+                                            const cardsHTML = cardsInSlide.map(card => `
+                <div class="col-md-4">
+                    <div class="card cardc">
+                        <h2 class="headerc">${card.header}</h2>
+                        <p class="contentc">${card.content}</p>
+                    </div>
+                </div>`).join('');
+
+                                            item.innerHTML = `<div class="row">${cardsHTML}</div>`;
+                                            carouselInner.appendChild(item);
+                                        }
+                                    });
+                                </script>
+
+
 
                                 <div class="row mb-5 mt-2 fadeInUp delay-1">
                                     <div class="col-md-12 mt-4 mt-md-0">
-                                        <div
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4 fadeInUp">
+                                        <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4 fadeInUp">
                                             <p class="text-center mb-3">Assignment list table Below</p>
 
                                         </div>
@@ -487,47 +476,39 @@
 
                                     <div class="animated-search-filter grid fadeInUp delay-1">
 
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
+                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
                                             <span class="text-primary font-weight-normal px-3 text-left">Calendário
                                                 Acadêmico 2020 - Consulta</span>
                                             <span class="arrow-card"></span>
                                         </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
+                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
                                             <span class="text-primary font-weight-normal px-3 text-left">Conselho
                                                 Universitário - CONSUN</span>
                                             <span class="arrow-card"></span>
                                         </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
+                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
                                             <span class="text-primary font-weight-normal px-3 text-left">Normas,
                                                 Guias e
                                                 Documentos</span>
                                             <span class="arrow-card"></span>
                                         </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
+                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
                                             <span class="text-primary font-weight-normal px-3 text-left">Ônibus
                                                 -
                                                 Itinerários</span>
                                             <span class="arrow-card"></span>
                                         </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
+                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
                                             <span class="text-primary font-weight-normal px-3 text-left">Ramais
                                                 e
                                                 E-mails</span>
                                             <span class="arrow-card"></span>
                                         </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span
-                                                class="text-primary font-weight-normal px-3 text-left">Sindicâncias</span>
+                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
+                                            <span class="text-primary font-weight-normal px-3 text-left">Sindicâncias</span>
                                             <span class="arrow-card"></span>
                                         </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
+                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
                                             <span class="text-primary font-weight-normal px-3 text-left">TI
                                                 -
                                                 Informações Gerais</span>
@@ -543,8 +524,7 @@
 
                     <div class="col-md-4 fadeInUp atalhos">
                         <div class="row mx-auto mt-3 justify-content-center d-none d-md-flex">
-                            <button type="button" class="btn btn-sm btn-toggle" data-toggle="button"
-                                aria-pressed="false" autocomplete="off" onclick="toggleDarkLight()">
+                            <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="toggleDarkLight()">
                                 <div class="handle"></div>
                             </button>
                             <p class="mb-0">Dark mode </p>
@@ -554,8 +534,7 @@
                             <div class="container mt-3">
 
                                 <div class="my-4 mt-md-0">
-                                    <div
-                                        class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4">
+                                    <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4">
                                         <p class="text-center mb-3">Calender</p>
                                     </div>
                                 </div>
@@ -569,21 +548,16 @@
                             </div>
                             <div class="row mb-5 mt-2 fadeInUp delay-2">
                                 <div class="col-md-12 mt-4 mt-md-0">
-                                    <div
-                                        class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4 fadeInUp">
+                                    <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4 fadeInUp">
                                         <p class="text-center mb-3">Notice</p>
 
                                         <div class="input-group m-2 d-flex">
-                                            <input type="search" class="form-control"
-                                                placeholder="Localizar por Nome, RU, E-mail ou Departamento"
-                                                aria-label="Pesquise" aria-describedby="button-addon2">
+                                            <input type="search" class="form-control" placeholder="Localizar por Nome, RU, E-mail ou Departamento" aria-label="Pesquise" aria-describedby="button-addon2">
                                         </div>
 
-                                        <div class="rounded ramal-box m-2 px-2 w-100"
-                                            style="height: 280px; overflow-y: scroll">
+                                        <div class="rounded ramal-box m-2 px-2 w-100" style="height: 280px; overflow-y: scroll">
                                             <div class="contacts">
-                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span
-                                                        class="text-primary">3343-7198</span><br> ASSESSORIA
+                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span class="text-primary">3343-7198</span><br> ASSESSORIA
                                                     DE
                                                     COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
                                                 </div>
@@ -592,8 +566,7 @@
                                                 </input>
                                             </div>
                                             <div class="contacts">
-                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span
-                                                        class="text-primary">3343-7198</span><br> ASSESSORIA
+                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span class="text-primary">3343-7198</span><br> ASSESSORIA
                                                     DE
                                                     COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
                                                 </div>
@@ -602,8 +575,7 @@
                                                 </input>
                                             </div>
                                             <div class="contacts">
-                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span
-                                                        style="color:red">Ramal
+                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span style="color:red">Ramal
                                                         não cadastrado</span><br>
                                                     ASSESSORIA
                                                     DE COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
@@ -613,8 +585,7 @@
                                                 </input>
                                             </div>
                                             <div class="contacts">
-                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span
-                                                        class="text-primary">3343-7198</span><br> ASSESSORIA
+                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span class="text-primary">3343-7198</span><br> ASSESSORIA
                                                     DE
                                                     COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
                                                 </div>
@@ -623,8 +594,7 @@
                                                 </input>
                                             </div>
                                             <div class="contacts">
-                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span
-                                                        style="color:red">Ramal
+                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span style="color:red">Ramal
                                                         não cadastrado</span><br>
                                                     ASSESSORIA
                                                     DE COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
@@ -671,8 +641,7 @@
     <!-- /#wrapper -->
 
     <!-- Modal ATALHOS -->
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -760,10 +729,8 @@
 
                     </div>
                     <div class="modal-footer" style="justify-content: flex-start;">
-                        <a class="btn-sm button-link cyan-color mr-auto" data-dismiss="modal"><i
-                                class="lni-close pr-2"></i>Fechar</a>
-                        <a class="btn-sm button-link blue-color submit"><i
-                                class="lni-check-mark-circle pr-2"></i>Adicionar</a>
+                        <a class="btn-sm button-link cyan-color mr-auto" data-dismiss="modal"><i class="lni-close pr-2"></i>Fechar</a>
+                        <a class="btn-sm button-link blue-color submit"><i class="lni-check-mark-circle pr-2"></i>Adicionar</a>
                     </div>
                 </form>
             </div>
@@ -771,8 +738,7 @@
     </div>
 
     <!-- Modal Adicionar comunicados -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
 
@@ -795,8 +761,7 @@
                             </div>
                             <div class="toast-body">
                                 Tem certeza que deseja publicar este comunicado/notícia?<br />
-                                <a class="btn-sm button-link blue-color float-right mb-2 submit confirm"><i
-                                        class="lni-check-mark-circle pr-2"></i>Publicar</a>
+                                <a class="btn-sm button-link blue-color float-right mb-2 submit confirm"><i class="lni-check-mark-circle pr-2"></i>Publicar</a>
                             </div>
                         </div>
 
@@ -824,8 +789,7 @@
                     </div>
 
                     <div class="modal-footer" style="justify-content: flex-start;">
-                        <a class="btn-sm button-link cyan-color mr-auto" data-dismiss="modal"><i
-                                class="lni lni-close pr-2"></i>Close</a>
+                        <a class="btn-sm button-link cyan-color mr-auto" data-dismiss="modal"><i class="lni lni-close pr-2"></i>Close</a>
                         <a class="btn-sm button-link blue-color confirm"><i class="lni lni-plus pr-2"></i>Continue</a>
                     </div>
                 </div>
@@ -834,121 +798,121 @@
         </div>
 
         <script>
-        var lstsis =
-            "Envio de Mensagens do Portal - EMP|Materiais|Consulta Cadastro MEGA |Catalogo de Itens em Geral|Materiais Geral|Uso Comum|Bolsa de Estudos |Solicitação/Renovação|Cesta Básica|Confraternização|Dicionário Aurélio|Documentos Normativos|Pesquisa de Clima Organizacional";
+            var lstsis =
+                "Envio de Mensagens do Portal - EMP|Materiais|Consulta Cadastro MEGA |Catalogo de Itens em Geral|Materiais Geral|Uso Comum|Bolsa de Estudos |Solicitação/Renovação|Cesta Básica|Confraternização|Dicionário Aurélio|Documentos Normativos|Pesquisa de Clima Organizacional";
 
-        var lstsisurl = "#|#|#|#|#|#|#|#|#|#|#|#|#";
+            var lstsisurl = "#|#|#|#|#|#|#|#|#|#|#|#|#";
 
-        lstsis = lstsis.split("|");
-        lstsisurl = lstsisurl.split("|");
+            lstsis = lstsis.split("|");
+            lstsisurl = lstsisurl.split("|");
 
-        //Preloader
-        $(document).ready(function() {
-            $(".loader, .lds-ring").fadeOut();
-        });
-        //Menu Office 365 close without hover --------------
-        $("#collapseExample").hover(
-            function() {
-                //não faça nada
-            },
-            function() {
-                $(this).collapse("hide"); //fecha o content do menu
-            }
-        );
-
-        (function(window) {
-            "use strict";
-
-            function extend(a, b) {
-                for (var key in b) {
-                    if (b.hasOwnProperty(key)) {
-                        a[key] = b[key];
-                    }
-                }
-                return a;
-            }
-
-            function CBPFWTabs(el, options) {
-                this.el = el;
-                this.options = extend({}, this.options);
-                extend(this.options, options);
-                this._init();
-            }
-
-            CBPFWTabs.prototype.options = {
-                start: 0
-            };
-
-            CBPFWTabs.prototype._init = function() {
-                // tabs elems
-                this.tabs = [].slice.call(this.el.querySelectorAll("nav > ul > li"));
-                // content items
-                this.items = [].slice.call(
-                    this.el.querySelectorAll(".content-wrap > section")
-                );
-                // current index
-                this.current = -1;
-                // show current content item
-                this._show();
-                // init events
-                this._initEvents();
-            };
-
-            CBPFWTabs.prototype._initEvents = function() {
-                var self = this;
-                this.tabs.forEach(function(tab, idx) {
-                    tab.addEventListener("click", function(ev) {
-                        ev.preventDefault();
-                        self._show(idx);
-                    });
-                });
-            };
-
-            CBPFWTabs.prototype._show = function(idx) {
-                if (this.current >= 0) {
-                    this.tabs[this.current].className = this.items[this.current].className =
-                        "";
-                }
-                // change current
-                this.current =
-                    idx != undefined ?
-                    idx :
-                    this.options.start >= 0 && this.options.start < this.items.length ?
-                    this.options.start :
-                    0;
-                this.tabs[this.current].className = "tab-current";
-                this.items[this.current].className = "content-current";
-            };
-
-            // add to global namespace
-            window.CBPFWTabs = CBPFWTabs;
-        })(window);
-
-        (function() {
-            [].slice.call(document.querySelectorAll(".tabs")).forEach(function(el) {
-                new CBPFWTabs(el);
+            //Preloader
+            $(document).ready(function() {
+                $(".loader, .lds-ring").fadeOut();
             });
-        })();
+            //Menu Office 365 close without hover --------------
+            $("#collapseExample").hover(
+                function() {
+                    //não faça nada
+                },
+                function() {
+                    $(this).collapse("hide"); //fecha o content do menu
+                }
+            );
 
-        function renderList(filter = "") {
-            let inputHtml = "";
-            let filteredList = [];
-            let linkList = [];
+            (function(window) {
+                "use strict";
 
-            if (filter.length > 0) {
-                filteredList = lstsis.filter((item, index) => {
-                    if (item.toLowerCase().includes(filter.toLowerCase())) {
-                        linkList.push(lstsisurl[index]);
-                        return true;
-                    } else {
-                        return false;
+                function extend(a, b) {
+                    for (var key in b) {
+                        if (b.hasOwnProperty(key)) {
+                            a[key] = b[key];
+                        }
                     }
-                });
-            }
+                    return a;
+                }
 
-            filteredList.forEach(
-                (item, index) =>
-                (inputHtml += `
+                function CBPFWTabs(el, options) {
+                    this.el = el;
+                    this.options = extend({}, this.options);
+                    extend(this.options, options);
+                    this._init();
+                }
+
+                CBPFWTabs.prototype.options = {
+                    start: 0
+                };
+
+                CBPFWTabs.prototype._init = function() {
+                    // tabs elems
+                    this.tabs = [].slice.call(this.el.querySelectorAll("nav > ul > li"));
+                    // content items
+                    this.items = [].slice.call(
+                        this.el.querySelectorAll(".content-wrap > section")
+                    );
+                    // current index
+                    this.current = -1;
+                    // show current content item
+                    this._show();
+                    // init events
+                    this._initEvents();
+                };
+
+                CBPFWTabs.prototype._initEvents = function() {
+                    var self = this;
+                    this.tabs.forEach(function(tab, idx) {
+                        tab.addEventListener("click", function(ev) {
+                            ev.preventDefault();
+                            self._show(idx);
+                        });
+                    });
+                };
+
+                CBPFWTabs.prototype._show = function(idx) {
+                    if (this.current >= 0) {
+                        this.tabs[this.current].className = this.items[this.current].className =
+                            "";
+                    }
+                    // change current
+                    this.current =
+                        idx != undefined ?
+                        idx :
+                        this.options.start >= 0 && this.options.start < this.items.length ?
+                        this.options.start :
+                        0;
+                    this.tabs[this.current].className = "tab-current";
+                    this.items[this.current].className = "content-current";
+                };
+
+                // add to global namespace
+                window.CBPFWTabs = CBPFWTabs;
+            })(window);
+
+            (function() {
+                [].slice.call(document.querySelectorAll(".tabs")).forEach(function(el) {
+                    new CBPFWTabs(el);
+                });
+            })();
+
+            function renderList(filter = "") {
+                let inputHtml = "";
+                let filteredList = [];
+                let linkList = [];
+
+                if (filter.length > 0) {
+                    filteredList = lstsis.filter((item, index) => {
+                        if (item.toLowerCase().includes(filter.toLowerCase())) {
+                            linkList.push(lstsisurl[index]);
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+                }
+
+                filteredList.forEach(
+                    (item, index) =>
+                    (inputHtml += `
 		  	<div class="card col-md-12 my-2" style="border: 1px solid rgb(222, 239, 255);border-radius: 8px;">
              <div class="card-body">
               <div class="row">
@@ -964,177 +928,176 @@
             </div>
           </div>
 			`)
-            );
-            $("#result").html(inputHtml);
-        }
+                );
+                $("#result").html(inputHtml);
+            }
 
-        $("#pesquisageral").on("input", function(e) {
-            let pesquisageral = $("#pesquisageral").val();
-            renderList(pesquisageral);
-        });
+            $("#pesquisageral").on("input", function(e) {
+                let pesquisageral = $("#pesquisageral").val();
+                renderList(pesquisageral);
+            });
 
-        renderList();
+            renderList();
 
-        for (var i = 0; i < lstsis.length; i++) {
-            var newClass = lstsis[i].substring(0, 33);
+            for (var i = 0; i < lstsis.length; i++) {
+                var newClass = lstsis[i].substring(0, 33);
 
-            var printCards =
-                "<a href='" +
-                lstsisurl[i] +
-                "' class='" +
-                newClass +
-                " academico card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center'><span class='text-primary font-weight-normal px-3 text-left'>" +
-                lstsis[i] +
-                "</span><span class='arrow-card'></span></a>";
+                var printCards =
+                    "<a href='" +
+                    lstsisurl[i] +
+                    "' class='" +
+                    newClass +
+                    " academico card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center'><span class='text-primary font-weight-normal px-3 text-left'>" +
+                    lstsis[i] +
+                    "</span><span class='arrow-card'></span></a>";
 
-            document.querySelector(".sysacad").innerHTML += printCards;
-        }
+                document.querySelector(".sysacad").innerHTML += printCards;
+            }
 
-        var nameSystems = [
-            "Solicitações",
-            "Normas",
-            "Ramais e E-mails",
-            "Estatuto e Regimento Geral",
-            "TI",
-            "Aviso de férias",
-            "Conselho Universitário",
-            "Módulos",
-            "Materiais",
-            "Uso Comum",
-            "Informações"
-        ];
+            var nameSystems = [
+                "Solicitações",
+                "Normas",
+                "Ramais e E-mails",
+                "Estatuto e Regimento Geral",
+                "TI",
+                "Aviso de férias",
+                "Conselho Universitário",
+                "Módulos",
+                "Materiais",
+                "Uso Comum",
+                "Informações"
+            ];
 
-        for (var i = 0; i < nameSystems.length; i++) {
-            var elementoHTML = document.getElementsByClassName(nameSystems[i]);
-            $("<div class='titulo'><h3>" + nameSystems[i] + "</h3></div>").insertBefore(
-                elementoHTML[0]
-            );
-        }
+            for (var i = 0; i < nameSystems.length; i++) {
+                var elementoHTML = document.getElementsByClassName(nameSystems[i]);
+                $("<div class='titulo'><h3>" + nameSystems[i] + "</h3></div>").insertBefore(
+                    elementoHTML[0]
+                );
+            }
 
-        $(document).ready(function() {
-            $.get(
-                "http://apidev.accuweather.com/currentconditions/v1/45883.json?language=pt&apikey=hoArfRosT1215",
-                function(data) {
-                    $("#temperatura").html(data[0].Temperature.Metric.Value + " °c");
-                    $("#clima").html("Céu: " + data[0].WeatherText);
-                    $("#icone").attr(
-                        "src",
-                        "https://vortex.accuweather.com/adc2010/images/slate/icons/" +
-                        data[0].WeatherIcon +
-                        ".svg"
-                    );
-                }
-            );
-        });
-
-        $("a.cards-func").click(function(event) {
-            if ($(this).attr("target") != "_blank") {
-                //Se for diferente de target _blank ele abrirá em iframe
-
-                event
-                    .preventDefault(); //cancela a ação padrão do click (cancela o redirecionamento a href)
-                var url = $(this).attr(
-                    "href"); //pega o atributo href do card clicado e passa para a variavel URL
-                $(".loader, .lds-ring").fadeIn(); //inicia o loader
-                $("#iframe").attr("src", url); //insere a url correta para rodar no iframe
-
-                $("#page-content-wrapper, .page-loader").toggleClass(
-                    "d-none"); //para o iframe ser exibido o content principal deve ser ocultado
-
-                /* Manipula o iframe para aplicar correções no estilo da intranet antiga
-                 ** Oculta os menus de topo, entre outros itens da antiga intranet */
-                $("#iframe").on("load", function() {
-                    $("#iframe")
-                        .contents()
-                        .find("head")
-                        .append(
-                            "<style>#pc_user { display: none;} #pc_sair { display: none;} #pc_fundomenu { display: none;}#pc_busca { display: none;} #PC_brilho { display: none !important; } #pc_centro { position: inherit !important; }</style>"
+            $(document).ready(function() {
+                $.get(
+                    "http://apidev.accuweather.com/currentconditions/v1/45883.json?language=pt&apikey=hoArfRosT1215",
+                    function(data) {
+                        $("#temperatura").html(data[0].Temperature.Metric.Value + " °c");
+                        $("#clima").html("Céu: " + data[0].WeatherText);
+                        $("#icone").attr(
+                            "src",
+                            "https://vortex.accuweather.com/adc2010/images/slate/icons/" +
+                            data[0].WeatherIcon +
+                            ".svg"
                         );
+                    }
+                );
+            });
 
-                    $(".loader, .lds-ring").fadeOut(); //encerra o loader
-                });
-            }
-        });
+            $("a.cards-func").click(function(event) {
+                if ($(this).attr("target") != "_blank") {
+                    //Se for diferente de target _blank ele abrirá em iframe
 
-        $(".close-card").click(function() {
-            $(this).prev().toggleClass("cards-short--disable");
-            $(this).prev().toggleClass("cards-short");
-            $(this).toggleClass("transform-45");
-        });
+                    event
+                        .preventDefault(); //cancela a ação padrão do click (cancela o redirecionamento a href)
+                    var url = $(this).attr(
+                        "href"); //pega o atributo href do card clicado e passa para a variavel URL
+                    $(".loader, .lds-ring").fadeIn(); //inicia o loader
+                    $("#iframe").attr("src", url); //insere a url correta para rodar no iframe
 
-        $(".form-short .submit").click(function() {
-            var appendItems = $(".modal-body.shortcuts").find(".cards-short")
-                .parent(); //verifica todos os itens com a classe e pega o elemento completo
-            $(appendItems).removeClass("cards-short--disable");
-            $(".block.shortcuts").append(appendItems); //insere o(os) item(ns) nos atalhos
-        });
+                    $("#page-content-wrapper, .page-loader").toggleClass(
+                        "d-none"); //para o iframe ser exibido o content principal deve ser ocultado
 
-        $(".remove").click(function() {
-            var returnItems = $(".block.shortcuts")
-                .find(".cards-short--disable")
-                .parent(); //verifica todos os itens com a classe e pega o elemento completo
-            $(".modal-body.shortcuts").append(returnItems); //insere o(os) item(ns) no modal
-        });
+                    /* Manipula o iframe para aplicar correções no estilo da intranet antiga
+                     ** Oculta os menus de topo, entre outros itens da antiga intranet */
+                    $("#iframe").on("load", function() {
+                        $("#iframe")
+                            .contents()
+                            .find("head")
+                            .append(
+                                "<style>#pc_user { display: none;} #pc_sair { display: none;} #pc_fundomenu { display: none;}#pc_busca { display: none;} #PC_brilho { display: none !important; } #pc_centro { position: inherit !important; }</style>"
+                            );
 
-        function toggleDarkLight() {
-            var body = document.getElementById("page-content-wrapper");
-            var frame = document.getElementById("page-content-frame");
-            if ($(body).hasClass("dark-mode")) {
-                //a condição verifica se no elemento content principal existe a classe "dark-mode"
-                body.className = "";
-                frame.className = "page-loader d-none";
-            } else {
-                body.className = "dark-mode";
-                frame.className = "page-loader dark-mode d-none";
-            }
-
-            /* Troca a imagem de bem-vindo para o modo dark
-             ** Na imagem existem dois atributos de imagem
-             ** Quando o modo dark é alternado, esse links também precisar ser alternados */
-            var _this = $("#welcome");
-            var current = _this.attr("src");
-            var swap = _this.attr("data-swap");
-            _this.attr("src", swap).attr("data-swap", current);
-        }
-
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-
-        $("#myModal").on("shown.bs.modal", function() {
-            $("#myInput").trigger("focus");
-        });
-
-        function geral() {
-            $(".display").css("display", "none");
-            $(".atalhos").css("display", "block");
-            $("#page-content-wrapper").removeClass("d-none");
-            $(".page-loader").addClass("d-none");
-        }
-
-        //Click Sidenav menu
-        $(".list-group a").click(function() {
-            $(".list-group a.text-secondary").removeClass("active");
-            $("html, body").animate({
-                scrollTop: 0
-            }, 500); //Scroll top para suavizar a troca de tela
-            $(this).addClass("active");
-
-            //Alterna a exibição de telas
-
-            //Array de classes verificadas na Sidenav
-            const arrayMenu = ["home", "acad", "adm", "beneficios", "visoes", "info"];
-
-            for (var i = 0; i < arrayMenu.length; i++) {
-                if ($(this).hasClass(arrayMenu[i])) {
-                    geral();
-                    $("." + arrayMenu[i] + ".display").css("display", "block");
+                        $(".loader, .lds-ring").fadeOut(); //encerra o loader
+                    });
                 }
+            });
+
+            $(".close-card").click(function() {
+                $(this).prev().toggleClass("cards-short--disable");
+                $(this).prev().toggleClass("cards-short");
+                $(this).toggleClass("transform-45");
+            });
+
+            $(".form-short .submit").click(function() {
+                var appendItems = $(".modal-body.shortcuts").find(".cards-short")
+                    .parent(); //verifica todos os itens com a classe e pega o elemento completo
+                $(appendItems).removeClass("cards-short--disable");
+                $(".block.shortcuts").append(appendItems); //insere o(os) item(ns) nos atalhos
+            });
+
+            $(".remove").click(function() {
+                var returnItems = $(".block.shortcuts")
+                    .find(".cards-short--disable")
+                    .parent(); //verifica todos os itens com a classe e pega o elemento completo
+                $(".modal-body.shortcuts").append(returnItems); //insere o(os) item(ns) no modal
+            });
+
+            function toggleDarkLight() {
+                var body = document.getElementById("page-content-wrapper");
+                var frame = document.getElementById("page-content-frame");
+                if ($(body).hasClass("dark-mode")) {
+                    //a condição verifica se no elemento content principal existe a classe "dark-mode"
+                    body.className = "";
+                    frame.className = "page-loader d-none";
+                } else {
+                    body.className = "dark-mode";
+                    frame.className = "page-loader dark-mode d-none";
+                }
+
+                /* Troca a imagem de bem-vindo para o modo dark
+                 ** Na imagem existem dois atributos de imagem
+                 ** Quando o modo dark é alternado, esse links também precisar ser alternados */
+                var _this = $("#welcome");
+                var current = _this.attr("src");
+                var swap = _this.attr("data-swap");
+                _this.attr("src", swap).attr("data-swap", current);
             }
-        });
+
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
+            $("#myModal").on("shown.bs.modal", function() {
+                $("#myInput").trigger("focus");
+            });
+
+            function geral() {
+                $(".display").css("display", "none");
+                $(".atalhos").css("display", "block");
+                $("#page-content-wrapper").removeClass("d-none");
+                $(".page-loader").addClass("d-none");
+            }
+
+            //Click Sidenav menu
+            $(".list-group a").click(function() {
+                $(".list-group a.text-secondary").removeClass("active");
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 500); //Scroll top para suavizar a troca de tela
+                $(this).addClass("active");
+
+                //Alterna a exibição de telas
+
+                //Array de classes verificadas na Sidenav
+                const arrayMenu = ["home", "acad", "adm", "beneficios", "visoes", "info"];
+
+                for (var i = 0; i < arrayMenu.length; i++) {
+                    if ($(this).hasClass(arrayMenu[i])) {
+                        geral();
+                        $("." + arrayMenu[i] + ".display").css("display", "block");
+                    }
+                }
+            });
         </script>
 </body>
 
 </html>
-

@@ -11,9 +11,8 @@
     border-radius: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
     min-height: 210px;
-    width: 38%;
+    width: 100%;
     margin-top: 1rem;
-    margin-right: 20px;
   }
 
   .cardc .headerc {
@@ -23,7 +22,7 @@
   }
   
   .cardc .contentc {
-    max-width: 60ch;
+    max-width: 100ch;
     font-weight: 200;
     font-size: 0.85rem;
     line-height: 1.35;
