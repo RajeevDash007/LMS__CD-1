@@ -118,7 +118,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row my-4 fadeInUp delay-1">
+                                 <div class="row my-4 fadeInUp delay-1">
                                     <div id="card-carousel" class="carousel slide w-100" data-ride="carousel">
                                         <div class="carousel-inner">
 
@@ -176,7 +176,7 @@
                                             const cardsInSlide = cardData.slice(i, i + itemsPerSlide);
                                             const cardsHTML = cardsInSlide.map(card => `
                 <div class="col-md-4">
-                    <div class="card cardc">
+                    <div class="card card_course">
                         <h2 class="headerc">${card.header}</h2>
                         <p class="contentc">${card.content}</p>
                     </div>
@@ -187,7 +187,8 @@
                                         }
                                     });
                                 </script>
-
+                                
+                               
 
 
                                 <div class="row mb-5 mt-2 fadeInUp delay-1">
