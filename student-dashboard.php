@@ -68,8 +68,11 @@
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary home active"><i class="lni lni-home size-sm pr-4 font-24"></i>Home</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i class="lni lni-graduation size-sm pr-4 font-24"></i></i>Assignments</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i class="lni lni-briefcase size-sm pr-4 font-24"></i>To Do Tasks</a>
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i class="lni lni-handshake size-sm pr-4 font-24"></i>Statistics</a>
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes" style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>extra sect</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
+                        class="lni lni-handshake size-sm pr-4 font-24"></i>Statistics</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes"
+                    style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>extra sect</a>
+                
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -218,24 +221,24 @@
                                 <div class="row mb-5">
                                     <p class="lead w-100"></p>
                                     <div class="animated-search-filter adm grid fadeInUp delay-1">
-                                        <!-- add your code here -->
-
+                                            <!-- add your code here -->
+                                            
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="beneficios display fadeInUp" style="display: none">
+                         <div class="beneficios display fadeInUp" style="display: none">
                             <div class="container">
                                 <div class="mb-5">
                                     <h3 class="my-4">Statistics</h3>
                                     <!-- add your code here -->
                                 </div>
                             </div>
-                        </div>
+                        </div> <!-- Controle de Display -->
 
                         <div class="visoes display fadeInUp" style="display: none">
-                            <h3 class="mt-4">Extra Secion</h3>
+                            <h3 class="mt-4">extra section</h3>
                             <div class="container">
                                 <div class="row mb-5">
                                     <p class="lead w-100"></p>
@@ -246,122 +249,126 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> 
+
+                        
+
+                    </div> <!-- Fim Coluna 8 -->
+
+                    <div class="col-md-4 fadeInUp atalhos">
+                        <div class="row mx-auto mt-3 justify-content-center d-none d-md-flex">
+                            <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="toggleDarkLight()">
+                                <div class="handle"></div>
+                            </button>
+                            <p class="mb-0">Dark mode </p>
                         </div>
 
-                        <div class="col-md-4 fadeInUp atalhos">
-                            <div class="row mx-auto mt-3 justify-content-center d-none d-md-flex">
-                                <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="toggleDarkLight()">
-                                    <div class="handle"></div>
-                                </button>
-                                <p class="mb-0">Dark mode </p>
-                            </div>
+                        <div class="row">
+                            <div class="container mt-3">
 
-                            <div class="row">
-                                <div class="container mt-3">
-
-                                    <div class="my-4 mt-md-0">
-                                        <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4">
-                                            <p class="text-center mb-3">Calender</p>
-                                        </div>
+                                <div class="my-4 mt-md-0">
+                                    <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4">
+                                        <p class="text-center mb-3">Calender</p>
                                     </div>
+                                </div>
 
-                                    <div class="card shadow-card rounded-lg border-0 px-3 pb-4 mb-4">
-                                        <p class="text-center mb-0 mt-3">Extra things</p>
+                                <div class="card shadow-card rounded-lg border-0 px-3 pb-4 mb-4">
+                                    <p class="text-center mb-0 mt-3">Extra things</p>
 
-
-                                    </div>
 
                                 </div>
-                                <div class="row mb-5 mt-2 fadeInUp delay-2">
-                                    <div class="col-md-12 mt-4 mt-md-0">
-                                        <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4 fadeInUp">
-                                            <p class="text-center mb-3">Notice</p>
 
-                                            <div class="input-group m-2 d-flex">
-                                                <input type="search" class="form-control" placeholder="Localizar por Nome, RU, E-mail ou Departamento" aria-label="Pesquise" aria-describedby="button-addon2">
-                                            </div>
+                            </div>
+                            <div class="row mb-5 mt-2 fadeInUp delay-2">
+                                <div class="col-md-12 mt-4 mt-md-0 notice-container">
+                                    <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4 fadeInUp">
+                                        <p class="text-center mb-3">Notice</p>
 
-                                            <div class="rounded ramal-box m-2 px-2 w-100" style="height: 280px; overflow-y: scroll">
-                                                <div class="contacts">
-                                                    <div class="" unselectable="on"><b>John Doe</b> <br> <span class="text-primary">3343-7198</span><br> ASSESSORIA
-                                                        DE
-                                                        COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
-                                                    </div>
-                                                    <input class="check" type="checkbox">
-                                                    <div class="heart"></div>
-                                                    </input>
-                                                </div>
-                                                <div class="contacts">
-                                                    <div class="" unselectable="on"><b>John Doe</b> <br> <span class="text-primary">3343-7198</span><br> ASSESSORIA
-                                                        DE
-                                                        COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
-                                                    </div>
-                                                    <input class="check" type="checkbox">
-                                                    <div class="heart"></div>
-                                                    </input>
-                                                </div>
-                                                <div class="contacts">
-                                                    <div class="" unselectable="on"><b>John Doe</b> <br> <span style="color:red">Ramal
-                                                            não cadastrado</span><br>
-                                                        ASSESSORIA
-                                                        DE COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
-                                                    </div>
-                                                    <input class="check" type="checkbox">
-                                                    <div class="heart"></div>
-                                                    </input>
-                                                </div>
-                                                <div class="contacts">
-                                                    <div class="" unselectable="on"><b>John Doe</b> <br> <span class="text-primary">3343-7198</span><br> ASSESSORIA
-                                                        DE
-                                                        COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
-                                                    </div>
-                                                    <input class="check" type="checkbox">
-                                                    <div class="heart"></div>
-                                                    </input>
-                                                </div>
-                                                <div class="contacts">
-                                                    <div class="" unselectable="on"><b>John Doe</b> <br> <span style="color:red">Ramal
-                                                            não cadastrado</span><br>
-                                                        ASSESSORIA
-                                                        DE COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
-                                                    </div>
-                                                    <input class="check" type="checkbox">
-                                                    <div class="heart"></div>
-                                                    </input>
-                                                </div>
-                                            </div>
-
+                                        <div class="input-group m-2 d-flex">
+                                            <input type="search" class="form-control" placeholder="Localizar por Nome, RU, E-mail ou Departamento" aria-label="Pesquise" aria-describedby="button-addon2">
                                         </div>
+
+                                        <div class="rounded ramal-box m-2 px-2 w-100" style="height: 280px; overflow-y: scroll">
+                                            <div class="contacts">
+                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span class="text-primary">3343-7198</span><br> ASSESSORIA
+                                                    DE
+                                                    COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
+                                                </div>
+                                                <input class="check" type="checkbox">
+                                                <div class="heart"></div>
+                                                </input>
+                                            </div>
+                                            <div class="contacts">
+                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span class="text-primary">3343-7198</span><br> ASSESSORIA
+                                                    DE
+                                                    COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
+                                                </div>
+                                                <input class="check" type="checkbox">
+                                                <div class="heart"></div>
+                                                </input>
+                                            </div>
+                                            <div class="contacts">
+                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span style="color:red">Ramal
+                                                        não cadastrado</span><br>
+                                                    ASSESSORIA
+                                                    DE COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
+                                                </div>
+                                                <input class="check" type="checkbox">
+                                                <div class="heart"></div>
+                                                </input>
+                                            </div>
+                                            <div class="contacts">
+                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span class="text-primary">3343-7198</span><br> ASSESSORIA
+                                                    DE
+                                                    COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
+                                                </div>
+                                                <input class="check" type="checkbox">
+                                                <div class="heart"></div>
+                                                </input>
+                                            </div>
+                                            <div class="contacts">
+                                                <div class="" unselectable="on"><b>John Doe</b> <br> <span style="color:red">Ramal
+                                                        não cadastrado</span><br>
+                                                    ASSESSORIA
+                                                    DE COMUNICAÇÃO <br>gabriel.toledo@codepen.io<br>
+                                                </div>
+                                                <input class="check" type="checkbox">
+                                                <div class="heart"></div>
+                                                </input>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
 
-                <!-- Assinatura de E-mail -->
-                <div class="row assinatura display fadeInUp" style="display: none">
-                    <div class="col-md-12">
-
-                    </div>
-                </div> <!-- Controle de Display -->
-
-            </div>
-            <!-- Texto do rodapé -->
-
-
-        </div>
-        <!-- /#page-content-wrapper -->
-
-        <!-- iframe do sistema antigo -->
-        <div class="d-none page-loader" id="page-content-frame">
-            <div class="container-fluid fadeInUp delay-1 py-2">
-                <div class="embed-responsive embed-responsive-4by3">
-                    <iframe id="iframe" class="embed-responsive-item" src=""></iframe>
                 </div>
             </div>
+
+            <!-- Assinatura de E-mail -->
+            <div class="row assinatura display fadeInUp" style="display: none">
+                <div class="col-md-12">
+
+                </div>
+            </div> <!-- Controle de Display -->
+
         </div>
+        <!-- Texto do rodapé -->
+
+
+    </div>
+    <!-- /#page-content-wrapper -->
+
+    <!-- iframe do sistema antigo -->
+    <div class="d-none page-loader" id="page-content-frame">
+        <div class="container-fluid fadeInUp delay-1 py-2">
+            <div class="embed-responsive embed-responsive-4by3">
+                <iframe id="iframe" class="embed-responsive-item" src=""></iframe>
+            </div>
+        </div>
+    </div>
 
     </div>
     <!-- /#wrapper -->

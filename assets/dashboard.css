@@ -1273,3 +1273,6 @@ body .dark-mode h3 {
   }
 }
 
+.col-md-12{
+  padding-left: 34px !important;
+}
