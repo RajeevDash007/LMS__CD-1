@@ -68,9 +68,9 @@
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary home active"><i class="lni lni-home size-sm pr-4 font-24"></i>Home</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i class="lni lni-graduation size-sm pr-4 font-24"></i></i>Assignments</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i class="lni lni-briefcase size-sm pr-4 font-24"></i>To Do Tasks</a>
-                <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
                         class="lni lni-handshake size-sm pr-4 font-24"></i>Statistics</a>
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes"
+                <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes"
                     style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>extra sect</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary info"><i
                         class="lni lni-keyword-research size-sm pr-4 font-24"></i>extra sect</a> -->
@@ -229,85 +229,15 @@
                             </div>
                         </div>
 
-                        <!-- <div class="beneficios display fadeInUp" style="display: none">
+                         <div class="beneficios display fadeInUp" style="display: none">
                             <div class="container">
                                 <div class="mb-5">
-                                    <h3 class="my-4">Benefícios</h3>
-                                    <div class="grid">
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/graduation-cap.svg"
-                                                width="50px">
-                                            <p class="text-primary text-center text-break pt-2"> Bolsas de Estudo</p>
-                                        </a>
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/graduation-cap.svg"
-                                                width="50px">
-                                            <p class="text-primary text-center text-break pt-2"> Bolsa Capacitação</p>
-                                        </a>
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/package.svg" width="50px">
-                                            <p class="text-primary text-center text-break pt-2"> Cesta Básica</p>
-                                        </a>
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/champagne.svg" width="50px">
-                                            <p class="text-primary text-center text-break pt-2"> Confraternização</p>
-                                        </a>
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp delay-1">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/target.svg" width="50px">
-                                            <p class="text-primary text-center text-break pt-2"> Pesquisa de
-                                                Clima<br>Organizacional</p>
-                                        </a>
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp delay-1">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/bus-card.svg" width="50px">
-                                            <p class="text-primary text-center text-break pt-2"> Vale transporte</p>
-                                        </a>
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp delay-1">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/bus.svg" width="50px">
-                                            <p class="text-primary text-center text-break pt-2"> Ônibus/Itinerário</p>
-                                        </a>
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp delay-1">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/credit-card.svg"
-                                                width="50px">
-                                            <p class="text-primary text-center text-break pt-2"> Vale Refeição</p>
-                                        </a>
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp delay-2">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/doctor.svg" width="50px">
-                                            <p class="text-primary text-center text-break pt-2"> Assistência Médica
-                                                e<br>Odontológica</p>
-                                        </a>
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp delay-2">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/meeting.svg" width="50px">
-                                            <p class="text-primary text-center text-break pt-2"> Convensão Coletiva
-                                                de<br>Trabalho</p>
-                                        </a>
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp delay-2">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/handshake.svg" width="50px">
-                                            <p class="text-primary text-center text-break pt-2"> Convênios</p>
-                                        </a>
-                                        <a href="#"
-                                            class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center py-4 px-2 hover fadeInUp delay-2">
-                                            <img src="https://gatoledo.com/proj-codepen/svg/recruitment.svg"
-                                                width="45px">
-                                            <p class="text-primary text-center text-break pt-2"> Processo
-                                                Seletivo<br>Interno</p>
-                                        </a>
-
-                                    </div>
+                                    <h3 class="my-4">Statistics</h3>
+                                    <!-- add your code here -->
                                 </div>
                             </div>
-                        </div> <!-- Controle de Display -->
-
+                        </div> 
+<!-- 
                         <div class="visoes display fadeInUp" style="display: none">
                             <h3 class="mt-4">Documents</h3>
                             <div class="container">
@@ -319,61 +249,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> <!-- Controle de Display -->
-
-                        <div class="info display fadeInUp" style="display: none">
-                            <h3 class="mt-4">Informações</h3>
-                            <div class="container">
-                                <div class="row mb-5">
-                                    <p class="lead w-100">Options panel</p>
-
-                                    <div class="animated-search-filter grid fadeInUp delay-1">
-
-                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Calendário
-                                                Acadêmico 2020 - Consulta</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Conselho
-                                                Universitário - CONSUN</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Normas,
-                                                Guias e
-                                                Documentos</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Ônibus
-                                                -
-                                                Itinerários</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Ramais
-                                                e
-                                                E-mails</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Sindicâncias</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#" class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">TI
-                                                -
-                                                Informações Gerais</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-
-                                    </div><!-- Fim Grids -->
-                                </div>
-                            </div>
-                        </div> <!-- Controle de Display -->
-
-                    </div> <!-- Fim Coluna 8 -->
+                        </div>  -->
 
                     <div class="col-md-4 fadeInUp atalhos">
                         <div class="row mx-auto mt-3 justify-content-center d-none d-md-flex">
