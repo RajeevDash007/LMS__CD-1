@@ -66,16 +66,16 @@
         <div id="sidebar-wrapper" style="z-index: 1">
             <div class="list-group list-group-flush bg-white" id="sidenav">
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary home active"><i class="lni lni-home size-sm pr-4 font-24"></i>Home</a>
-                <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i
-                        class="lni lni-graduation size-sm pr-4 font-24"></i></i>Study</a>
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i
-                        class="lni lni-briefcase size-sm pr-4 font-24"></i>Business</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i
+                        class="lni lni-graduation size-sm pr-4 font-24"></i></i>Assignments</a>
+                <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i
+                        class="lni lni-briefcase size-sm pr-4 font-24"></i>To Do Tasks</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
-                        class="lni lni-handshake size-sm pr-4 font-24"></i>Benefit</a>
+                        class="lni lni-handshake size-sm pr-4 font-24"></i>Statistics</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes"
-                    style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>Documents</a>
+                    style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>extra sect</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary info"><i
-                        class="lni lni-keyword-research size-sm pr-4 font-24"></i>Informations</a> -->
+                        class="lni lni-keyword-research size-sm pr-4 font-24"></i>extra sect</a> -->
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -202,30 +202,21 @@
                             </div>
                         </div>
 
-                        <!-- <div class="acad display fadeInUp" style="display: none">
+                        <div class="acad display fadeInUp" style="display: none">
                             <h3 class="mt-4">Study</h3>
                             <div class="container">
                                 <div class="row mb-5">
-                                    <p class="lead w-100">Options panel</p> -->
-                        <!-- Pesquisa de itens do sistema -->
-                        <!-- <div class="input-group my-4 d-flex w-75">
-                            <input type="search" placeholder="Search by modules" autofocus
-                                class="animated-search-filter acad form-control">
-                            <div class="input-group-append">
-
-                            </div>
-                        </div>
+                                    <p class="lead w-100">Options panel</p>
+                                            <!-- add your code here -->
+                      
 
                         <div class="animated-search-filter sysacad grid fadeInUp delay-1">
 
-                            <script>
 
-                            </script> -->
-
-                        <!-- </div>
+                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
                         <!-- <div class="adm display fadeInUp" style="display: none">
                             <h3 class="mt-4">Businnes</h3>
@@ -794,32 +785,12 @@
                         <a class="btn-sm button-link blue-color confirm"><i class="lni lni-plus pr-2"></i>Continue</a>
                     </div>
                 </div>
-            </div> -->
+            </div> 
 
         </div>
 
         <script>
-            var lstsis =
-                "Envio de Mensagens do Portal - EMP|Materiais|Consulta Cadastro MEGA |Catalogo de Itens em Geral|Materiais Geral|Uso Comum|Bolsa de Estudos |Solicitação/Renovação|Cesta Básica|Confraternização|Dicionário Aurélio|Documentos Normativos|Pesquisa de Clima Organizacional";
-
-            var lstsisurl = "#|#|#|#|#|#|#|#|#|#|#|#|#";
-
-            lstsis = lstsis.split("|");
-            lstsisurl = lstsisurl.split("|");
-
-            //Preloader
-            $(document).ready(function() {
-                $(".loader, .lds-ring").fadeOut();
-            });
-            //Menu Office 365 close without hover --------------
-            $("#collapseExample").hover(
-                function() {
-                    //não faça nada
-                },
-                function() {
-                    $(this).collapse("hide"); //fecha o content do menu
-                }
-            );
+            
 
             (function(window) {
                 "use strict";
@@ -911,25 +882,6 @@
                     });
                 }
 
-                filteredList.forEach(
-                    (item, index) =>
-                    (inputHtml += `
-		  	<div class="card col-md-12 my-2" style="border: 1px solid rgb(222, 239, 255);border-radius: 8px;">
-             <div class="card-body">
-              <div class="row">
-
-				<div class="col-md-10 my-1">
-	              <p class="card-title">${item}</p>
-	            </div>
-	            <div class="col-md-2 my-1">
-	              <a href="${linkList[index]}" class="btn-sm button-link blue-color w-100">Acessar</a>
-	            </div>
-
-              </div>
-            </div>
-          </div>
-			`)
-                );
                 $("#result").html(inputHtml);
             }
 
@@ -940,41 +892,6 @@
 
             renderList();
 
-            for (var i = 0; i < lstsis.length; i++) {
-                var newClass = lstsis[i].substring(0, 33);
-
-                var printCards =
-                    "<a href='" +
-                    lstsisurl[i] +
-                    "' class='" +
-                    newClass +
-                    " academico card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center'><span class='text-primary font-weight-normal px-3 text-left'>" +
-                    lstsis[i] +
-                    "</span><span class='arrow-card'></span></a>";
-
-                document.querySelector(".sysacad").innerHTML += printCards;
-            }
-
-            var nameSystems = [
-                "Solicitações",
-                "Normas",
-                "Ramais e E-mails",
-                "Estatuto e Regimento Geral",
-                "TI",
-                "Aviso de férias",
-                "Conselho Universitário",
-                "Módulos",
-                "Materiais",
-                "Uso Comum",
-                "Informações"
-            ];
-
-            for (var i = 0; i < nameSystems.length; i++) {
-                var elementoHTML = document.getElementsByClassName(nameSystems[i]);
-                $("<div class='titulo'><h3>" + nameSystems[i] + "</h3></div>").insertBefore(
-                    elementoHTML[0]
-                );
-            }
 
             $(document).ready(function() {
                 $.get(
