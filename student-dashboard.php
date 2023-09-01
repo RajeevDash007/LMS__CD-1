@@ -66,11 +66,9 @@
         <div id="sidebar-wrapper" style="z-index: 1">
             <div class="list-group list-group-flush bg-white" id="sidenav">
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary home active"><i class="lni lni-home size-sm pr-4 font-24"></i>Home</a>
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i
-                        class="lni lni-graduation size-sm pr-4 font-24"></i></i>Assignments</a>
-                <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i
-                        class="lni lni-briefcase size-sm pr-4 font-24"></i>To Do Tasks</a>
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i class="lni lni-graduation size-sm pr-4 font-24"></i></i>Assignments</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i class="lni lni-briefcase size-sm pr-4 font-24"></i>To Do Tasks</a>
+                <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
                         class="lni lni-handshake size-sm pr-4 font-24"></i>Statistics</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes"
                     style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>extra sect</a>
@@ -118,13 +116,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                 <div class="row my-4 fadeInUp delay-1">
+                                <div class="row my-4 fadeInUp delay-1">
                                     <div id="card-carousel" class="carousel slide w-100" data-ride="carousel">
                                         <div class="carousel-inner">
 
                                         </div>
 
-                                         <a class="carousel-control-prev" href="#card-carousel" role="button" data-slide="prev">
+                                        <a class="carousel-control-prev" href="#card-carousel" role="button" data-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Previous</span>
                                         </a>
@@ -187,8 +185,8 @@
                                         }
                                     });
                                 </script>
-                                
-                               
+
+
 
 
                                 <div class="row mb-5 mt-2 fadeInUp delay-1">
@@ -203,170 +201,33 @@
                         </div>
 
                         <div class="acad display fadeInUp" style="display: none">
-                            <h3 class="mt-4">Study</h3>
+                            <h3 class="mt-4">All assignments details</h3>
                             <div class="container">
                                 <div class="row mb-5">
                                     <p class="lead w-100">Options panel</p>
-                                            <!-- add your code here -->
-                      
-
-                        <div class="animated-search-filter sysacad grid fadeInUp delay-1">
+                                    <!-- add your code here -->
 
 
-                         </div>
-                    </div>
-                </div>
-            </div>
+                                    <div class="animated-search-filter sysacad grid fadeInUp delay-1">
 
-                        <!-- <div class="adm display fadeInUp" style="display: none">
-                            <h3 class="mt-4">Businnes</h3>
-                            <div class="container">
-                                <div class="row mb-5">
-                                    <p class="lead w-100">Options panel</p> -->
-                        <!-- Pesquisa de itens do sistema -->
-                        <!-- <div class="input-group my-4 d-flex w-75">
-                                        <input type="search" placeholder="Search by modules" autofocus
-                                            class="animated-search-filter adm form-control">
-                                    </div>
-
-                                    <div class="animated-search-filter adm grid fadeInUp delay-1">
-
-                                        <a href="intranet-antiga.html"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Envio de
-                                                Mensagens</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="envio-mensagens.html"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Envio de
-                                                Mensagens do Portal - EMP</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Bolsa de
-                                                Estudos</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Cesta
-                                                Básica</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Cobrança</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span
-                                                class="text-primary font-weight-normal px-3 text-left">Contabilidade</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Controle de
-                                                Ramais</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Departamento
-                                                Financeiro</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Departamento
-                                                Pessoal</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Administração
-                                                Patrimonial</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Banco de
-                                                Horas</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span
-                                                class="text-primary font-weight-normal px-3 text-left">FUNDACRED</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Manuntenção de
-                                                Contas de E-mail</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span
-                                                class="text-primary font-weight-normal px-3 text-left">Materiais</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Museu
-                                                Universitário</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Nota Fiscal de
-                                                Serviço (NFSe)</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Pedido de
-                                                Admissão</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Processo
-                                                Seletivo - Seleção de Colaboradores</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Protocolo
-                                                Geral</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">Solicitação de
-                                                Conta</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span class="text-primary font-weight-normal px-3 text-left">NTIC -
-                                                SISTEMAS</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
-                                        <a href="#"
-                                            class="card cards-func shadow-card rounded-lg border-0 d-flex justify-content-center">
-                                            <span
-                                                class="text-primary font-weight-normal px-3 text-left">Transporte</span>
-                                            <span class="arrow-card"></span>
-                                        </a>
 
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
+
+                        <div class="adm display fadeInUp" style="display: none">
+                            <h3 class="mt-4">To Do tasks</h3>
+                            <div class="container">
+                                <div class="row mb-5">
+                                    <p class="lead w-100"></p>
+                                    <div class="animated-search-filter adm grid fadeInUp delay-1">
+                                            <!-- add your code here -->
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- <div class="beneficios display fadeInUp" style="display: none">
                             <div class="container">
@@ -785,13 +646,11 @@
                         <a class="btn-sm button-link blue-color confirm"><i class="lni lni-plus pr-2"></i>Continue</a>
                     </div>
                 </div>
-            </div> 
+            </div>
 
         </div>
 
         <script>
-            
-
             (function(window) {
                 "use strict";
 
