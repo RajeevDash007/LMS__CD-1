@@ -41,6 +41,45 @@
         </div>
     </nav>
 
-    
+    <div class="ml-5 mr-3 px-3 bg-white" id="collapseSearch" style="max-height: 50vh;overflow: auto;">
+        <div class="container px-4">
+            <div class="row" id="result">
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" style="z-index: 1">
+            <div class="list-group list-group-flush bg-white" id="sidenav">
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary home active"><i class="lni lni-home size-sm pr-4 font-24"></i>Home</a>
+                <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i class="lni lni-graduation size-sm pr-4 font-24"></i></i>Assign tasks</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i class="lni lni-briefcase size-sm pr-4 font-24"></i>Time Table</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
+                        class="lni lni-handshake size-sm pr-4 font-24"></i>Statistics</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes"
+                    style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>extra sect</a> -->
+            </div>
+        </div>
+        <div id="page-content-wrapper">
+
+            <div class="container-fluid px-4">
+                <!-- Mode Escuro para dispositivos mobile -->
+                <div class="row mx-auto mt-3 justify-content-center d-flex d-md-none">
+                    <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="toggleDarkLight()">
+                        <div class="handle"></div>
+                    </button>
+                    <p class="mb-0">Dark mode </p>
+                </div>
+                <!-- Pesquisa mobile responsiva -->
+                <div class="input-group m-2 d-flex d-md-none mx-auto mt-4 w-100">
+                    <input type="search" class="form-control" placeholder="Search information and modules in general" aria-label="Pesquise" aria-describedby="button-addon2">
+                </div>
+        
 </body>
 </html>
