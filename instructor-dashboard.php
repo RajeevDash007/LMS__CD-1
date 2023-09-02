@@ -80,6 +80,97 @@
                 <div class="input-group m-2 d-flex d-md-none mx-auto mt-4 w-100">
                     <input type="search" class="form-control" placeholder="Search information and modules in general" aria-label="Pesquise" aria-describedby="button-addon2">
                 </div>
+                <div class="row py-3">
+                    <div class="col-md-8">
+                        <div class="home display fadeInUp" style="display: block">
+                            <div class="container">
+                                <div class="row my-3 my-md-5">
+                                    <div class="card rounded-lg border-0 cards-short w-100">
+                                        <div class="row">
+                                            <div class="col-sm-6 order-1 order-sm-1">
+                                                <h4 class="text-primary pt-3 pt-sm-5 pl-3 pl-lg-4 pr-3">Hi, welcome</h4>
+                                            </div>
+                                            <div class="col-sm-6 d-flex d-lg-block d-lg-block align-items-center justify-content-center order-0 order-sm-1">
+
+                                            </div>
+                                            <div class="col-12 order-2 order-sm-1">
+                                                <p class="px-3 pt-2 pb-3 text-banner" style="color: #5584bc; font-size: 15px">Lorem ipsum dolor sit amet,
+                                                    consectetur adipiscing elit. Morbi sed metus quis mauris tempor
+                                                    lacinia. Etiam maximus arcu a erat dapibus tempus eget et justo. Nam
+                                                    eget iaculis arcu, eu aliquam risus.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-4 fadeInUp delay-1">
+                                    <div id="card-carousel" class="carousel slide w-100" data-ride="carousel">
+                                        <div class="carousel-inner">
+
+                                        </div>
+
+                                        <a class="carousel-control-prev" href="#card-carousel" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#card-carousel" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        const cardData = [{
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+                                            {
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+                                            {
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+                                            {
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+                                            {
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+                                            {
+                                                header: "Setup Guides",
+                                                content: "Our step-by-step guides help you configure the features you need."
+                                            },
+
+                                        ];
+
+                                        const carouselInner = document.querySelector(".carousel-inner");
+                                        const itemsPerSlide = 3;
+
+                                        for (let i = 0; i < cardData.length; i += itemsPerSlide) {
+                                            const item = document.createElement("div");
+                                            item.classList.add("carousel-item");
+                                            if (i === 0) {
+                                                item.classList.add("active");
+                                            }
+
+                                            const cardsInSlide = cardData.slice(i, i + itemsPerSlide);
+                                            const cardsHTML = cardsInSlide.map(card => `
+                <div class="col-md-4">
+                    <div class="card card_course">
+                        <h2 class="headerc">${card.header}</h2>
+                        <p class="contentc">${card.content}</p>
+                    </div>
+                </div>`).join('');
+
+                                            item.innerHTML = `<div class="row">${cardsHTML}</div>`;
+                                            carouselInner.appendChild(item);
+                                        }
+                                    });
+                                </script>
         
 </body>
 </html>
