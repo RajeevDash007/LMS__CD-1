@@ -1,3 +1,16 @@
+<?php
+// Start the session (make sure to start it on all protected pages)
+session_start();
+
+// Check if the instructor is authenticated
+if (!isset($_SESSION["instructor_id"])) {
+    // Redirect to the login page or display an error message
+    header("Location: auth.php"); // Change "login.php" to your actual login page
+    exit();
+}
+
+// If the instructor is authenticated, you can display the instructor dashboard content here
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,75 +115,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row my-4 fadeInUp delay-1">
-                                    <div id="card-carousel" class="carousel slide w-100" data-ride="carousel">
-                                        <div class="carousel-inner">
 
-                                        </div>
-
-                                        <a class="carousel-control-prev" href="#card-carousel" role="button" data-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#card-carousel" role="button" data-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <script>
-                                    document.addEventListener("DOMContentLoaded", function() {
-                                        const cardData = [{
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-                                            {
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-                                            {
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-                                            {
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-                                            {
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-                                            {
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-
-                                        ];
-
-                                        const carouselInner = document.querySelector(".carousel-inner");
-                                        const itemsPerSlide = 3;
-
-                                        for (let i = 0; i < cardData.length; i += itemsPerSlide) {
-                                            const item = document.createElement("div");
-                                            item.classList.add("carousel-item");
-                                            if (i === 0) {
-                                                item.classList.add("active");
-                                            }
-
-                                            const cardsInSlide = cardData.slice(i, i + itemsPerSlide);
-                                            const cardsHTML = cardsInSlide.map(card => `
-                <div class="col-md-4">
-                    <div class="card card_course">
-                        <h2 class="headerc">${card.header}</h2>
-                        <p class="contentc">${card.content}</p>
-                    </div>
-                </div>`).join('');
-
-                                            item.innerHTML = `<div class="row">${cardsHTML}</div>`;
-                                            carouselInner.appendChild(item);
-                                        }
-                                    });
-                                </script>
                             </div>
                         </div>
 
