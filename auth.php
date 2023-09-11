@@ -92,6 +92,7 @@
         </div>
 
         <?php
+        session_start();
         require_once('config.php');
 
         function getUserType($email, $password, $connection) {
@@ -121,15 +122,20 @@
                 $userType = getUserType($email, $password, $connection);
                 mysqli_close($connection);
 
-                if ($userType === "student") {
-                    header("Location: student-dashboard.php");
-                    exit();
-                } elseif ($userType === "teacher") {
-                    header("Location: instructor-dashboard.php");
-                    exit();
-                } elseif ($userType === "admin") {
-                    header("Location: admin-dashboard.php");
-                    exit();
+                if ($userType) {
+                    $_SESSION['user_type'] = $userType;
+                    $_SESSION['user_email'] = $email;
+                    switch ($userType) {
+                        case 'student':
+                            header("Location: student-dashboard.php");
+                            exit();
+                        case 'teacher':
+                            header("Location: instructor-dashboard.php");
+                            exit();
+                        case 'admin':
+                            header("Location: admin-dashboard.php");
+                            exit();
+                    }
                 } else {
                     echo "Invalid credentials. Please try again.";
                 }
