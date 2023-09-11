@@ -95,22 +95,24 @@
         session_start();
         require_once('config.php');
 
-        function getUserType($email, $password, $connection) {
-            $query = "SELECT 'student' AS user_type FROM students WHERE email=? AND password=?
-                      UNION
-                      SELECT 'teacher' AS user_type FROM instructors WHERE email=? AND password=?
-                      UNION
-                      SELECT 'admin' AS user_type FROM administrators WHERE email=? AND password=?";
-            
+        function getUserTypeAndId($email, $password, $connection)
+        {
+            $query = "SELECT 'student' AS user_type, student_id AS user_id FROM students WHERE email=? AND password=?
+              UNION
+              SELECT 'teacher' AS user_type, instructor_id AS user_id FROM instructors WHERE email=? AND password=?
+              UNION
+              SELECT 'admin' AS user_type, admin_id AS user_id FROM administrators WHERE email=? AND password=?";
+
             $stmt = mysqli_prepare($connection, $query);
             mysqli_stmt_bind_param($stmt, "ssssss", $email, $password, $email, $password, $email, $password);
             mysqli_stmt_execute($stmt);
-            mysqli_stmt_bind_result($stmt, $user_type);
+            mysqli_stmt_bind_result($stmt, $user_type, $user_id);
             mysqli_stmt_fetch($stmt);
             mysqli_stmt_close($stmt);
 
-            return $user_type;
+            return array($user_type, $user_id);
         }
+
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = $_POST["email"];
@@ -119,12 +121,13 @@
             $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
             if ($connection) {
-                $userType = getUserType($email, $password, $connection);
+                list($userType, $userId) = getUserTypeAndId($email, $password, $connection);
                 mysqli_close($connection);
 
                 if ($userType) {
                     $_SESSION['user_type'] = $userType;
                     $_SESSION['user_email'] = $email;
+                    $_SESSION['user_id'] = $userId;
                     switch ($userType) {
                         case 'student':
                             header("Location: student-dashboard.php");
@@ -146,15 +149,15 @@
         ?>
     </div>
     <script>
-    function toggleBatchOption() {
-        var roleSelect = document.getElementById("role");
-        var batchDiv = document.getElementById("batchDiv");
-        if (roleSelect.value === "student") {
-            batchDiv.style.display = "block";
-        } else {
-            batchDiv.style.display = "none";
+        function toggleBatchOption() {
+            var roleSelect = document.getElementById("role");
+            var batchDiv = document.getElementById("batchDiv");
+            if (roleSelect.value === "student") {
+                batchDiv.style.display = "block";
+            } else {
+                batchDiv.style.display = "none";
+            }
         }
-    }
     </script>
 </body>
 
