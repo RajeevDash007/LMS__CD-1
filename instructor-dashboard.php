@@ -1,15 +1,24 @@
 <?php
-// Start the session (make sure to start it on all protected pages)
 session_start();
-
-// Check if the instructor is authenticated
-if (!isset($_SESSION["instructor_id"])) {
-    // Redirect to the login page or display an error message
-    header("Location: auth.php"); // Change "login.php" to your actual login page
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'teacher') {
+    header('Location: auth.php');
     exit();
 }
-
-// If the instructor is authenticated, you can display the instructor dashboard content here
+require_once('config.php');
+$connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+if ($connection) {
+    $query = "SELECT name FROM instructors WHERE email=?";
+    $stmt = mysqli_prepare($connection, $query);
+    mysqli_stmt_bind_param($stmt, "s", $_SESSION['user_email']);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $user_name);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+    mysqli_close($connection);
+} else {
+    echo "Database connection error.";
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +110,7 @@ if (!isset($_SESSION["instructor_id"])) {
                                     <div class="card rounded-lg border-0 cards-short w-100">
                                         <div class="row">
                                             <div class="col-sm-6 order-1 order-sm-1">
-                                                <h4 class="text-primary pt-3 pt-sm-5 pl-3 pl-lg-4 pr-3">Hi, welcome</h4>
+                                                <h4 class="text-primary pt-3 pt-sm-5 pl-3 pl-lg-4 pr-3">Hi <?php echo $user_name; ?>, welcome</h4>
                                             </div>
                                             <div class="col-sm-6 d-flex d-lg-block d-lg-block align-items-center justify-content-center order-0 order-sm-1">
 
