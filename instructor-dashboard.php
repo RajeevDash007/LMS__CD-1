@@ -19,6 +19,26 @@ if ($connection) {
     echo "Database connection error.";
     exit();
 }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $courseName = $_POST["course_name"];
+    $courseCredits = $_POST["course_credits"];
+    $courseDescription = $_POST["course_description"];
+
+    $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+
+    if ($connection) {
+        $query = "INSERT INTO courses (course_name, course_credits, course_description, instructor_id) VALUES (?, ?, ?, ?)";
+        $stmt = mysqli_prepare($connection, $query);
+        mysqli_stmt_bind_param($stmt, "sisi", $courseName, $courseCredits, $courseDescription, $_SESSION['user_id']);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        mysqli_close($connection);
+
+        echo "Course created successfully.";
+    } else {
+        echo "Database connection error.";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,7 +144,24 @@ if ($connection) {
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="container mt-4">
+                                    <h2>Create a Course</h2>
+                                    <form method="POST">
+                                        <div class="form-group">
+                                            <label for="courseName">Course Name</label>
+                                            <input type="text" class="form-control" id="courseName" name="course_name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="courseCredits">Course Credits</label>
+                                            <input type="number" class="form-control" id="courseCredits" name="course_credits" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="courseDescription">Course Description</label>
+                                            <textarea class="form-control" id="courseDescription" name="course_description" rows="3" required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Create Course</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
 
