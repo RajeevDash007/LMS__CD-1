@@ -43,7 +43,7 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $name = $_POST["name"];
             $email = $_POST["email"];
-            $password = $_POST["password"];
+            $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
             $role = $_POST["role"];
             $photo = $_POST["photo"];
 
@@ -97,20 +97,24 @@
 
         function getUserTypeAndId($email, $password, $connection)
         {
-            $query = "SELECT 'student' AS user_type, student_id AS user_id FROM students WHERE email=? AND password=?
+            $query = "SELECT 'student' AS user_type, student_id AS user_id, password FROM students WHERE email=?
               UNION
-              SELECT 'teacher' AS user_type, instructor_id AS user_id FROM instructors WHERE email=? AND password=?
+              SELECT 'teacher' AS user_type, instructor_id AS user_id, password FROM instructors WHERE email=?
               UNION
-              SELECT 'admin' AS user_type, admin_id AS user_id FROM administrators WHERE email=? AND password=?";
+              SELECT 'admin' AS user_type, admin_id AS user_id, password FROM administrators WHERE email=?";
 
             $stmt = mysqli_prepare($connection, $query);
-            mysqli_stmt_bind_param($stmt, "ssssss", $email, $password, $email, $password, $email, $password);
+            mysqli_stmt_bind_param($stmt, "sss", $email, $email, $email);
             mysqli_stmt_execute($stmt);
-            mysqli_stmt_bind_result($stmt, $user_type, $user_id);
+            mysqli_stmt_bind_result($stmt, $user_type, $user_id, $hashed_password);
             mysqli_stmt_fetch($stmt);
             mysqli_stmt_close($stmt);
 
-            return array($user_type, $user_id);
+            if (password_verify($password, $hashed_password)) {
+                return array($user_type, $user_id);
+            } else {
+                return array(null, null);
+            }
         }
 
 
