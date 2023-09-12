@@ -7,11 +7,11 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'teacher') {
 require_once('config.php');
 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 if ($connection) {
-    $query = "SELECT name FROM instructors WHERE email=?";
+    $query = "SELECT name, photo FROM instructors WHERE email=?";
     $stmt = mysqli_prepare($connection, $query);
     mysqli_stmt_bind_param($stmt, "s", $_SESSION['user_email']);
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $user_name);
+    mysqli_stmt_bind_result($stmt, $user_name, $user_photo);
     mysqli_stmt_fetch($stmt);
     mysqli_stmt_close($stmt);
     mysqli_close($connection);
@@ -97,8 +97,7 @@ if ($connection) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-md-2">
                     <li class="nav-item pl-4 dropdown">
-                        <a class="nav-link dropdown-toggle" style="white-space: normal" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="lni lni-user border rounded-circle border-primary p-1 mr-1"></i> Options<span class="sr-only">(current)</span>
-                        </a>
+                       <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Instructor Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;">
                     </li>
                 </ul>
             </div>
