@@ -39,6 +39,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Database connection error.";
     }
 }
+$courses = [];
+$connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+if ($connection) {
+    $query = "SELECT courses.course_name, instructors.name AS instructor_name, courses.course_credits
+              FROM courses
+              JOIN instructors ON courses.instructor_id = instructors.instructor_id
+              WHERE instructors.instructor_id = ?";
+    $stmt = mysqli_prepare($connection, $query);
+    mysqli_stmt_bind_param($stmt, "i", $_SESSION['user_id']);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $courses[] = $row;
+    }
+    mysqli_stmt_close($stmt);
+    mysqli_close($connection);
+} else {
+    echo "Database connection error.";
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -144,6 +164,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
                                     </div>
                                 </div>
+ <div class="container mt-4">
+    <h2>Your Courses</h2>
+    <div class="row">
+        <?php foreach ($courses as $course): ?>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $course['course_name']; ?></h5>
+                        <p class="card-text">Credits: <?php echo $course['course_credits']; ?></p>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>                               
                                 <div class="container mt-4">
                                     <h2>Create a Course</h2>
                                     <form method="POST">
