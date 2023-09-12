@@ -97,7 +97,7 @@ if ($connection) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-md-2">
                     <li class="nav-item pl-4 dropdown">
-                       <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Instructor Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;">
+                        <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Instructor Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;">
                     </li>
                 </ul>
             </div>
@@ -163,21 +163,23 @@ if ($connection) {
                                         </div>
                                     </div>
                                 </div>
- <div class="container mt-4">
-    <h2>Your Courses</h2>
-    <div class="row">
-        <?php foreach ($courses as $course): ?>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $course['course_name']; ?></h5>
-                        <p class="card-text">Credits: <?php echo $course['course_credits']; ?></p>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
-    </div>
-</div>                               
+                                <div class="container mt-4">
+                                    <?php if (!empty($courses)) : ?>
+                                        <h2>Your Courses</h2>
+                                        <div class="row">
+                                            <?php foreach ($courses as $course) : ?>
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title"><?php echo $course['course_name']; ?></h5>
+                                                            <p class="card-text">Credits: <?php echo $course['course_credits']; ?></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
                                 <div class="container mt-4">
                                     <h2>Create a Course</h2>
                                     <form method="POST">
