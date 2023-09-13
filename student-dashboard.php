@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/dashboard.css">
     <link rel="stylesheet" href="./assets/course.css">
+    <link rel="stylesheet" href="./assets/stu-cards.css"> 
     <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10.2.0/swiper-bundle.min.css">
 
     <title>Student Dashboard</title>
 </head>
@@ -115,7 +117,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row my-4 fadeInUp delay-1">
+                                <!-- <div class="row my-4 fadeInUp delay-1">
                                     <div id="card-carousel" class="carousel slide w-100" data-ride="carousel">
                                         <div class="carousel-inner">
 
@@ -130,8 +132,8 @@
                                             <span class="sr-only">Next</span>
                                         </a>
                                     </div>
-                                </div>
-                                <script>
+                                </div> -->
+                                <!-- <script>
                                     document.addEventListener("DOMContentLoaded", function() {
                                         const cardData = [{
                                                 header: "Setup Guides",
@@ -183,19 +185,33 @@
                                             carouselInner.appendChild(item);
                                         }
                                     });
-                                </script>
+                                </script> -->
+                            <div class="slide-container">
+                                <div class="slide-content">
+                                    <div class="card-wrapper">
+                                        <div class="card">
+                                        <div class="card-content">
+                                <h2 class="name">DSA</h2>
+                                <p class="description">data structure and algorithms</p>
+                            </div>
+                                            
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
 
 
 
-
-                                <div class="row mb-5 mt-2 fadeInUp delay-1">
+                                <!-- <div class="row mb-5 mt-2 fadeInUp delay-1">
                                     <div class="col-md-12 mt-4 mt-md-0">
                                         <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4 fadeInUp">
                                             <p class="text-center mb-3">Assignment list table Below</p>
 
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
