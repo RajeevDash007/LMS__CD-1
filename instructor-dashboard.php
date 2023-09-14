@@ -23,13 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $courseName = $_POST["course_name"];
     $courseCredits = $_POST["course_credits"];
     $courseDescription = $_POST["course_description"];
+    $courseSemester = $_POST['course_semester'];
 
     $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
     if ($connection) {
-        $query = "INSERT INTO courses (course_name, course_credits, course_description, instructor_id) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO courses (course_name, course_credits, course_description, instructor_id,course_semester) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($connection, $query);
-        mysqli_stmt_bind_param($stmt, "sisi", $courseName, $courseCredits, $courseDescription, $_SESSION['user_id']);
+        mysqli_stmt_bind_param($stmt, "sisii", $courseName, $courseCredits, $courseDescription, $_SESSION['user_id'],$courseSemester);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         mysqli_close($connection);
@@ -194,6 +195,22 @@ if ($connection) {
                                         <div class="form-group">
                                             <label for="courseDescription">Course Description</label>
                                             <textarea class="form-control" id="courseDescription" name="course_description" rows="3" required></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="courseSemester">Course Semester</label>
+                                            <select class="form-control" id="courseSemester" name="course_semester" required>
+                                                <option value="">Select Semester</option>
+                                                <option value="1">1st Semester</option>
+                                                <option value="2">2nd Semester</option>
+                                                <option value="3">3rd Semester</option>
+                                                <option value="4">4th Semester</option>
+                                                <option value="5">5th Semester</option>
+                                                <option value="6">6th Semester</option>
+                                                <option value="7">7th Semester</option>
+                                                <option value="8">8th Semester</option>
+                                                <option value="9">9th Semester</option>
+                                                <option value="10">10th Semester</option>
+                                            </select>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Create Course</button>
                                     </form>
