@@ -27,7 +27,19 @@
                 </div>
 
                 <div id="batchDiv">
-                    <input type="text" name="batch" placeholder="Batch">
+                    <select name="batch" required style="margin-top: 10px;">
+                        <option value="">Select Semester</option>
+                        <option value="1">1st Semester</option>
+                        <option value="2">2nd Semester</option>
+                        <option value="3">3rd Semester</option>
+                        <option value="4">4th Semester</option>
+                        <option value="5">5th Semester</option>
+                        <option value="6">6th Semester</option>
+                        <option value="7">7th Semester</option>
+                        <option value="8">8th Semester</option>
+                        <option value="9">9th Semester</option>
+                        <option value="10">10th Semester</option>
+                    </select>
                 </div>
 
                 <input type="text" name="photo" placeholder="Photo URL">
