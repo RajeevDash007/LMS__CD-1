@@ -13,7 +13,8 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10.2.0/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/swiper-bundle.min.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@10.2.0/swiper-bundle.min.js"></script>
 
     <title>Student Dashboard</title>
@@ -187,20 +188,84 @@
                                         }
                                     });
                                 </script> -->
-                            <div class="slide-container">
+                            <div class="slide-container swiper">
                                 <div class="slide-content">
-                                    <div class="card-wrapper">
-                                        <div class="card">
+                                    <div class="card-wrapper swiper-wrapper">
+                                        <div class="card swiper-slide">
                                         <div class="card-content">
                                 <h2 class="name">DSA</h2>
                                 <p class="description">data structure and algorithms</p>
                             </div>
+
+                            
+                                            
+                                </div>
+
+                                <div class="card swiper-slide">
+                                        <div class="card-content">
+                                <h2 class="name">DSA</h2>
+                                <p class="description">data structure and algorithms</p>
+                            </div>
+
+                            
+                                            
+                                </div>
+
+                                <div class="card swiper-slide">
+                                        <div class="card-content">
+                                <h2 class="name">DSA</h2>
+                                <p class="description">data structure and algorithms</p>
+                            </div>
+
+                            
+                                            
+                                </div>
+
+                                <div class="card swiper-slide">
+                                        <div class="card-content">
+                                <h2 class="name">DSA</h2>
+                                <p class="description">data structure and algorithms</p>
+                            </div>
+
+                            
+                                            
+                                </div>
+
+                                <div class="card swiper-slide">
+                                        <div class="card-content">
+                                <h2 class="name">DSA</h2>
+                                <p class="description">data structure and algorithms</p>
+                            </div>
+
+                            
                                             
                                 </div>
                                     </div>
-                                </div>
-                            </div>
 
+                            
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                            <script src="./assets/swiper-bundle.min.js"></script>
+                            <script >
+                                var swiper = new Swiper(".slide-content", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    slidesPerGroup: 3,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+                            </script>
                             
 
 
