@@ -96,6 +96,8 @@ button:hover{
 
 .login label{
 	color: #573b8a;
+	transform: scale(1);
+	margin-top: 10px;
 }
 
 #chk:checked ~ .login{
@@ -107,6 +109,3 @@ button:hover{
 #chk:checked ~ .registration label{
 	transform: scale(.6);
 }
-
-
-
