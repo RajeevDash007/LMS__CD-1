@@ -1,0 +1,13 @@
+.card_course{
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  background: #fff;
+}
+.carousel_course .card_course{
+  list-style: none;
+ 
+  border-radius: 8px;
+  height: 342px;
+} 
+
