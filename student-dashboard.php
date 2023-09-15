@@ -244,8 +244,8 @@
 
                             
                                 </div>
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next swiper-navBtn"></div>
+                                <div class="swiper-button-prev swiper-navBtn"></div>
                                 <div class="swiper-pagination"></div>
                             </div>
                             <script src="./assets/swiper-bundle.min.js"></script>
@@ -267,6 +267,32 @@
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 25,
+                },
+            },
+
+    // breakpoints{
+    //     0: {
+    //         slidesPerView: 1,
+    //     },
+    //     520: {
+    //         slidesPerView: 2,
+    //     },
+    //     950: {
+    //         slidesPerView: 3,
+    //     }
+    // }
   });
                             </script>
                             
