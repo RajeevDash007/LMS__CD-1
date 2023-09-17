@@ -284,7 +284,7 @@ a:not([href]):not([tabindex]) {
 }
 
 input.form-control {
-  border-radius: 50px !important;
+  border-radius: 5px !important;
 }
 
 .shadow-card {
