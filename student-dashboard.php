@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./assets/swiper-bundle.min.css">
-    
+    <link rel="stylesheet" href="./assets/stu-assign.css"> 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10.2.0/swiper-bundle.min.js"></script>
 
     <title>Student Dashboard</title>
@@ -307,6 +307,34 @@
                                         </div>
                                     </div>
                                 </div> -->
+                                <div class="table">
+                                    <section class="table_header">
+                                        <h1></h1>
+                                        </section>
+                                    <section class="table_body">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Sl No.</th>
+                                                    <th>Course Name</th>
+                                                    <th>Topic Name</th>
+                                                    <th>Marks</th>
+                                                    <th>Deadline</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        </section>
+                                     
+                                </div>
                             </div>
                         </div>
 

@@ -1,0 +1,18 @@
+.table{
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 60vw;
+    height: 90vh;
+    background-color: #fff5;
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    overflow: hidden;
+}
+
+table, th, td{
+    padding: 1rem;
+}
+
+
