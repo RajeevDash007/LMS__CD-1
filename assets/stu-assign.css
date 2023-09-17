@@ -65,5 +65,9 @@ tbody tr:hover {
     td:not(:first-of-type){
         min-width: 12.1rem;
     }
+    .table {
+        width: 100%;
+        margin: 0 auto;
+    }
 }
 
