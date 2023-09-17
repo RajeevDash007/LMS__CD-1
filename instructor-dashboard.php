@@ -181,7 +181,7 @@ if ($connection) {
                                         </div>
                                     <?php endif; ?>
                                 </div>
-                                <div class="container mt-4 col-md-6">
+                                <div class="container mt-4 col-md-6" style="margin-left:0px;">
                                     <h2>Create a Course</h2>
                                     <form method="POST">
                                         <div class="form-group">
