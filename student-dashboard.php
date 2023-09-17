@@ -308,9 +308,9 @@
                                     </div>
                                 </div> -->
                                 <div class="table">
-                                    <section class="table_header">
-                                        <h1></h1>
-                                        </section>
+                                    <!-- <section class="table_header">
+                                        <h1>Asiignment Table</h1> 
+                                        </section> -->
                                     <section class="table_body">
                                         <table>
                                             <thead>
@@ -323,6 +323,27 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <tr>
+                                                    <th>1</th>
+                                                    <th>DSA</th>
+                                                    <th>Trees</th>
+                                                    <th>10</th>
+                                                    <th><strong>15 aug</strong></th>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
                                                 <tr>
                                                     <th></th>
                                                     <th></th>
