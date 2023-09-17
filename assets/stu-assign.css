@@ -27,6 +27,15 @@
     overflow: auto;
 }
 
+.table_body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.table_body:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
 table, th, td{
     border-collapse: collapse;
     padding: 1rem;
@@ -34,6 +43,9 @@ table, th, td{
 }
 
 thead th{
+    position: sticky;
+    top: 0;
+    left: 0;
     background-color: #d5d1defe;
 }
 
