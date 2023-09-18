@@ -169,7 +169,13 @@
             var roleSelect = document.getElementById("role");
             var batchDiv = document.getElementById("batchDiv");
 
-            
+            if (roleSelect.value === "student") {
+                batchDiv.style.pointerEvents = "auto"; 
+                batchDiv.style.opacity = "1";
+            } else {
+                batchDiv.style.pointerEvents = "none";
+                batchDiv.style.opacity = "0.3"; 
+            }
         }
     </script>
 </body>
