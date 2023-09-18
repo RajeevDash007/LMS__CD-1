@@ -27,9 +27,9 @@
                 </div>
 
                 <div id="batchDiv">
-                    <select name="batch" required style="margin-top: 10px;">
+                    <select name="batch" required style="margin-top: 10px;opacity: 1;">
                         <option value="">Select Semester</option>
-                        <option value="1">1st Semester</option>
+                        <option value="1" selected>1st Semester</option>
                         <option value="2">2nd Semester</option>
                         <option value="3">3rd Semester</option>
                         <option value="4">4th Semester</option>
@@ -168,11 +168,8 @@
         function toggleBatchOption() {
             var roleSelect = document.getElementById("role");
             var batchDiv = document.getElementById("batchDiv");
-            if (roleSelect.value === "student") {
-                batchDiv.style.display = "block";
-            } else {
-                batchDiv.style.display = "none";
-            }
+
+            
         }
     </script>
 </body>
