@@ -394,17 +394,17 @@ if ($connection) {
                             };
 
                             CBPFWTabs.prototype._init = function() {
-                                // tabs elems
+                                
                                 this.tabs = [].slice.call(this.el.querySelectorAll("nav > ul > li"));
-                                // content items
+                                
                                 this.items = [].slice.call(
                                     this.el.querySelectorAll(".content-wrap > section")
                                 );
-                                // current index
+                                
                                 this.current = -1;
-                                // show current content item
+                                
                                 this._show();
-                                // init events
+                                
                                 this._initEvents();
                             };
 
@@ -423,7 +423,7 @@ if ($connection) {
                                     this.tabs[this.current].className = this.items[this.current].className =
                                         "";
                                 }
-                                // change current
+                    
                                 this.current =
                                     idx != undefined ?
                                     idx :
@@ -434,7 +434,7 @@ if ($connection) {
                                 this.items[this.current].className = "content-current";
                             };
 
-                            // add to global namespace
+                        
                             window.CBPFWTabs = CBPFWTabs;
                         })(window);
 
@@ -489,17 +489,17 @@ if ($connection) {
 
                         $("a.cards-func").click(function(event) {
                             if ($(this).attr("target") != "_blank") {
-                                //Se for diferente de target _blank ele abrirá em iframe
+                                
 
                                 event
-                                    .preventDefault(); //cancela a ação padrão do click (cancela o redirecionamento a href)
+                                    .preventDefault(); 
                                 var url = $(this).attr(
-                                    "href"); //pega o atributo href do card clicado e passa para a variavel URL
-                                $(".loader, .lds-ring").fadeIn(); //inicia o loader
-                                $("#iframe").attr("src", url); //insere a url correta para rodar no iframe
+                                    "href"); 
+                                $(".loader, .lds-ring").fadeIn(); 
+                                $("#iframe").attr("src", url); 
 
                                 $("#page-content-wrapper, .page-loader").toggleClass(
-                                    "d-none"); //para o iframe ser exibido o content principal deve ser ocultado
+                                    "d-none"); 
 
                                 /* Manipula o iframe para aplicar correções no estilo da intranet antiga
                                  ** Oculta os menus de topo, entre outros itens da antiga intranet */
@@ -511,7 +511,7 @@ if ($connection) {
                                             "<style>#pc_user { display: none;} #pc_sair { display: none;} #pc_fundomenu { display: none;}#pc_busca { display: none;} #PC_brilho { display: none !important; } #pc_centro { position: inherit !important; }</style>"
                                         );
 
-                                    $(".loader, .lds-ring").fadeOut(); //encerra o loader
+                                    $(".loader, .lds-ring").fadeOut(); 
                                 });
                             }
                         });
@@ -524,23 +524,22 @@ if ($connection) {
 
                         $(".form-short .submit").click(function() {
                             var appendItems = $(".modal-body.shortcuts").find(".cards-short")
-                                .parent(); //verifica todos os itens com a classe e pega o elemento completo
+                                .parent();
                             $(appendItems).removeClass("cards-short--disable");
-                            $(".block.shortcuts").append(appendItems); //insere o(os) item(ns) nos atalhos
+                            $(".block.shortcuts").append(appendItems); 
                         });
 
                         $(".remove").click(function() {
                             var returnItems = $(".block.shortcuts")
                                 .find(".cards-short--disable")
-                                .parent(); //verifica todos os itens com a classe e pega o elemento completo
-                            $(".modal-body.shortcuts").append(returnItems); //insere o(os) item(ns) no modal
+                                .parent(); 
+                            $(".modal-body.shortcuts").append(returnItems);
                         });
 
                         function toggleDarkLight() {
                             var body = document.getElementById("page-content-wrapper");
                             var frame = document.getElementById("page-content-frame");
                             if ($(body).hasClass("dark-mode")) {
-                                //a condição verifica se no elemento content principal existe a classe "dark-mode"
                                 body.className = "";
                                 frame.className = "page-loader d-none";
                             } else {
@@ -578,12 +577,10 @@ if ($connection) {
                             $(".list-group a.text-secondary").removeClass("active");
                             $("html, body").animate({
                                 scrollTop: 0
-                            }, 500); //Scroll top para suavizar a troca de tela
+                            }, 500); 
                             $(this).addClass("active");
 
-                            //Alterna a exibição de telas
-
-                            //Array de classes verificadas na Sidenav
+                           
                             const arrayMenu = ["home", "acad", "adm", "beneficios", "visoes", "info"];
 
                             for (var i = 0; i < arrayMenu.length; i++) {
