@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($connection) {
         $query = "INSERT INTO courses (course_name, course_credits, course_description, instructor_id,course_semester) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($connection, $query);
-        mysqli_stmt_bind_param($stmt, "sisii", $courseName, $courseCredits, $courseDescription, $_SESSION['user_id'],$courseSemester);
+        mysqli_stmt_bind_param($stmt, "sisii", $courseName, $courseCredits, $courseDescription, $_SESSION['user_id'], $courseSemester);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         mysqli_close($connection);
@@ -288,6 +288,7 @@ if ($connection) {
                                 <div class="my-4 mt-md-0">
                                     <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4">
                                         <p class="text-center mb-3">Calender</p>
+                                        <div id="calendar"></div>
                                     </div>
                                 </div>
 
@@ -397,17 +398,17 @@ if ($connection) {
                             };
 
                             CBPFWTabs.prototype._init = function() {
-                                
+
                                 this.tabs = [].slice.call(this.el.querySelectorAll("nav > ul > li"));
-                                
+
                                 this.items = [].slice.call(
                                     this.el.querySelectorAll(".content-wrap > section")
                                 );
-                                
+
                                 this.current = -1;
-                                
+
                                 this._show();
-                                
+
                                 this._initEvents();
                             };
 
@@ -426,7 +427,7 @@ if ($connection) {
                                     this.tabs[this.current].className = this.items[this.current].className =
                                         "";
                                 }
-                    
+
                                 this.current =
                                     idx != undefined ?
                                     idx :
@@ -437,7 +438,7 @@ if ($connection) {
                                 this.items[this.current].className = "content-current";
                             };
 
-                        
+
                             window.CBPFWTabs = CBPFWTabs;
                         })(window);
 
@@ -492,17 +493,17 @@ if ($connection) {
 
                         $("a.cards-func").click(function(event) {
                             if ($(this).attr("target") != "_blank") {
-                                
+
 
                                 event
-                                    .preventDefault(); 
+                                    .preventDefault();
                                 var url = $(this).attr(
-                                    "href"); 
-                                $(".loader, .lds-ring").fadeIn(); 
-                                $("#iframe").attr("src", url); 
+                                    "href");
+                                $(".loader, .lds-ring").fadeIn();
+                                $("#iframe").attr("src", url);
 
                                 $("#page-content-wrapper, .page-loader").toggleClass(
-                                    "d-none"); 
+                                    "d-none");
 
                                 /* Manipula o iframe para aplicar correções no estilo da intranet antiga
                                  ** Oculta os menus de topo, entre outros itens da antiga intranet */
@@ -514,7 +515,7 @@ if ($connection) {
                                             "<style>#pc_user { display: none;} #pc_sair { display: none;} #pc_fundomenu { display: none;}#pc_busca { display: none;} #PC_brilho { display: none !important; } #pc_centro { position: inherit !important; }</style>"
                                         );
 
-                                    $(".loader, .lds-ring").fadeOut(); 
+                                    $(".loader, .lds-ring").fadeOut();
                                 });
                             }
                         });
@@ -529,13 +530,13 @@ if ($connection) {
                             var appendItems = $(".modal-body.shortcuts").find(".cards-short")
                                 .parent();
                             $(appendItems).removeClass("cards-short--disable");
-                            $(".block.shortcuts").append(appendItems); 
+                            $(".block.shortcuts").append(appendItems);
                         });
 
                         $(".remove").click(function() {
                             var returnItems = $(".block.shortcuts")
                                 .find(".cards-short--disable")
-                                .parent(); 
+                                .parent();
                             $(".modal-body.shortcuts").append(returnItems);
                         });
 
@@ -580,10 +581,10 @@ if ($connection) {
                             $(".list-group a.text-secondary").removeClass("active");
                             $("html, body").animate({
                                 scrollTop: 0
-                            }, 500); 
+                            }, 500);
                             $(this).addClass("active");
 
-                           
+
                             const arrayMenu = ["home", "acad", "adm", "beneficios", "visoes", "info"];
 
                             for (var i = 0; i < arrayMenu.length; i++) {
