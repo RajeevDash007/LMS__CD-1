@@ -287,10 +287,32 @@ if ($connection) {
 
                                 <div class="my-4 mt-md-0">
                                     <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4">
-                                        <p class="text-center mb-3">Calender</p>
                                         <div id="calendar"></div>
                                     </div>
                                 </div>
+
+                                <script>
+                                    $(document).ready(function() {
+                                        $('#calendar').fullCalendar({
+                                            header: {
+                                                left: 'prev',
+                                                center: 'title',
+                                                right: 'next'
+                                            },
+                                            defaultDate: new Date(),
+                                            editable: true,
+                                            eventLimit: true, 
+                                            events: [
+                                                //add all the holidays in this format
+                                                {
+                                                    title: 'Event 1',
+                                                    start: '2022-01-01',
+                                                    end: '2022-01-03'
+                                                },
+                                            ]
+                                        });
+                                    });
+                                </script>
 
                                 <div class="card shadow-card rounded-lg border-0 px-3 pb-4 mb-4">
                                     <p class="text-center mb-0 mt-3">Extra things</p>
