@@ -350,11 +350,11 @@ if ($connection) {
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <th>1</th>
-                                                    <th>DSA</th>
-                                                    <th>Trees</th>
-                                                    <th>10</th>
-                                                    <th><strong>15 aug</strong></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th><strong></strong></th>
                                                 </tr>
                                                 <tr>
                                                     <th></th>
