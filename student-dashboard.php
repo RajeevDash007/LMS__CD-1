@@ -425,7 +425,7 @@
 
                                 <div class="my-4 mt-md-0">
                                     <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4">
-                                        <p class="text-center mb-3">Calender</p>
+                                        <div id="calendar"></div>
                                     </div>
                                 </div>
 
