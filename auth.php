@@ -144,6 +144,7 @@
                     $_SESSION['user_type'] = $userType;
                     $_SESSION['user_email'] = $email;
                     $_SESSION['user_id'] = $userId;
+                    
                     switch ($userType) {
                         case 'student':
                             header("Location: student-dashboard.php");

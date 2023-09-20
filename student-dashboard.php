@@ -1,3 +1,26 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'student') {
+    header('Location: auth.php');
+    exit();
+}
+require_once('config.php');
+$connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+if ($connection) {
+    $query = "SELECT name, photo FROM students WHERE email=?";
+    $stmt = mysqli_prepare($connection, $query);
+    mysqli_stmt_bind_param($stmt, "s", $_SESSION['user_email']);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $user_name, $user_photo);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+    mysqli_close($connection);
+} else {
+    echo "Database connection error.";
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -105,7 +128,8 @@
                                     <div class="card rounded-lg border-0 cards-short w-100">
                                         <div class="row">
                                             <div class="col-sm-6 order-1 order-sm-1">
-                                                <h4 class="text-primary pt-3 pt-sm-5 pl-3 pl-lg-4 pr-3">Hi, welcome</h4>
+                                                <h4 class="text-primary pt-3 pt-sm-5 pl-3 pl-lg-4 pr-3">
+                                                Hi <?php echo $user_name; ?>, welcome</h4>
                                             </div>
                                             <div class="col-sm-6 d-flex d-lg-block d-lg-block align-items-center justify-content-center order-0 order-sm-1">
 
