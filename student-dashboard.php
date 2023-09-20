@@ -349,34 +349,21 @@ if ($connection) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <!-- <tr>
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>
                                                     <th><strong></strong></th>
                                                 </tr>
-                                                <tr>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                </tr>
-                                                <tr>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                </tr>
-                                                
+                                                 -->
                                                 
                                             </tbody>
                                         </table>
                                         </section>
                                      
                                 </div>
+                                
                             </div>
                         </div>
 
