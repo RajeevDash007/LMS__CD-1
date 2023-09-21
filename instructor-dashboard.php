@@ -102,7 +102,7 @@ if ($connection) {
                 <ul class="navbar-nav ml-auto mt-md-2">
                     <li class="nav-item pl-4 dropdown">
                         <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Instructor Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;" data-toggle="dropdown">
-                        <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-menu dropdown-menu-right" style="position: static; float: left;">
                             <a class="dropdown-item" href="#">My Profile</a>
                             <a class="dropdown-item" href="#">Log Out</a>
                         </div>

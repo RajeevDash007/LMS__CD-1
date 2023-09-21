@@ -1276,13 +1276,3 @@ body .dark-mode h3 {
 .col-md-12{
   padding-left: 34px !important;
 }
-
-#sidebar-wrapper {
-  z-index: 2;
-}
-
-.dropdown-menu {
-    position: fixed;
-    z-index: 9999 !important;
-}
-
