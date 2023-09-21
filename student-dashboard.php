@@ -145,79 +145,50 @@ if ($connection) {
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="row my-4 fadeInUp delay-1">
-                                    <div id="card-carousel" class="carousel slide w-100" data-ride="carousel">
-                                        <div class="carousel-inner">
 
-                                        </div>
-
-                                        <a class="carousel-control-prev" href="#card-carousel" role="button" data-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#card-carousel" role="button" data-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </div>
-                                </div> -->
-                                <!-- <script>
-                                    document.addEventListener("DOMContentLoaded", function() {
-                                        const cardData = [{
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-                                            {
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-                                            {
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-                                            {
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-                                            {
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-                                            {
-                                                header: "Setup Guides",
-                                                content: "Our step-by-step guides help you configure the features you need."
-                                            },
-
-                                        ];
-
-                                        const carouselInner = document.querySelector(".carousel-inner");
-                                        const itemsPerSlide = 3;
-
-                                        for (let i = 0; i < cardData.length; i += itemsPerSlide) {
-                                            const item = document.createElement("div");
-                                            item.classList.add("carousel-item");
-                                            if (i === 0) {
-                                                item.classList.add("active");
-                                            }
-
-                                            const cardsInSlide = cardData.slice(i, i + itemsPerSlide);
-                                            const cardsHTML = cardsInSlide.map(card => `
-                <div class="col-md-4">
-                    <div class="card card_course">
-                        <h2 class="headerc">${card.header}</h2>
-                        <p class="contentc">${card.content}</p>
-                    </div>
-                </div>`).join('');
-
-                                            item.innerHTML = `<div class="row">${cardsHTML}</div>`;
-                                            carouselInner.appendChild(item);
-                                        }
-                                    });
-                                </script> -->
+                                <div class="student-course-selection">
+                                    <label for="semesterSelect">Select Semester:</label>
+                                    <select id="semesterSelect">
+                                        <option value="1">Semester 1</option>
+                                        <option value="2">Semester 2</option>
+                                        <option value="3">Semester 3</option>
+                                        <option value="4">Semester 4</option>
+                                        <option value="5">Semester 5</option>
+                                        <option value="6">Semester 6</option>
+                                        <option value="7">Semester 7</option>
+                                        <option value="8">Semester 8</option>
+                                        <option value="9">Semester 9</option>
+                                        <option value="10">Semester 10</option>
+        
+                                    </select>
+                                <button id="fetchCoursesButton">Fetch Courses</button>
+                                </div>
+                                
                             <div class="slide-container swiper">
-                                <div class="slide-content">
-                                    <div class="card-wrapper swiper-wrapper">
-                                        <div class="card swiper-slide">
+                            <div class="slide-content">
+            <div class="card-wrapper swiper-wrapper" id="dynamic-card-wrapper"></div>
+        </div>
+                                        <!-- <div class="card swiper-slide">
+                                        <div class="card-content">
+                                <h2 class="name">DSA</h2>
+                                <p class="description">data structure and algorithms</p>
+                            </div>
+
+                            
+                                            
+                                </div> -->
+
+                                 <!-- <div class="card swiper-slide">
+                                        <div class="card-content">
+                                <h2 class="name">DSA</h2>
+                                <p class="description">data structure and algorithms</p>
+                            </div>
+
+                            
+                                            
+                                </div> 
+
+                                 <div class="card swiper-slide">
                                         <div class="card-content">
                                 <h2 class="name">DSA</h2>
                                 <p class="description">data structure and algorithms</p>
@@ -235,65 +206,80 @@ if ($connection) {
 
                             
                                             
-                                </div>
+                                </div> 
 
-                                <div class="card swiper-slide">
+                                 <div class="card swiper-slide">
                                         <div class="card-content">
                                 <h2 class="name">DSA</h2>
                                 <p class="description">data structure and algorithms</p>
-                            </div>
+                            </div> 
 
                             
                                             
-                                </div>
-
-                                <div class="card swiper-slide">
-                                        <div class="card-content">
-                                <h2 class="name">DSA</h2>
-                                <p class="description">data structure and algorithms</p>
-                            </div>
+                                </div> -->
+                                    
 
                             
-                                            
-                                </div>
-
-                                <div class="card swiper-slide">
-                                        <div class="card-content">
-                                <h2 class="name">DSA</h2>
-                                <p class="description">data structure and algorithms</p>
-                            </div>
-
-                            
-                                            
-                                </div>
-                                    </div>
-
-                            
-                                </div>
+                                
                                 <div class="swiper-button-next swiper-navBtn"></div>
                                 <div class="swiper-button-prev swiper-navBtn"></div>
                                 <div class="swiper-pagination"></div>
                             </div>
                             <script src="./assets/swiper-bundle.min.js"></script>
                             <script >
-                                var swiper = new Swiper(".slide-content", {
-    slidesPerView: 3,
-    spaceBetween: 25,
-    
-    loop: true,
-    centerSlide:'true',
-    fade:'true',
-    grabCursor:'true',
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
+                                var dynamicCardWrapper = document.getElementById("dynamic-card-wrapper");
+                                document.getElementById("fetchCoursesButton").addEventListener("click", function () {
+                                var selectedSemester = document.getElementById("semesterSelect").value;
+
+                            // Make an AJAX request to fetch course data
+                            fetch('./assets/stu_cards.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                body: 'selected_semester=' + selectedSemester,
+                                })
+                                .then(function (response) {
+                                 return response.json();
+                                })
+                                .then(function (data) {
+                            // Update the coursesData array with the fetched data
+                            coursesData = data;
+
+                            // Dynamically create and populate the course cards
+                            dynamicCardWrapper.innerHTML = ''; // Clear existing cards
+
+                        coursesData.forEach(function (course) {
+                        var card = document.createElement("div");
+                        card.className = "card swiper-slide";
+                        card.innerHTML = `
+                        <div class="card-content">
+                            <h2 class="name">${course.course_name}</h2>
+                            <p class="description">Credits: ${course.course_credits}</p>
+                        </div>
+                         `;
+                        dynamicCardWrapper.appendChild(card);
+                        });
+
+
+
+                        var swiper = new Swiper(".slide-content", {
+            slidesPerView: 3,
+            spaceBetween: 25,
+            loop: true,
+            centerSlide: true,
+            fade: true,
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
                 640: {
                     slidesPerView: 1,
                     spaceBetween: 20,
@@ -307,19 +293,12 @@ if ($connection) {
                     spaceBetween: 25,
                 },
             },
-
-    // breakpoints{
-    //     0: {
-    //         slidesPerView: 1,
-    //     },
-    //     520: {
-    //         slidesPerView: 2,
-    //     },
-    //     950: {
-    //         slidesPerView: 3,
-    //     }
-    // }
-  });
+        });
+    })
+    .catch(function (error) {
+        console.error('Error:', error);
+    });
+});
                             </script>
                             
 
