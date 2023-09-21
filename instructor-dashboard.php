@@ -225,25 +225,7 @@ if ($connection) {
                                 <div class="row mb-5">
 
                                     <!-- add your code here -->
-                                    <form action="create_assignment.php" method="POST" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label for="assignmentTitle">Assignment Title</label>
-                                            <input type="text" class="form-control" id="assignmentTitle" name="assignment_title" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="assignmentMarks">Assignment Marks</label>
-                                            <input type="number" class="form-control" id="assignmentMarks" name="assignment_marks" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="assignmentFile">Assignment File</label>
-                                            <input type="file" class="form-control-file" id="assignmentFile" name="assignment_file" accept=".pdf,.png,.jpeg" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="assignmentDueDate">Assignment Due Date</label>
-                                            <input type="date" class="form-control" id="assignmentDueDate" name="assignment_due_date" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Create Assignment</button>
-                                    </form>
+                                    
 
                                     <div class="animated-search-filter sysacad grid fadeInUp delay-1">
 
