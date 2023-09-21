@@ -104,7 +104,7 @@ if ($connection) {
                         <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Instructor Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;" data-toggle="dropdown">
                         <div class="dropdown-menu dropdown-menu-right" style="position: static; float: left;">
                             <a class="dropdown-item" href="#">My Profile</a>
-                            <a class="dropdown-item" href="#">Log Out</a>
+                            <a class="dropdown-item" href="./assets/logout.php">Log Out</a>
                         </div>
                     </li>
                 </ul>
