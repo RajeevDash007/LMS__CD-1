@@ -101,7 +101,11 @@ if ($connection) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-md-2">
                     <li class="nav-item pl-4 dropdown">
-                        <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Instructor Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;">
+                        <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Instructor Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;" data-toggle="dropdown">
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">My Profile</a>
+                            <a class="dropdown-item" href="#">Log Out</a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -134,14 +138,14 @@ if ($connection) {
         <div id="page-content-wrapper">
 
             <div class="container-fluid px-4">
-                
+
                 <div class="row mx-auto mt-3 justify-content-center d-flex d-md-none">
                     <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="toggleDarkLight()">
                         <div class="handle"></div>
                     </button>
                     <p class="mb-0">Dark mode </p>
                 </div>
-                
+
                 <div class="input-group m-2 d-flex d-md-none mx-auto mt-4 w-100">
                     <input type="search" class="form-control" placeholder="Search information and modules in general" aria-label="Pesquise" aria-describedby="button-addon2">
                 </div>
@@ -160,7 +164,7 @@ if ($connection) {
                                             </div>
                                             <div class="col-12 order-2 order-sm-1">
                                                 <p class="px-3 pt-2 pb-3 text-banner" style="color: #5584bc; font-size: 15px">Welcome to our Instructor Dashboard, a streamlined hub designed to enhance teaching efficiency. Manage courses, communicate with students, track performance and access resources. Let's elevate education, together!
-                                                    </p>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +229,7 @@ if ($connection) {
                                 <div class="row mb-5">
 
                                     <!-- add your code here -->
-                                    
+
 
                                     <div class="animated-search-filter sysacad grid fadeInUp delay-1">
 
