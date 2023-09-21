@@ -159,10 +159,8 @@ if ($connection) {
 
                                             </div>
                                             <div class="col-12 order-2 order-sm-1">
-                                                <p class="px-3 pt-2 pb-3 text-banner" style="color: #5584bc; font-size: 15px">Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit. Morbi sed metus quis mauris tempor
-                                                    lacinia. Etiam maximus arcu a erat dapibus tempus eget et justo. Nam
-                                                    eget iaculis arcu, eu aliquam risus.</p>
+                                                <p class="px-3 pt-2 pb-3 text-banner" style="color: #5584bc; font-size: 15px">Welcome to our Instructor Dashboard, a streamlined hub designed to enhance teaching efficiency. Manage courses, communicate with students, track performance and access resources. Let's elevate education, together!
+                                                    </p>
                                             </div>
                                         </div>
                                     </div>
@@ -225,9 +223,27 @@ if ($connection) {
                             <h3 class="mt-4">Assign Tasks</h3>
                             <div class="container">
                                 <div class="row mb-5">
-                                    <p class="lead w-100">Options panel</p>
-                                    <!-- add your code here -->
 
+                                    <!-- add your code here -->
+                                    <form action="create_assignment.php" method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label for="assignmentTitle">Assignment Title</label>
+                                            <input type="text" class="form-control" id="assignmentTitle" name="assignment_title" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="assignmentMarks">Assignment Marks</label>
+                                            <input type="number" class="form-control" id="assignmentMarks" name="assignment_marks" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="assignmentFile">Assignment File</label>
+                                            <input type="file" class="form-control-file" id="assignmentFile" name="assignment_file" accept=".pdf,.png,.jpeg" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="assignmentDueDate">Assignment Due Date</label>
+                                            <input type="date" class="form-control" id="assignmentDueDate" name="assignment_due_date" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Create Assignment</button>
+                                    </form>
 
                                     <div class="animated-search-filter sysacad grid fadeInUp delay-1">
 
@@ -301,7 +317,7 @@ if ($connection) {
                                             },
                                             defaultDate: new Date(),
                                             editable: true,
-                                            eventLimit: true, 
+                                            eventLimit: true,
                                             events: [
                                                 //add all the holidays in this format
                                                 {
