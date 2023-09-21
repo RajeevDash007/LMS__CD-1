@@ -67,9 +67,11 @@ if ($connection) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-md-2">
                     <li class="nav-item pl-4 dropdown">
-                        <a class="nav-link dropdown-toggle" style="white-space: normal" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="lni lni-user border rounded-circle border-primary p-1 mr-1"></i> Options<span class="sr-only">(current)</span>
-                        </a>
-
+                        <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Instructor Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;" data-toggle="dropdown">
+                        <div class="dropdown-menu dropdown-menu-right" style="position: static; float: left;">
+                            <a class="dropdown-item" href="#">My Profile</a>
+                            <a class="dropdown-item" href="./assets/logout.php">Log Out</a>
+                        </div>
                     </li>
                 </ul>
             </div>
