@@ -134,14 +134,14 @@ if ($connection) {
         <div id="page-content-wrapper">
 
             <div class="container-fluid px-4">
-                <!-- Mode Escuro para dispositivos mobile -->
+                
                 <div class="row mx-auto mt-3 justify-content-center d-flex d-md-none">
                     <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="toggleDarkLight()">
                         <div class="handle"></div>
                     </button>
                     <p class="mb-0">Dark mode </p>
                 </div>
-                <!-- Pesquisa mobile responsiva -->
+                
                 <div class="input-group m-2 d-flex d-md-none mx-auto mt-4 w-100">
                     <input type="search" class="form-control" placeholder="Search information and modules in general" aria-label="Pesquise" aria-describedby="button-addon2">
                 </div>
