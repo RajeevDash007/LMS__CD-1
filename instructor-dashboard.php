@@ -60,6 +60,25 @@ if ($connection) {
     echo "Database connection error.";
     exit();
 }
+$instructorId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+$connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+if ($connection) {
+    $query = "SELECT DISTINCT course_semester FROM courses WHERE instructor_id = ?";
+    $stmt = mysqli_prepare($connection, $query);
+    mysqli_stmt_bind_param($stmt, "i", $instructorId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $semester);
+
+    $semesterOptions = '';
+    while (mysqli_stmt_fetch($stmt)) {
+        $semesterOptions .= "<option value='$semester'>Semester $semester</option>";
+    }
+
+    mysqli_stmt_close($stmt);
+    mysqli_close($connection);
+} else {
+    echo "Database connection error.";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
