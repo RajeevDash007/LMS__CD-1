@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $courses = [];
 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 if ($connection) {
-    $query = "SELECT courses.course_name, instructors.name AS instructor_name, courses.course_credits
+    $query = "SELECT courses.course_name, instructors.name, courses.course_semester AS instructor_name, courses.course_credits, courses.course_semester
               FROM courses
               JOIN instructors ON courses.instructor_id = instructors.instructor_id
               WHERE instructors.instructor_id = ?";
@@ -175,10 +175,11 @@ if ($connection) {
                                         <div class="row">
                                             <?php foreach ($courses as $course) : ?>
                                                 <div class="col-md-3">
-                                                    <div class="card">
+                                                    <div class="card custom-card">
                                                         <div class="card-body">
                                                             <h5 class="card-title"><?php echo $course['course_name']; ?></h5>
                                                             <p class="card-text">Credits: <?php echo $course['course_credits']; ?></p>
+                                                            <p class="card-text">Semester: <?php echo $course['course_semester']; ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
