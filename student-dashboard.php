@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['student_id'])) {
-    // Retrieve the student_id from the session
-    $student_id = $_SESSION['student_id'];
-}
+
 
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'student') {
     header('Location: auth.php');
@@ -301,7 +298,8 @@ if ($connection) {
                                      
                                 </div>-->
                                  <?php
-
+                                 
+// $student_id = 4;
 
 
 // Database connection settings
@@ -310,10 +308,29 @@ $dbUser = 'root';
 $dbPass = '';
 $dbName = 'lms';
 
+// if (isset($_SESSION['student_id'])) {
+//     // Retrieve the student_id from the session
+//     $student_id = $_SESSION['student_id'];
+// }
+
+
+if (isset($_SESSION['user_email'])) {
+    // Retrieve the user's email from the session
+    $user_email = $_SESSION['user_email'];
+}
+
 try {
     // Create a database connection
     $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $pdo->prepare("SELECT student_id FROM students WHERE email = :user_email");
+    $stmt->bindParam(':user_email', $user_email, PDO::PARAM_STR);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result && isset($result['student_id'])) {
+        $student_id = $result['student_id'];
 
     // Fetch assignments for the logged-in student's batch
     $stmt = $pdo->prepare("SELECT a.AssignmentTitle, a.AssignmentDueDate, a.AssignmentMarks, i.name AS instructor_name
@@ -326,7 +343,9 @@ try {
     
     $assignments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-} catch (PDOException $e) {
+}
+}
+ catch (PDOException $e) {
     echo "Database Error: " . $e->getMessage();
 }
 ?> 
