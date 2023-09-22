@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (isset($_SESSION['student_id'])) {
+    // Retrieve the student_id from the session
+    $student_id = $_SESSION['student_id'];
+}
+
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'student') {
     header('Location: auth.php');
     exit();
@@ -314,10 +320,10 @@ if ($connection) {
                                         </div>
                                     </div>
                                 </div> -->
-                                <div class="table">
-                                    <!-- <section class="table_header">
+                                <!-- <div class="table">
+                                     <section class="table_header">
                                         <h1>Asiignment Table</h1> 
-                                        </section> -->
+                                        </section> 
                                     <section class="table_body">
                                         <table>
                                             <thead>
@@ -330,20 +336,81 @@ if ($connection) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <!-- <tr>
+                                                 <tr>
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>
                                                     <th><strong></strong></th>
                                                 </tr>
-                                                 -->
+                                                 
                                                 
                                             </tbody>
                                         </table>
                                         </section>
                                      
-                                </div>
+                                </div> -->
+                                <?php
+// Check if student_id is set in the session
+
+
+// Database connection settings
+$dbHost = 'localhost';
+$dbUser = 'root';
+$dbPass = '';
+$dbName = 'lms';
+
+try {
+    // Create a database connection
+    $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Fetch assignments for the logged-in student's batch and instructor_id
+    $stmt = $pdo->prepare("SELECT a.AssignmentTitle, a.AssignmentDueDate, a.AssignmentMarks, i.name AS instructor_name
+                        FROM assignment a
+                        INNER JOIN instructors i ON a.instructor_id = i.instructor_id
+                        WHERE a.batch = (SELECT batch FROM students WHERE student_id = :student_id)");
+    
+    $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
+    $stmt->execute();
+    
+    $assignments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    echo "Database Error: " . $e->getMessage();
+}
+?>
+
+<!-- HTML Table -->
+<div class="table">
+    <section class="table_body">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sl No.</th>
+                    <th>Assignment Title</th>
+                    <th>Deadline</th>
+                    <th>Marks</th>
+                    <th>Instructor Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $index = 1; // Initialize a counter variable ?>
+                <?php foreach ($assignments as $assignment) : ?>
+                    <tr>
+                    echo "<tr>";
+                            <td><?= $index ?></td>
+                            echo "<td><?= $assignment['AssignmentTitle'] ?></td>";
+                            echo "<td>"<?= $assignment['AssignmentDueDate'] ?></td>";
+                            echo "<td>"<?= $assignment['AssignmentDueDate'] ?></td>";
+                            echo "<td>"<?= $assignment['AssignmentMarks'] ?></td>";
+                    </tr>
+                    <?php $index++; // Increment the counter variable ?>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </section>
+</div>
                                 
                             </div>
                         </div>
