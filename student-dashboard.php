@@ -326,7 +326,7 @@ if ($connection) {
                                                     <th>Course Name</th>
                                                     <th>Topic Name</th>
                                                     <th>Marks</th>
-                                                    <th>Deadline</th>
+                                                    <th><strong>Deadline</strong></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
