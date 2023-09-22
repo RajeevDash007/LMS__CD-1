@@ -54,6 +54,11 @@ if ($connection) {
     while ($row = mysqli_fetch_assoc($result)) {
         $courses[] = $row;
     }
+    $courseOptions = '';
+    foreach ($courses as $course) {
+        $courseName = $course['course_name'];
+        $courseOptions .= "<option value='$courseName'>$courseName</option>";
+    }
     mysqli_stmt_close($stmt);
     mysqli_close($connection);
 } else {
@@ -317,10 +322,8 @@ if ($connection) {
 
                                         <div class="form-group">
                                             <label for="course">Select Course:</label>
-                                            <select name="course" id="course" required>
-                                                <option value="course1">Course 1</option>
-                                                <option value="course2">Course 2</option>
-                                                <!-- Add more options for other courses -->
+                                            <select id="courseSelect" name="course_name">
+                                                <?php echo $courseOptions; ?>
                                             </select>
                                         </div>
 
