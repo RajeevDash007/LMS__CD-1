@@ -298,8 +298,8 @@ if ($connection) {
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="question_url">Assignment Question URL:</label>
-                                            <input type="text" name="question_url" id="question_url" required>
+                                            <label for="question_file">Assignment Question File:</label>
+                                            <input type="file" name="question_file" id="question_file" required>
                                         </div>
 
                                         <div class="form-group">
