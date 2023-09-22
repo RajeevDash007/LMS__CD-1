@@ -80,16 +80,18 @@ if ($connection) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
-        *{
+
+        * {
             font-family: 'Poppins', sans-serif;
         }
+
         .custom-card {
             background-color: #f8f9fa;
             border-radius: 10px;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
             margin-bottom: 20px;
             max-height: 130px;
-            background:linear-gradient(135deg, #17ead9 0%,#6078ea 100%);
+            background: linear-gradient(135deg, #17ead9 0%, #6078ea 100%);
             border: none;
         }
 
@@ -265,6 +267,46 @@ if ($connection) {
                                 <div class="row mb-5">
 
                                     <!-- add your code here -->
+                                    <form action="create_assignment.php" method="POST">
+                                        <div class="form-group">
+                                            <label for="title">Assignment Title:</label>
+                                            <input type="text" name="title" id="title" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="question_url">Assignment Question URL:</label>
+                                            <input type="text" name="question_url" id="question_url" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="due_date">Assignment Due Date:</label>
+                                            <input type="date" name="due_date" id="due_date" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="marks">Assignment Marks:</label>
+                                            <input type="number" name="marks" id="marks" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="semester">Select Semester:</label>
+                                            <select name="semester" id="semester" required>
+                                                <option value="">Select Semester</option>
+                                                <?php echo $semesterOptions; ?>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="course">Select Course:</label>
+                                            <select name="course" id="course" required>
+                                                <option value="course1">Course 1</option>
+                                                <option value="course2">Course 2</option>
+                                                <!-- Add more options for other courses -->
+                                            </select>
+                                        </div>
+
+                                        <button type="submit">Create Assignment</button>
+                                    </form>
 
 
                                     <div class="animated-search-filter sysacad grid fadeInUp delay-1">
