@@ -79,6 +79,10 @@ if ($connection) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
         .custom-card {
             background-color: #f8f9fa;
             border-radius: 10px;
@@ -100,12 +104,12 @@ if ($connection) {
 
         .custom-card .card-text {
             color: #666;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .custom-card .card-semester {
             color: #666;
-            font-weight: 600;
+            font-weight: 500;
             margin-top: -15px;
         }
     </style>
