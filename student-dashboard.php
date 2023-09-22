@@ -176,57 +176,7 @@ if ($connection) {
                             <div class="slide-content">
             <div class="card-wrapper swiper-wrapper" id="dynamic-card-wrapper"></div>
         </div>
-                                        <!-- <div class="card swiper-slide">
-                                        <div class="card-content">
-                                <h2 class="name">DSA</h2>
-                                <p class="description">data structure and algorithms</p>
-                            </div>
-
-                            
-                                            
-                                </div> -->
-
-                                 <!-- <div class="card swiper-slide">
-                                        <div class="card-content">
-                                <h2 class="name">DSA</h2>
-                                <p class="description">data structure and algorithms</p>
-                            </div>
-
-                            
-                                            
-                                </div> 
-
-                                 <div class="card swiper-slide">
-                                        <div class="card-content">
-                                <h2 class="name">DSA</h2>
-                                <p class="description">data structure and algorithms</p>
-                            </div>
-
-                            
-                                            
-                                </div>
-
-                                <div class="card swiper-slide">
-                                        <div class="card-content">
-                                <h2 class="name">DSA</h2>
-                                <p class="description">data structure and algorithms</p>
-                            </div>
-
-                            
-                                            
-                                </div> 
-
-                                 <div class="card swiper-slide">
-                                        <div class="card-content">
-                                <h2 class="name">DSA</h2>
-                                <p class="description">data structure and algorithms</p>
-                            </div> 
-
-                            
-                                            
-                                </div> -->
-                                    
-
+                                        
                             
                                 
                                 <div class="swiper-button-next swiper-navBtn"></div>
@@ -349,9 +299,9 @@ if ($connection) {
                                         </table>
                                         </section>
                                      
-                                </div> -->
-                                <?php
-// Check if student_id is set in the session
+                                </div>-->
+                                 <?php
+
 
 
 // Database connection settings
@@ -365,7 +315,7 @@ try {
     $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Fetch assignments for the logged-in student's batch and instructor_id
+    // Fetch assignments for the logged-in student's batch
     $stmt = $pdo->prepare("SELECT a.AssignmentTitle, a.AssignmentDueDate, a.AssignmentMarks, i.name AS instructor_name
                         FROM assignment a
                         INNER JOIN instructors i ON a.instructor_id = i.instructor_id
@@ -379,10 +329,10 @@ try {
 } catch (PDOException $e) {
     echo "Database Error: " . $e->getMessage();
 }
-?>
+?> 
 
-<!-- HTML Table -->
-<div class="table">
+
+ <div class="table">
     <section class="table_body">
         <table>
             <thead>
@@ -398,19 +348,20 @@ try {
                 <?php $index = 1; // Initialize a counter variable ?>
                 <?php foreach ($assignments as $assignment) : ?>
                     <tr>
-                    echo "<tr>";
-                            <td><?= $index ?></td>
-                            echo "<td><?= $assignment['AssignmentTitle'] ?></td>";
-                            echo "<td>"<?= $assignment['AssignmentDueDate'] ?></td>";
-                            echo "<td>"<?= $assignment['AssignmentDueDate'] ?></td>";
-                            echo "<td>"<?= $assignment['AssignmentMarks'] ?></td>";
+                        <td><?= $index ?></td>
+                        <td><?= $assignment['AssignmentTitle'] ?></td>
+                        <td><?= $assignment['AssignmentDueDate'] ?></td>
+                        <td><?= $assignment['AssignmentMarks'] ?></td>
+                        <td><?= $assignment['instructor_name'] ?></td>
                     </tr>
                     <?php $index++; // Increment the counter variable ?>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </section>
-</div>
+</div>  
+
+
                                 
                             </div>
                         </div>
