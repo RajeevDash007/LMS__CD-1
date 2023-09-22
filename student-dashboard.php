@@ -314,10 +314,10 @@ if ($connection) {
                                         </div>
                                     </div>
                                 </div> -->
-                                <!-- <div class="table">
-                                     <section class="table_header">
+                                <div class="table">
+                                    <!-- <section class="table_header">
                                         <h1>Asiignment Table</h1> 
-                                        </section> 
+                                        </section> -->
                                     <section class="table_body">
                                         <table>
                                             <thead>
@@ -330,145 +330,21 @@ if ($connection) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                 <tr>
+                                                <!-- <tr>
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>
                                                     <th><strong></strong></th>
                                                 </tr>
-                                                 
+                                                 -->
                                                 
                                             </tbody>
                                         </table>
                                         </section>
                                      
-                                </div> -->
-                                <div class="table">
-    <section class="table_body">
-        <table>
-            <thead>
-                <tr>
-                    <th>Assignment Title</th>
-                    <th>Deadline</th>
-                    <th>Marks</th>
-                    <th>Instructor</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                // Replace with your database connection code
-                $dbHost = 'localhost';
-                $dbUser = 'root';
-                $dbPass = '';
-                $dbName = 'lms';
-
-                // Create connection
-                $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-
-                // Replace $student_id and $semester with actual student ID and semester values
-                // Retrieve the student's ID and current semester from the Assignment table
-                $sql_student_info = "SELECT student_id, Semester FROM Assignment WHERE student_id = $student_id AND Semester = '$semester' LIMIT 1";
-
-                $result_student_info = $conn->query($sql_student_info);
-
-                if ($result_student_info->num_rows > 0) {
-                    // Fetch the student's ID and current semester
-                    $row_student_info = $result_student_info->fetch_assoc();
-                    $student_id = $row_student_info["student_id"];
-                    $semester = $row_student_info["Semester"];
-
-                    // Query to retrieve assignments for the student in the current semester
-                    $sql = "SELECT A.AssignmentTitle, A.AssignmentDueDate, A.AssignmentMarks, I.Name AS InstructorName
-                            FROM assignment A
-                            JOIN instructors I ON A.instructor_id = I.instructor_id
-                            WHERE A.student_id = $student_id AND A.Semester = '$semester'";
-
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        // Output data of each row
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>" . $row["AssignmentTitle"] . "</td>";
-                            echo "<td>" . $row["AssignmentDueDate"] . "</td>";
-                            echo "<td>" . $row["AssignmentMarks"] . "</td>";
-                            echo "<td>" . $row["InstructorName"] . "</td>";
-                            echo '<td><button class="edit">Edit</button><button class="delete">Delete</button></td>';
-                            echo "</tr>";
-                        }
-                    } else {
-                        echo "<tr><td colspan='5'>No assignments found.</td></tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='5'>Student not found for the specified semester.</td></tr>";
-                }
-
-                $conn->close();
-                ?>
-            </tbody>
-        </table>
-    </section>
-</div>
-<button id="addRow">Add Row</button>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const addRowButton = document.getElementById("addRow");
-        const tableBody = document.querySelector(".table_body tbody");
-
-        addRowButton.addEventListener("click", function () {
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button class="edit">Edit</button>
-                    <button class="delete">Delete</button>
-                </td>
-            `;
-            tableBody.appendChild(newRow);
-        });
-
-        tableBody.addEventListener("click", function (event) {
-            if (event.target.classList.contains("delete")) {
-                const row = event.target.closest("tr");
-                tableBody.removeChild(row);
-            } else if (event.target.classList.contains("edit")) {
-                const row = event.target.closest("tr");
-                const cells = row.querySelectorAll("td");
-                for (let i = 0; i < cells.length - 1; i++) {
-                    const cellContent = cells[i].textContent;
-                    const input = document.createElement("input");
-                    input.value = cellContent;
-                    cells[i].textContent = "";
-                    cells[i].appendChild(input);
-                }
-                event.target.textContent = "Save";
-                event.target.classList.add("save");
-                event.target.classList.remove("edit");
-            } else if (event.target.classList.contains("save")) {
-                const row = event.target.closest("tr");
-                const cells = row.querySelectorAll("td");
-                for (let i = 0; i < cells.length - 1; i++) {
-                    const input = cells[i].querySelector("input");
-                    cells[i].textContent = input.value;
-                }
-                event.target.textContent = "Edit";
-                event.target.classList.add("edit");
-                event.target.classList.remove("save");
-            }
-        });
-    });
-</script>
+                                </div>
+                                
                             </div>
                         </div>
 
