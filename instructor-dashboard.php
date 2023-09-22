@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $courses = [];
 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 if ($connection) {
-    $query = "SELECT courses.course_name, instructors.name AS instructor_name, courses.course_credits
+    $query = "SELECT courses.course_name, instructors.name, courses.course_semester AS instructor_name, courses.course_credits, courses.course_semester
               FROM courses
               JOIN instructors ON courses.instructor_id = instructors.instructor_id
               WHERE instructors.instructor_id = ?";
@@ -78,6 +78,37 @@ if ($connection) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <style>
+        .custom-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            margin-bottom: 20px;
+            max-height: 130px;
+            background:linear-gradient(135deg, #17ead9 0%,#6078ea 100%);
+            border: none;
+        }
+
+        .custom-card .card-title {
+            color: #E35335;
+            font-size: 18px;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .custom-card .card-text {
+            color: #666;
+            font-weight: 600;
+        }
+
+        .custom-card .card-semester {
+            color: #666;
+            font-weight: 600;
+            margin-top: -15px;
+        }
+    </style>
     <title>Instructor Dashboard</title>
 </head>
 
@@ -171,14 +202,15 @@ if ($connection) {
                                 </div>
                                 <div class="container mt-4">
                                     <?php if (!empty($courses)) : ?>
-                                        <h2>Your Courses</h2>
+                                        <h2 style="margin-bottom: 30px;">Your Courses</h2>
                                         <div class="row">
                                             <?php foreach ($courses as $course) : ?>
                                                 <div class="col-md-3">
-                                                    <div class="card">
+                                                    <div class="card custom-card">
                                                         <div class="card-body">
                                                             <h5 class="card-title"><?php echo $course['course_name']; ?></h5>
-                                                            <p class="card-text">Credits: <?php echo $course['course_credits']; ?></p>
+                                                            <p class="card-text">Credits: <b><?php echo $course['course_credits']; ?></b></p>
+                                                            <p class="card-semester">Semester: <b><?php echo $course['course_semester']; ?></b></p>
                                                         </div>
                                                     </div>
                                                 </div>
