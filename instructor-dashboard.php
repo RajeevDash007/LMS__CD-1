@@ -291,7 +291,7 @@ if ($connection) {
                                 <div class="row mb-5">
 
                                     <!-- add your code here -->
-                                    <form action="create_assignment.php" method="POST">
+                                    <form id="assignmentForm" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="title">Assignment Title:</label>
                                             <input type="text" name="title" id="title" required>
@@ -329,6 +329,16 @@ if ($connection) {
 
                                         <button type="submit">Create Assignment</button>
                                     </form>
+                                    <script>
+                                        document.getElementById('assignmentForm').addEventListener('submit', function(event) {
+                                            event.preventDefault(); 
+                                            var formData = new FormData(this);
+                                            var xhr = new XMLHttpRequest();
+                                            xhr.open('POST', 'create_assignment.php', true);
+                                            xhr.send(formData);
+                                        });
+                                    </script>
+
 
 
                                     <div class="animated-search-filter sysacad grid fadeInUp delay-1">
