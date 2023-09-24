@@ -288,6 +288,16 @@ if ($connection) {
                         <div class="acad display fadeInUp" style="display: none">
                             <h3 class="mt-4">Assign Tasks</h3>
                             <div class="container">
+                                <div id="successMessage" style="display: none; color:#6fc420;">
+                                    <div class="ui positive save message">
+                                        <i class="close close-positive icon"></i>
+                                        <div class="header">
+                                            <i class="fas fa-check-circle"></i> Success
+                                        </div>
+                                        <p>Task assigned.
+                                        </p>
+                                    </div>
+                                </div>
                                 <div class="row mb-5">
 
                                     <!-- add your code here -->
@@ -331,10 +341,10 @@ if ($connection) {
                                     </form>
                                     <script>
                                         document.getElementById('assignmentForm').addEventListener('submit', function(event) {
-                                            event.preventDefault(); 
+                                            event.preventDefault();
                                             var formData = new FormData(this);
                                             var xhr = new XMLHttpRequest();
-                                            xhr.open('POST', 'create_assignment.php', true);
+                                            xhr.open('POST', './assets/create_assignment.php', true);
                                             xhr.onload = function() {
                                                 if (xhr.status === 200) {
                                                     document.getElementById('successMessage').style.display = 'block';
