@@ -299,72 +299,73 @@ if ($connection) {
                                     </div>
                                 </div>
                                 <div class="row mb-5">
+                                    <div class="container mt-4 col-md-6" style="margin-left:0px;">
+                                        <!-- add your code here -->
+                                        <form id="assignmentForm" method="POST" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <label for="title">Assignment Title:</label>
+                                                <input type="text" class="form-control" name="title" id="title" required>
+                                            </div>
 
-                                    <!-- add your code here -->
-                                    <form id="assignmentForm" method="POST" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label for="title">Assignment Title:</label>
-                                            <input type="text" name="title" id="title" required>
+                                            <div class="form-group">
+                                                <label for="question_file">Assignment Question File:</label>
+                                                <input type="file" class="form-control" name="question_file" id="question_file" required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="due_date">Assignment Due Date:</label>
+                                                <input type="date" class="form-control" name="due_date" id="due_date" required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="marks">Assignment Marks:</label>
+                                                <input type="number" class="form-control" name="marks" id="marks" required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="semester">Select Semester:</label>
+                                                <select name="semester" class="form-control" id="semester" required>
+                                                    <option value="">Select Semester</option>
+                                                    <?php echo $semesterOptions; ?>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="course">Select Course:</label>
+                                                <select id="courseSelect" class="form-control" name="course_name">
+                                                    <?php echo $courseOptions; ?>
+                                                </select>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary">Create Assignment</button>
+                                        </form>
+                                        <script>
+                                            document.getElementById('assignmentForm').addEventListener('submit', function(event) {
+                                                event.preventDefault();
+                                                var formData = new FormData(this);
+                                                var xhr = new XMLHttpRequest();
+                                                xhr.open('POST', 'create_assignment.php', true);
+                                                xhr.onload = function() {
+                                                    if (xhr.status === 200) {
+                                                        document.getElementById('successMessage').style.display = 'block';
+                                                        setTimeout(function() {
+                                                            document.getElementById('assignmentForm').reset();
+                                                            document.getElementById('successMessage').style.display = 'none';
+                                                        }, 3000);
+                                                    } else {
+                                                        console.error('Form submission failed with status ' + xhr.status);
+                                                    }
+                                                };
+                                                xhr.send(formData);
+                                            });
+                                        </script>
+
+
+
+                                        <div class="animated-search-filter sysacad grid fadeInUp delay-1">
+
+
                                         </div>
-
-                                        <div class="form-group">
-                                            <label for="question_file">Assignment Question File:</label>
-                                            <input type="file" name="question_file" id="question_file" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="due_date">Assignment Due Date:</label>
-                                            <input type="date" name="due_date" id="due_date" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="marks">Assignment Marks:</label>
-                                            <input type="number" name="marks" id="marks" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="semester">Select Semester:</label>
-                                            <select name="semester" id="semester" required>
-                                                <option value="">Select Semester</option>
-                                                <?php echo $semesterOptions; ?>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="course">Select Course:</label>
-                                            <select id="courseSelect" name="course_name">
-                                                <?php echo $courseOptions; ?>
-                                            </select>
-                                        </div>
-
-                                        <button type="submit">Create Assignment</button>
-                                    </form>
-                                    <script>
-                                        document.getElementById('assignmentForm').addEventListener('submit', function(event) {
-                                            event.preventDefault();
-                                            var formData = new FormData(this);
-                                            var xhr = new XMLHttpRequest();
-                                            xhr.open('POST', 'create_assignment.php', true);
-                                            xhr.onload = function() {
-                                                if (xhr.status === 200) {
-                                                    document.getElementById('successMessage').style.display = 'block';
-                                                    setTimeout(function() {
-                                                        document.getElementById('assignmentForm').reset();
-                                                        document.getElementById('successMessage').style.display = 'none';
-                                                    }, 3000);
-                                                } else {
-                                                    console.error('Form submission failed with status ' + xhr.status);
-                                                }
-                                            };
-                                            xhr.send(formData);
-                                        });
-                                    </script>
-
-
-
-                                    <div class="animated-search-filter sysacad grid fadeInUp delay-1">
-
-
                                     </div>
                                 </div>
                             </div>
