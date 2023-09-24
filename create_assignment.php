@@ -60,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
 
-    $sql = "INSERT INTO assignment (instructor_id,AssignmentTitle, AssignmentQuestionURL, AssignmentDueDate, AssignmentMarks, batch)
-            VALUES ('$instructorId','$title', '$targetFileName', '$dueDate', $marks, $semester)";
+    $sql = "INSERT INTO assignment (instructor_id,AssignmentTitle, AssignmentQuestionURL, AssignmentDueDate, AssignmentMarks, batch, course_name)
+            VALUES ($instructorId,'$title', '$targetFileName', '$dueDate', $marks, $semester, '$course')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Assignment created successfully.";
