@@ -335,6 +335,17 @@ if ($connection) {
                                             var formData = new FormData(this);
                                             var xhr = new XMLHttpRequest();
                                             xhr.open('POST', 'create_assignment.php', true);
+                                            xhr.onload = function() {
+                                                if (xhr.status === 200) {
+                                                    document.getElementById('successMessage').style.display = 'block';
+                                                    setTimeout(function() {
+                                                        document.getElementById('assignmentForm').reset();
+                                                        document.getElementById('successMessage').style.display = 'none';
+                                                    }, 2000);
+                                                } else {
+                                                    console.error('Form submission failed with status ' + xhr.status);
+                                                }
+                                            };
                                             xhr.send(formData);
                                         });
                                     </script>
