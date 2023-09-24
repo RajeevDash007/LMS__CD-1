@@ -138,6 +138,23 @@ if ($connection) {
             font-weight: 500;
             margin-top: -15px;
         }
+
+
+        body .dark-mode label {
+            color: #fff !important;
+        }
+
+        .btn-toggle:before {
+            content: "Off";
+            left: -4rem;
+            color: #666 !important;
+        }
+
+        .btn-toggle > .handle{
+            background: #666;
+            width: 0.9rem;
+            height: 0.9rem;
+        }
     </style>
     <title>Instructor Dashboard</title>
 </head>
@@ -249,7 +266,7 @@ if ($connection) {
                                     <?php endif; ?>
                                 </div>
                                 <div class="container mt-4 col-md-6" style="margin-left:0px;">
-                                    <h2>Create a Course</h2>
+                                    <h2 style="margin-bottom:20px;">Create a Course</h2>
                                     <form method="POST">
                                         <div class="form-group">
                                             <label for="courseName">Course Name</label>
