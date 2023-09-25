@@ -396,7 +396,9 @@ if ($connection) {
                                                 </tr>
                                             </thead>
                                             <tbody id="assignmentTableBody">
-
+                                                <?php
+                                                include './assets/fetch_assignments.php';
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
