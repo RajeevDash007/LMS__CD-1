@@ -139,8 +139,7 @@ if ($connection) {
             margin-top: -15px;
         }
 
-
-        body .dark-mode label {
+        body .dark-mode tr,body .dark-mode td,body .dark-mode th,body .dark-mode label{
             color: #fff !important;
         }
 
