@@ -166,7 +166,7 @@ if ($connection) {
         </button>
 
         <div class="col-4 col-sm-3">
-            <img src="https://www.logolynx.com/images/logolynx/0d/0d423bda04a7a684609b06cd46bb699b.png" class="img-fluid logo ml-sm-4" style="opacity: .5;width:100px;" />
+            <h4 style="margin-top: 10px;color:#666;">Instructor Dashboard</h1>
         </div>
 
         <div class="col-4 col-md-5 d-none d-md-flex  flex-column">
