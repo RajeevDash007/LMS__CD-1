@@ -150,7 +150,7 @@ if ($connection) {
             color: #666 !important;
         }
 
-        .btn-toggle > .handle{
+        .btn-toggle>.handle {
             background: #666;
             width: 0.9rem;
             height: 0.9rem;
@@ -316,7 +316,7 @@ if ($connection) {
                                     </div>
                                 </div>
                                 <div class="row mb-5">
-                                    <div class="container mt-4 col-md-6" style="margin-left:0px;">
+                                    <div class="container mt-4 col-md-5" style="margin-left:0px;">
                                         <!-- add your code here -->
                                         <form id="assignmentForm" method="POST" enctype="multipart/form-data">
                                             <div class="form-group">
@@ -383,7 +383,25 @@ if ($connection) {
 
 
                                         </div>
+
                                     </div>
+                                    <div class="container mt-4 col-md-5" style="margin-left:0px;">
+                                        <h2 style="margin-top:-65px;margin-bottom:40px;">Assignments List</h2>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Assg. Name</th>
+                                                    <th>Semester</th>
+                                                    <th>Deadline</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="assignmentTableBody">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
