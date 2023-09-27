@@ -139,9 +139,6 @@ if ($connection) {
             margin-top: -15px;
         }
 
-        body .dark-mode tr,
-        body .dark-mode td,
-        body .dark-mode th,
         body .dark-mode label {
             color: #fff !important;
         }
@@ -175,7 +172,7 @@ if ($connection) {
             background-color: #f5f9fc;
         }
 
-        .rwd-table tr:nth-child(odd){
+        .rwd-table tr:nth-child(even){
             background-color: #ebf3f9;
         }
 
