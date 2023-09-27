@@ -139,7 +139,10 @@ if ($connection) {
             margin-top: -15px;
         }
 
-        body .dark-mode tr,body .dark-mode td,body .dark-mode th,body .dark-mode label{
+        body .dark-mode tr,
+        body .dark-mode td,
+        body .dark-mode th,
+        body .dark-mode label {
             color: #fff !important;
         }
 
@@ -153,6 +156,108 @@ if ($connection) {
             background: #666;
             width: 0.9rem;
             height: 0.9rem;
+        }
+
+        .rwd-table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        .rwd-table thead tr:first-child {
+            border-top: none;
+            background: #428bca;
+            color: #fff;
+        }
+
+        .rwd-table tr {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            background-color: #f5f9fc;
+        }
+
+        .rwd-table tr:nth-child(odd){
+            background-color: #ebf3f9;
+        }
+
+        .rwd-table th {
+            display: none;
+        }
+
+        .rwd-table td {
+            display: block;
+        }
+
+        .rwd-table td:first-child {
+            margin-top: .5em;
+        }
+
+        .rwd-table td:last-child {
+            margin-bottom: .5em;
+        }
+
+        .rwd-table td:before {
+            content: attr(data-th) ": ";
+            font-weight: bold;
+            width: 120px;
+            display: inline-block;
+            color: #000;
+        }
+
+        .rwd-table th,
+        .rwd-table td {
+            text-align: left;
+        }
+
+        .rwd-table {
+            color: #333;
+            border-radius: .4em;
+            overflow: hidden;
+        }
+
+        .rwd-table tr {
+            border-color: #bfbfbf;
+        }
+
+        .rwd-table th,
+        .rwd-table td {
+            padding: .5em 1em;
+        }
+
+        @media screen and (max-width: 601px) {
+            .rwd-table tr:nth-child(2) {
+                border-top: none;
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            .rwd-table tr:hover:not(:first-child) {
+                background-color: #d8e7f3;
+            }
+
+            .rwd-table td:before {
+                display: none;
+            }
+
+            .rwd-table th,
+            .rwd-table td {
+                display: table-cell;
+                padding: .25em .5em;
+            }
+
+            .rwd-table th:first-child,
+            .rwd-table td:first-child {
+                padding-left: 0;
+            }
+
+            .rwd-table th:last-child,
+            .rwd-table td:last-child {
+                padding-right: 0;
+            }
+
+            .rwd-table th,
+            .rwd-table td {
+                padding: 1em !important;
+            }
         }
     </style>
     <title>Instructor Dashboard</title>
@@ -384,9 +489,9 @@ if ($connection) {
                                         </div>
 
                                     </div>
-                                    <div class="container mt-4 col-md-5" style="margin-left:0px;">
+                                    <div class="container mt-4 col-md-5 table-container" style="margin-left:0px;">
                                         <h2 style="margin-top:-65px;margin-bottom:40px;">Assignments List</h2>
-                                        <table class="table">
+                                        <table class="table rwd-table">
                                             <thead>
                                                 <tr>
                                                     <th>Assg. Name</th>
