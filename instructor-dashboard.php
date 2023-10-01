@@ -522,7 +522,7 @@ if ($connection) {
                                         if ($conn->connect_error) {
                                             die("Connection failed: " . $conn->connect_error);
                                         }
-                
+                                        $instructor_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
                                         $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
                                         echo '<table class="table table-bordered">';
                                         echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
