@@ -172,7 +172,7 @@ if ($connection) {
             background-color: #f5f9fc;
         }
 
-        .rwd-table tr:nth-child(even){
+        .rwd-table tr:nth-child(even) {
             background-color: #ebf3f9;
         }
 
@@ -512,11 +512,48 @@ if ($connection) {
                         <div class="adm display fadeInUp" style="display: none">
                             <h3 class="mt-4">Time Table</h3>
                             <div class="container">
+                                      
                                 <div class="row mb-5">
-                                    <p class="lead w-100"></p>
-                                    <div class="animated-search-filter adm grid fadeInUp delay-1">
-                                        <!-- add your code here -->
+                                     <!-- add your code here -->
+                                     <?php
+                                        require_once('./config.php');
+                                        $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
+                                            
+                                        if ($conn->connect_error) {
+                                            die("Connection failed: " . $conn->connect_error);
+                                        }
+                
+                                        $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+                                        echo '<table class="table table-bordered">';
+                                        echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
+                                        echo '<tbody>';
 
+                                        $timeSlots = ['9:00 AM - 10:00 AM', '10:00 AM - 11:00 AM', '11:00 AM - 12:00 PM', '1:00 PM - 2:00 PM', '2:00 PM - 3:00 PM'];
+                                        foreach ($timeSlots as $timeSlot) {
+                                            echo '<tr>';
+                                            echo '<td>' . $timeSlot . '</td>';
+
+                                            foreach ($days as $day) {
+                                                $query = "SELECT course_name FROM classes WHERE instructor_id = $instructor_id AND day = '$day' AND start_time <= '$timeSlot' AND end_time > '$timeSlot'";
+                                                $result = $conn->query($query);
+
+                                                if ($result->num_rows > 0) {
+                                                    $row = $result->fetch_assoc();
+                                                    echo '<td>' . $row['course_name'] . '</td>';
+                                                } else {
+                                                    echo '<td></td>';
+                                                }
+                                            }
+
+                                            echo '</tr>';
+                                        }
+
+                                        echo '</tbody>';
+                                        echo '</table>';
+                                        $conn->close();
+                                        ?>
+                                    <div class="animated-search-filter adm grid fadeInUp delay-1">
+                                       
                                     </div>
                                 </div>
                             </div>
