@@ -524,6 +524,7 @@ if ($connection) {
                                         }
                                         $instructor_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
                                         $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+                                        echo '<div class="table-responsive timetable">';
                                         echo '<table class="table table-bordered">';
                                         echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
                                         echo '<tbody>';
@@ -550,6 +551,7 @@ if ($connection) {
 
                                         echo '</tbody>';
                                         echo '</table>';
+                                        echo '</div>';
                                         $conn->close();
                                         ?>
                                     <div class="animated-search-filter adm grid fadeInUp delay-1">
