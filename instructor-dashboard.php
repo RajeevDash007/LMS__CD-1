@@ -220,6 +220,26 @@ if ($connection) {
             padding: .5em 1em;
         }
 
+        .timetable table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .timetable th,
+        .timetable td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 15px;
+        }
+
+        .timetable th {
+            background-color: #9EC0EA;
+        }
+
+        .timetable tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
         @media screen and (max-width: 601px) {
             .rwd-table tr:nth-child(2) {
                 border-top: none;
@@ -512,50 +532,54 @@ if ($connection) {
                         <div class="adm display fadeInUp" style="display: none">
                             <h3 class="mt-4">Time Table</h3>
                             <div class="container">
-                                      
+
                                 <div class="row mb-5">
-                                     <!-- add your code here -->
-                                     <?php
-                                        require_once('./config.php');
-                                        $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-                                            
-                                        if ($conn->connect_error) {
-                                            die("Connection failed: " . $conn->connect_error);
-                                        }
-                                        $instructor_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
-                                        $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-                                        echo '<div class="table-responsive timetable">';
-                                        echo '<table class="table table-bordered">';
-                                        echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
-                                        echo '<tbody>';
+                                    <!-- add your code here -->
+                                    <?php
+                                    require_once('./config.php');
+                                    $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 
-                                        $timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '2:00 PM - 3:00 PM', '3:00 PM - 4:00 PM', '4:00 PM - 5:00 PM'];
-                                        foreach ($timeSlots as $timeSlot) {
-                                            echo '<tr>';
-                                            echo '<td>' . $timeSlot . '</td>';
+                                    if ($conn->connect_error) {
+                                        die("Connection failed: " . $conn->connect_error);
+                                    }
+                                    $instructor_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+                                    $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+                                    echo '<div class="table-responsive timetable">';
+                                    echo '<table class="table table-bordered">';
+                                    echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
+                                    echo '<tbody>';
 
-                                            foreach ($days as $day) {
-                                                $query = "SELECT course_name FROM classes WHERE instructor_id = $instructor_id AND day = '$day' AND start_time <= '$timeSlot' AND end_time > '$timeSlot'";
-                                                $result = $conn->query($query);
+                                    $timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '2:00 PM - 3:00 PM', '3:00 PM - 4:00 PM', '4:00 PM - 5:00 PM'];
+                                    foreach ($timeSlots as $timeSlot) {
+                                        echo '<tr>';
+                                        echo '<td>' . $timeSlot . '</td>';
 
-                                                if ($result->num_rows > 0) {
-                                                    $row = $result->fetch_assoc();
-                                                    echo '<td>' . $row['course_name'] . '</td>';
-                                                } else {
-                                                    echo '<td></td>';
-                                                }
+                                        foreach ($days as $day) {
+                                            $query = "SELECT course_name, semester, room_no FROM classes WHERE instructor_id = $instructor_id AND day = '$day' AND start_time <= '$timeSlot' AND end_time > '$timeSlot'";
+                                            $result = $conn->query($query);
+
+                                            if ($result->num_rows > 0) {
+                                                $row = $result->fetch_assoc();
+                                                echo '<td>';
+                                                echo '' . $row['course_name'] . '<br>';
+                                                echo '( ' . $row['semester'] . ' )' . '<br>';
+                                                echo '( ' . $row['room_no'] . ' )';
+                                                echo '</td>';
+                                            } else {
+                                                echo '<td></td>';
                                             }
-
-                                            echo '</tr>';
                                         }
 
-                                        echo '</tbody>';
-                                        echo '</table>';
-                                        echo '</div>';
-                                        $conn->close();
-                                        ?>
+                                        echo '</tr>';
+                                    }
+
+                                    echo '</tbody>';
+                                    echo '</table>';
+                                    echo '</div>';
+                                    $conn->close();
+                                    ?>
                                     <div class="animated-search-filter adm grid fadeInUp delay-1">
-                                       
+
                                     </div>
                                 </div>
                             </div>
