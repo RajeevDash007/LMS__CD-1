@@ -142,7 +142,13 @@ if ($connection) {
         body .dark-mode label {
             color: #fff !important;
         }
+        .form-group {
+            margin-bottom: 15px;
+        }
 
+        label {
+            font-weight: bold;
+        }
         .btn-toggle:before {
             content: "Off";
             left: -4rem;
@@ -457,7 +463,7 @@ if ($connection) {
 
                                             <div class="form-group">
                                                 <label for="marks">Assignment Marks:</label>
-                                                <input type="number" class="form-control" name="marks" id="marks" required>
+                                                <input type="number" min="0" max="100" class="form-control" name="marks" id="marks" required>
                                             </div>
 
                                             <div class="form-group">
