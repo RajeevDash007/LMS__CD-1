@@ -142,6 +142,12 @@ if ($connection) {
         body .dark-mode label {
             color: #fff !important;
         }
+        body .dark-mode .timetable tbody tr:nth-child(odd) {
+            color: white;
+        }
+        body .dark-mode .timetable tbody tr:nth-child(even) {
+            background-color: #FFF5EE;
+        }
         .form-group {
             margin-bottom: 15px;
         }
