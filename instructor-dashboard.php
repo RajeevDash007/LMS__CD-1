@@ -142,12 +142,15 @@ if ($connection) {
         body .dark-mode label {
             color: #fff !important;
         }
+
         body .dark-mode .timetable tbody tr:nth-child(odd) {
             color: white;
         }
+
         body .dark-mode .timetable tbody tr:nth-child(even) {
             background-color: #FFF5EE;
         }
+
         .form-group {
             margin-bottom: 15px;
         }
@@ -155,6 +158,7 @@ if ($connection) {
         label {
             font-weight: bold;
         }
+
         .btn-toggle:before {
             content: "Off";
             left: -4rem;
@@ -287,6 +291,9 @@ if ($connection) {
             .rwd-table td {
                 padding: 1em !important;
             }
+        }
+        .fc-today{
+            background-color: #E35335 !important;
         }
     </style>
     <title>Instructor Dashboard</title>
