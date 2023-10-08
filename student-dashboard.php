@@ -362,10 +362,11 @@ try {
             <thead>
                 <tr>
                     <th>Sl No.</th>
-                    <th>Assignment Title</th>
+                    <th>Title</th>
                     <th>Deadline</th>
                     <th>Marks</th>
-                    <th>Instructor Name</th>
+                    <th>Course</th>
+                    <th>Instructor</th>
                 </tr>
             </thead>
             <tbody>
@@ -376,6 +377,7 @@ try {
                         <td><?= $assignment['AssignmentTitle'] ?></td>
                         <td><?= $assignment['AssignmentDueDate'] ?></td>
                         <td><?= $assignment['AssignmentMarks'] ?></td>
+                        <td><?= $assignment['course_name'] ?></td>
                         <td><?= $assignment['instructor_name'] ?></td>
                     </tr>
                     <?php $index++; // Increment the counter variable ?>
