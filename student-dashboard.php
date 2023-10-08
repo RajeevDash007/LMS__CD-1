@@ -373,7 +373,6 @@ try {
                 <?php $index = 1; // Initialize a counter variable ?>
                 <?php foreach ($assignments as $assignment) : ?>
                     <tr>
-                    <td><input type="checkbox" class="row-checkbox" data-assignment-id="<?= $index ?>"></td>
                         <td><?= $index ?></td>
                         <td><?= $assignment['AssignmentTitle'] ?></td>
                         <td><?= $assignment['AssignmentDueDate'] ?></td>
@@ -392,28 +391,6 @@ try {
                                 
                             </div>
                         </div>
-                        <script>
-  // Get a reference to all checkboxes with the class "row-checkbox"
-  const checkboxes = document.querySelectorAll('.row-checkbox');
-
-  // Add an event listener to each checkbox
-  checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', function () {
-      // Get the assignment ID from the "data-assignment-id" attribute
-      const assignmentId = this.getAttribute('data-assignment-id');
-
-      // Find the corresponding row by index (assignment ID)
-      const rowToDelete = document.querySelector(`tr:nth-child(${parseInt(assignmentId) + 1})`);
-
-      // Check if the checkbox is checked
-      if (this.checked) {
-        // If checked, delete the row
-        rowToDelete.remove();
-      }
-    });
-  });
-</script>
-
 
                         <div class="acad display fadeInUp" style="display: none">
                             <h3 class="mt-4">All assignments details</h3>
