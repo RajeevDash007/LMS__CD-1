@@ -338,7 +338,7 @@ try {
         $student_id = $result['student_id'];
 
     // Fetch assignments for the logged-in student's batch
-    $stmt = $pdo->prepare("SELECT a.AssignmentTitle, a.AssignmentDueDate, a.AssignmentMarks, i.name AS instructor_name
+    $stmt = $pdo->prepare("SELECT a.AssignmentTitle, a.AssignmentDueDate, a.AssignmentMarks, a.course_name, i.name AS instructor_name
                         FROM assignment a
                         INNER JOIN instructors i ON a.instructor_id = i.instructor_id
                         WHERE a.batch = (SELECT batch FROM students WHERE student_id = :student_id)");
