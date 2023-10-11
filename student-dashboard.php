@@ -147,10 +147,7 @@ if ($connection) {
 
                                             </div>
                                             <div class="col-12 order-2 order-sm-1">
-                                                <p class="px-3 pt-2 pb-3 text-banner" style="color: #5584bc; font-size: 15px">Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit. Morbi sed metus quis mauris tempor
-                                                    lacinia. Etiam maximus arcu a erat dapibus tempus eget et justo. Nam
-                                                    eget iaculis arcu, eu aliquam risus.</p>
+                                                <p class="px-3 pt-2 pb-3 text-banner" style="color: #5584bc; font-size: 15px">Welcome to the student dashboard! Here, you'll find all the tools and resources to make your learning journey successful. If you ever need assistance or have questions, our support team is here to help. Happy learning!"</p>
                                             </div>
                                         </div>
                                     </div>
@@ -364,6 +361,7 @@ try {
                                 <div class="row mb-5">
                                     <p class="lead w-100">Options panel</p>
                                     <!-- add your code here -->
+                                    
 
 
                                     <div class="animated-search-filter sysacad grid fadeInUp delay-1">
