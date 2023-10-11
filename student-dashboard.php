@@ -276,10 +276,6 @@ $dbUser = 'root';
 $dbPass = '';
 $dbName = 'lms';
 
-// if (isset($_SESSION['student_id'])) {
-//     // Retrieve the student_id from the session
-//     $student_id = $_SESSION['student_id'];
-// }
 
 
 if (isset($_SESSION['user_email'])) {
@@ -361,7 +357,7 @@ try {
                                 <div class="row mb-5">
                                     <p class="lead w-100">Options panel</p>
                                     <!-- add your code here -->
-                                    
+
 
 
                                     <div class="animated-search-filter sysacad grid fadeInUp delay-1">
