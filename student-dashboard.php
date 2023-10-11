@@ -181,8 +181,8 @@ if ($connection) {
                                         
                             
                                 
-                                <div class="swiper-button-next swiper-navBtn"></div>
-                                <div class="swiper-button-prev swiper-navBtn"></div>
+                                <div class="swiper-button-next swiper-navBtn" style="display: none;"></div>
+                                <div class="swiper-button-prev swiper-navBtn" style="display: none;"></div>
                                 <div class="swiper-pagination"></div>
                             </div>
                             <script src="./assets/swiper-bundle.min.js"></script>
@@ -254,6 +254,7 @@ if ($connection) {
                 },
             },
         });
+        
     })
     .catch(function (error) {
         console.error('Error:', error);
