@@ -404,19 +404,66 @@ try {
  catch (PDOException $e) {
     echo "Database Error: " . $e->getMessage();
 }
-?> 
+
+if (isset($_POST['submit'])) {
+    $index = 1; // Initialize a counter variable
+    foreach ($assignments as $assignment) {
+        $questionUrl = $assignment['AssignmentQuestionURL'];
+        $answerFile = $_FILES['AssignmentFileURL']['tmp_name'][$index];
+        $answerFileName = $_FILES['AssignmentFileURL']['name'][$index];
+
+        
+        
+        // Define the directory where uploaded files will be stored
+        $uploadDirectory = 'uploads/'; // Change this to your desired directory
+
+        if (!is_dir($uploadDirectory)) {
+            if (!mkdir($uploadDirectory, 0755, true)) {
+                // Handle directory creation failure
+                echo "Failed to create the directory.";
+                exit;
+            }
+        }
+
+        // Generate a unique filename for the uploaded file
+        $uniqueFileName = uniqid() . '_' . $answerFileName;
+
+        // Move the uploaded file to the specified directory with the unique filename
+        if (move_uploaded_file($answerFile, $uploadDirectory . $uniqueFileName)) {
+            // File uploaded successfully
+            // Store the file path (URL or local file path) in the database
+            // You need to update the AssignmentFileURL in the database with $uniqueFileName
+            // For example: $assignment['AssignmentFileURL'] = $uploadDirectory . $uniqueFileName;
+            $updateQuery = "UPDATE assignment SET AssignmentFileURL = :fileUrl WHERE AssignmentID = :assignmentId";
+            $stmt = $pdo->prepare($updateQuery);
+            $stmt->bindParam(':fileUrl', $fileUrl, PDO::PARAM_STR);
+            $stmt->bindParam(':assignmentId', $assignmentId, PDO::PARAM_INT);
+            $stmt->execute();
+        } else {
+            echo "File upload failed for assignment {$assignment['AssignmentTitle']}.";
+        }
+        
+        $index++; // Increment the counter variable
+    }
+}
+
+?>
 
 
- <div class="table">
+
+
+<div class="table">
     <section class="table_body">
-        <table>
-            <thead>
-                <tr>
+        <form method="POST" action="" enctype="multipart/form-data">
+            <table>
+                <thead>
+                    <tr>
                     <th>Sl No.</th>
                     <th>Title</th>
                     <th>course</th>
                     <th>Question file</th>
                     <th>Answer file</th>
+                    <th>Submit</th>
                 </tr>
             </thead>
             <tbody>
@@ -426,13 +473,17 @@ try {
                         <td><?= $index ?></td>
                         <td><?= $assignment['AssignmentTitle'] ?></td>
                         <td><?= $assignment['course_name'] ?></td>
-                        <td><?= $assignment['AssignmentQuestionURL'] ?></td>
-                        <td><?= $assignment['AssignmentFileURL'] ?></td>
+                        <!-- <td><?= $assignment['AssignmentQuestionURL'] ?></td> -->
+                        <!-- <td><?= $assignment['AssignmentFileURL'] ?></td> -->
+                        <td><a href="<?php echo $assignment['AssignmentQuestionURL']; ?>" target="_blank">View Assignment</a></td>
+                            <td><input type="file" name="AssignmentFileURL" accept=".pdf, .doc, .docx" required></td>
+                            <td><button type="submit" name="submit">Submit</button></td>
                     </tr>
                     <?php $index++; // Increment the counter variable ?>
                 <?php endforeach; ?>
             </tbody>
         </table>
+        </form>
     </section>
 </div>  
 
