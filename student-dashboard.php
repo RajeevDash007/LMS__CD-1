@@ -357,6 +357,85 @@ try {
                                 <div class="row mb-5">
                                     <p class="lead w-100">Options panel</p>
                                     <!-- add your code here -->
+                                    <?php
+                                 
+
+
+
+// Database connection settings
+$dbHost = 'localhost';
+$dbUser = 'root';
+$dbPass = '';
+$dbName = 'lms';
+
+
+
+if (isset($_SESSION['user_email'])) {
+    // Retrieve the user's email from the session
+    $user_email = $_SESSION['user_email'];
+}
+
+try {
+    // Create a database connection
+    $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $pdo->prepare("SELECT student_id FROM students WHERE email = :user_email");
+    $stmt->bindParam(':user_email', $user_email, PDO::PARAM_STR);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result && isset($result['student_id'])) {
+        $student_id = $result['student_id'];
+
+    // Fetch assignments for the logged-in student's batch
+    $stmt = $pdo->prepare("SELECT a.AssignmentTitle, a.course_name, a.AssignmentQuestionURL, a.AssignmentFileURL, i.name AS instructor_name
+                        FROM assignment a
+                        INNER JOIN instructors i ON a.instructor_id = i.instructor_id
+                        WHERE a.batch = (SELECT batch FROM students WHERE student_id = :student_id)");
+    
+    $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
+    $stmt->execute();
+    
+    $assignments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+}
+}
+ catch (PDOException $e) {
+    echo "Database Error: " . $e->getMessage();
+}
+?> 
+
+
+ <div class="table">
+    <section class="table_body">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sl No.</th>
+                    <th>Title</th>
+                    <th>course</th>
+                    <th>Question file</th>
+                    <th>Answer file</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $index = 1; // Initialize a counter variable ?>
+                <?php foreach ($assignments as $assignment) : ?>
+                    <tr>
+                        <td><?= $index ?></td>
+                        <td><?= $assignment['AssignmentTitle'] ?></td>
+                        <td><?= $assignment['course_name'] ?></td>
+                        <td><?= $assignment['AssignmentQuestionURL'] ?></td>
+                        <td><?= $assignment['AssignmentFileURL'] ?></td>
+                    </tr>
+                    <?php $index++; // Increment the counter variable ?>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </section>
+</div>  
+
 
 
 
