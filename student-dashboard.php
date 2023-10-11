@@ -264,47 +264,10 @@ if ($connection) {
 
 
 
-                                <!-- <div class="row mb-5 mt-2 fadeInUp delay-1">
-                                    <div class="col-md-12 mt-4 mt-md-0">
-                                        <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4 fadeInUp">
-                                            <p class="text-center mb-3">Assignment list table Below</p>
-
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <!-- <div class="table">
-                                     <section class="table_header">
-                                        <h1>Asiignment Table</h1> 
-                                        </section> 
-                                    <section class="table_body">
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th>Sl No.</th>
-                                                    <th>Course Name</th>
-                                                    <th>Topic Name</th>
-                                                    <th>Marks</th>
-                                                    <th><strong>Deadline</strong></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                 <tr>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th><strong></strong></th>
-                                                </tr>
-                                                 
-                                                
-                                            </tbody>
-                                        </table>
-                                        </section>
-                                     
-                                </div>-->
+                                
                                  <?php
                                  
-// $student_id = 4;
+
 
 
 // Database connection settings
