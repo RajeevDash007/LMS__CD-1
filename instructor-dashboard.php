@@ -609,6 +609,22 @@ if ($connection) {
                                 </div>
                             </div>
                         </div>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+                        <script>
+                            $(document).ready(function() {
+                                $('#courseSearch').on('input', function() {
+                                    const searchTerm = $(this).val().toLowerCase();
+                                    $('table tbody tr').hide();
+                                    $('table tbody tr').each(function() {
+                                        const courseName = $(this).find('td:eq(1)').text().toLowerCase();
+                                        if (courseName.includes(searchTerm)) {
+                                            $(this).show();
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
 
                         <div class="beneficios display fadeInUp" style="display: none">
                             <div class="container">
