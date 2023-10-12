@@ -615,24 +615,33 @@ if ($connection) {
                             $(document).ready(function() {
                                 $('#courseSearch').on('input', function() {
                                     const searchTerm = $(this).val().toLowerCase();
-                                    $('table tbody tr').hide();
                                     $('table tbody tr').each(function() {
                                         let found = false;
-                                        $(this).find('td').each(function() {
-                                            const cellContent = $(this).text().toLowerCase();
-                                            if (cellContent.includes(searchTerm)) {
+                                        $(this).find('td:gt(0)').each(function() {
+                                            const cellContent = $(this).text();
+                                            if (cellContent.toLowerCase().includes(searchTerm)) {
                                                 found = true;
-                                                return false; 
+                                                const lines = cellContent.split('(');
+                                                const formattedContent = lines.join('<br>(');
+
+                                                $(this).html(formattedContent);
+                                            } else {
+                                                $(this).html('');
                                             }
                                         });
-
-                                        if (found) {
+                                        if (!found) {
+                                            $(this).hide();
+                                        } else {
                                             $(this).show();
                                         }
                                     });
                                 });
                             });
                         </script>
+
+
+
+
 
                         <div class="beneficios display fadeInUp" style="display: none">
                             <div class="container">
