@@ -617,8 +617,16 @@ if ($connection) {
                                     const searchTerm = $(this).val().toLowerCase();
                                     $('table tbody tr').hide();
                                     $('table tbody tr').each(function() {
-                                        const courseName = $(this).find('td:eq(1)').text().toLowerCase();
-                                        if (courseName.includes(searchTerm)) {
+                                        let found = false;
+                                        $(this).find('td').each(function() {
+                                            const cellContent = $(this).text().toLowerCase();
+                                            if (cellContent.includes(searchTerm)) {
+                                                found = true;
+                                                return false; 
+                                            }
+                                        });
+
+                                        if (found) {
                                             $(this).show();
                                         }
                                     });
