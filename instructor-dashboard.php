@@ -292,7 +292,8 @@ if ($connection) {
                 padding: 1em !important;
             }
         }
-        .fc-today{
+
+        .fc-today {
             background-color: #E35335 !important;
         }
     </style>
@@ -551,7 +552,12 @@ if ($connection) {
                         <div class="adm display fadeInUp" style="display: none">
                             <h3 class="mt-4">Time Table</h3>
                             <div class="container">
-
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label for="courseSearch">Search by Course Name:</label>
+                                        <input type="text" class="form-control" id="courseSearch" placeholder="Enter course name">
+                                    </div>
+                                </div>
                                 <div class="row mb-5">
                                     <!-- add your code here -->
                                     <?php
