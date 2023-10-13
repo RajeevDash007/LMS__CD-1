@@ -580,7 +580,13 @@ if ($connection) {
                                         echo '<td>' . $timeSlot . '</td>';
 
                                         foreach ($days as $day) {
-                                            $query = "SELECT course_name, semester, room_no FROM classes WHERE instructor_id = $instructor_id AND day = '$day' AND start_time <= '$timeSlot' AND end_time > '$timeSlot'";
+                                            $query = "SELECT c.course_name, cl.semester, cl.room_no 
+                                            FROM classes cl
+                                            JOIN courses c ON cl.course_id = c.course_id
+                                            WHERE cl.instructor_id = $instructor_id 
+                                                AND cl.day = '$day' 
+                                                AND cl.start_time <= '$timeSlot' 
+                                                AND cl.end_time > '$timeSlot'";
                                             $result = $conn->query($query);
 
                                             if ($result->num_rows > 0) {
