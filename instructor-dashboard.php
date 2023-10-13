@@ -19,7 +19,42 @@ if ($connection) {
     echo "Database connection error.";
     exit();
 }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $courseName = $_POST["course_name"];
+    $courseCredits = $_POST["course_credits"];
+    $courseDescription = $_POST["course_description"];
+    $courseSemester = $_POST['course_semester'];
 
+    // Check if the file input is set and not empty
+    if (isset($_FILES['course_outline']) && $_FILES['course_outline']['error'] === 0) {
+      $fileName = $file['name'];
+        $fileTmpName = $file['tmp_name'];
+        $fileError = $file['error'];
+
+        $destination = __DIR__ . '/course-outline/' . $fileName;  
+        move_uploaded_file($fileTmpName, $destination);
+    } else {
+        echo "File upload error.";
+        exit();
+    }      print_r($_FILES['course_outline']);
+        $file = $_FILES['course_outline'];
+    
+
+    $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+
+    if ($connection) {
+        $query = "INSERT INTO courses (course_name, course_credits, course_description, instructor_id, course_semester, course_outline) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($connection, $query);
+        mysqli_stmt_bind_param($stmt, "sisiss", $courseName, $courseCredits, $courseDescription, $_SESSION['user_id'], $courseSemester, $destination);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        mysqli_close($connection);
+
+        echo "Course created successfully.";
+    } else {
+        echo "Database connection error.";
+    }
+}
 
 $courses = [];
 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
