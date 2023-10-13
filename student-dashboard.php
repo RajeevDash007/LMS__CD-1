@@ -406,18 +406,16 @@ try {
 }
 
 if (isset($_POST['submit'])) {
-    $index = 1; // Initialize a counter variable
-    foreach ($assignments as $assignment) {
-        $questionUrl = $assignment['AssignmentQuestionURL'];
+    $index = 0; // Initialize a counter variable
 
+    foreach ($_FILES['submission_file']['tmp_name'] as $tempFile) {
         // Check if a file was uploaded for this assignment
-        if (!empty($_FILES['submission_file']['tmp_name'][$index])) {
-            $submissionFile = $_FILES['submission_file']['tmp_name'][$index];
+        if (!empty($tempFile)) {
             $submissionFileName = $_FILES['submission_file']['name'][$index];
-            
+
             // Define the directory where uploaded files will be stored
-            $uploadDirectory = 'uploads/'; // Change this to your desired directory
-            
+            $uploadDirectory = 'submit/'; // Change this to your desired directory
+
             if (!is_dir($uploadDirectory)) {
                 if (!mkdir($uploadDirectory, 0755, true)) {
                     // Handle directory creation failure
@@ -428,20 +426,28 @@ if (isset($_POST['submit'])) {
 
             // Generate a unique filename for the uploaded file
             $uniqueFileName = uniqid() . '_' . $submissionFileName;
+            $submissionFilePath = $uploadDirectory . $uniqueFileName;
 
             // Move the uploaded file to the specified directory with the unique filename
-            if (move_uploaded_file($submissionFile, $uploadDirectory . $uniqueFileName)) {
+            if (move_uploaded_file($tempFile, $submissionFilePath)) {
                 // File uploaded successfully
                 // Store the file path (URL or local file path) in the database
-                // You need to insert the submission into the AssignmentSubmissions table.
-                $insertSubmissionQuery = "INSERT INTO AssignmentSubmissions (student_id, AssignmentID, SubmissionDate, FilePath) VALUES (:studentID, :assignmentID, NOW(), :filePath)";
+                // Insert the submission into the AssignmentSubmissions table.
+                $insertSubmissionQuery = "INSERT INTO assignmentsubmissions (student_id, AssignmentID, SubmissionDate, FilePath) VALUES (:student_id, :AssignmentID, NOW(), :filePath)";
                 $stmt = $pdo->prepare($insertSubmissionQuery);
-                $stmt->bindParam(':studentID', $student_id, PDO::PARAM_INT);
-                $stmt->bindParam(':assignmentID', $assignment['AssignmentID'], PDO::PARAM_INT);
-                $stmt->bindParam(':filePath', $uploadDirectory . $uniqueFileName, PDO::PARAM_STR);
-                $stmt->execute();
+                $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
+                $stmt->bindParam(':AssignmentID', $assignments[$index]['AssignmentID'], PDO::PARAM_INT);
+                $stmt->bindParam(':filePath', $submissionFilePath, PDO::PARAM_STR);
+
+                if ($stmt->execute()) {
+                    echo "File uploaded and submission record inserted successfully!";
+                } else {
+                    echo "Submission record insertion failed.";
+                    var_dump($stmt->errorInfo());
+                }
             } else {
-                echo "File upload failed for assignment {$assignment['AssignmentTitle']}.";
+                echo "File upload failed for assignment {$assignments[$index]['AssignmentTitle']}.";
+                var_dump(error_get_last());
             }
         }
         
@@ -449,6 +455,7 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+
 
 <div class="table">
     <section class="table_body">
