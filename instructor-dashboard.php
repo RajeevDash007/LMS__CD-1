@@ -26,17 +26,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $courseSemester = $_POST['course_semester'];
 
     // Check if the file input is set and not empty
-    if (isset($_FILES['course_outline']) && $_FILES['course_outline']['error'] === 0) {
-      $fileName = $file['name'];
+    if (isset($_FILES['course_outline']) && is_uploaded_file($_FILES['course_outline']['tmp_name'])) {
+        $file = $_FILES['course_outline'];
+        $fileName = $file['name'];
         $fileTmpName = $file['tmp_name'];
         $fileError = $file['error'];
 
-        $destination = __DIR__ . '/course-outline/' . $fileName;  
+        $destinationFolder = __DIR__ . '/course-outline/';
+        if (!file_exists($destinationFolder)) {
+            mkdir($destinationFolder, 0777, true);
+        }
+
+        $destination = $destinationFolder . $fileName;
         move_uploaded_file($fileTmpName, $destination);
     } else {
         echo "File upload error.";
         exit();
-    } 
+    }
         $file = $_FILES['course_outline'];
     
 
