@@ -551,7 +551,7 @@ if ($connection) {
 
                         <div class="adm display fadeInUp" style="display: none">
                             <h3 class="mt-4">Time Table</h3>
-                            <div class="container">
+                            <div class="container" style="margin-top: 40px;">
                                 <div class="row mb-4">
                                     <div class="col-md-6">
                                         <label for="courseSearch">Search by Course Name:</label>
@@ -572,7 +572,7 @@ if ($connection) {
                                     echo '<div class="table-responsive timetable">';
                                     echo '<table class="table table-bordered">';
                                     echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
-                                    echo '<tbody>';
+                                    echo '<tbody class="timetable-tbody">';
 
                                     $timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '2:00 PM - 3:00 PM', '3:00 PM - 4:00 PM', '4:00 PM - 5:00 PM'];
                                     foreach ($timeSlots as $timeSlot) {
@@ -613,11 +613,11 @@ if ($connection) {
 
                         <script>
                             $(document).ready(function() {
-                                const originalTableHtml = $('.timetable .table tbody').html(); 
+                                const originalTableHtml = $('.timetable .timetable-tbody').html(); 
 
                                 $('#courseSearch').on('input', function() {
                                     const searchTerm = $(this).val().toLowerCase();
-                                    const tableBody = $('.table tbody');
+                                    const tableBody = $('.timetable-tbody');
 
                                     if (searchTerm === '') {
                                         tableBody.html(originalTableHtml);
