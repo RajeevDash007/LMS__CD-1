@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "File upload error.";
         exit();
-    }      print_r($_FILES['course_outline']);
+    } 
         $file = $_FILES['course_outline'];
     
 
