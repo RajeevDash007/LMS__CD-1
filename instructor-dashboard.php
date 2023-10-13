@@ -19,27 +19,8 @@ if ($connection) {
     echo "Database connection error.";
     exit();
 }
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $courseName = $_POST["course_name"];
-    $courseCredits = $_POST["course_credits"];
-    $courseDescription = $_POST["course_description"];
-    $courseSemester = $_POST['course_semester'];
 
-    $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
-    if ($connection) {
-        $query = "INSERT INTO courses (course_name, course_credits, course_description, instructor_id,course_semester) VALUES (?, ?, ?, ?, ?)";
-        $stmt = mysqli_prepare($connection, $query);
-        mysqli_stmt_bind_param($stmt, "sisii", $courseName, $courseCredits, $courseDescription, $_SESSION['user_id'], $courseSemester);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
-        mysqli_close($connection);
-
-        echo "Course created successfully.";
-    } else {
-        echo "Database connection error.";
-    }
-}
 $courses = [];
 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 if ($connection) {
@@ -98,7 +79,7 @@ if ($connection) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -409,7 +390,7 @@ if ($connection) {
                                 </div>
                                 <div class="container mt-4 col-md-6" style="margin-left:0px;">
                                     <h2 style="margin-bottom:20px;">Create a Course</h2>
-                                    <form method="POST">
+                                    <form method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="courseName">Course Name</label>
                                             <input type="text" class="form-control" id="courseName" name="course_name" required>
@@ -421,6 +402,10 @@ if ($connection) {
                                         <div class="form-group">
                                             <label for="courseDescription">Course Description</label>
                                             <textarea class="form-control" id="courseDescription" name="course_description" rows="3" required></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="courseOutline">Course Outline (PDF)</label>
+                                            <input type="file" class="form-control" id="courseOutline" name="course_outline" accept=".pdf" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="courseSemester">Course Semester</label>
@@ -619,7 +604,7 @@ if ($connection) {
 
                         <script>
                             $(document).ready(function() {
-                                const originalTableHtml = $('.timetable .timetable-tbody').html(); 
+                                const originalTableHtml = $('.timetable .timetable-tbody').html();
 
                                 $('#courseSearch').on('input', function() {
                                     const searchTerm = $(this).val().toLowerCase();
