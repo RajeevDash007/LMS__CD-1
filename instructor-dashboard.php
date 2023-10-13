@@ -613,34 +613,38 @@ if ($connection) {
 
                         <script>
                             $(document).ready(function() {
+                                const originalTableHtml = $('.timetable .table tbody').html(); 
+
                                 $('#courseSearch').on('input', function() {
                                     const searchTerm = $(this).val().toLowerCase();
-                                    $('table tbody tr').each(function() {
-                                        let found = false;
-                                        $(this).find('td:gt(0)').each(function() {
-                                            const cellContent = $(this).text();
-                                            if (cellContent.toLowerCase().includes(searchTerm)) {
-                                                found = true;
-                                                const lines = cellContent.split('(');
-                                                const formattedContent = lines.join('<br>(');
+                                    const tableBody = $('.table tbody');
 
-                                                $(this).html(formattedContent);
+                                    if (searchTerm === '') {
+                                        tableBody.html(originalTableHtml);
+                                    } else {
+                                        tableBody.find('tr').each(function() {
+                                            let found = false;
+                                            $(this).find('td:gt(0)').each(function() {
+                                                const cellContent = $(this).text();
+                                                if (cellContent.toLowerCase().includes(searchTerm)) {
+                                                    found = true;
+                                                    const lines = cellContent.split('(');
+                                                    const formattedContent = lines.join('<br>(');
+                                                    $(this).html(formattedContent);
+                                                } else {
+                                                    $(this).html('');
+                                                }
+                                            });
+                                            if (!found) {
+                                                $(this).hide();
                                             } else {
-                                                $(this).html('');
+                                                $(this).show();
                                             }
                                         });
-                                        if (!found) {
-                                            $(this).hide();
-                                        } else {
-                                            $(this).show();
-                                        }
-                                    });
+                                    }
                                 });
                             });
                         </script>
-
-
-
 
 
                         <div class="beneficios display fadeInUp" style="display: none">
