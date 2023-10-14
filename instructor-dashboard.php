@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fileTmpName = $file['tmp_name'];
         $fileError = $file['error'];
 
-        $destinationFolder = __DIR__ . '/course-outline/';
+        $destinationFolder =  'course-outline/';
         if (!file_exists($destinationFolder)) {
             mkdir($destinationFolder, 0777, true);
         }
@@ -450,6 +450,7 @@ if ($connection) {
                                                 <p><?php echo $course['course_description']; ?></p>
                                                 <p>Credits: <span id="courseCredits"></span></p>
                                                 <p>Semester: <span id="courseSemester"></span></p>
+                                                 <iframe id="courseOutlineIframe" src="<?php echo $course['course_outline']; ?>" frameborder="0" width="100%" height="500"></iframe>
                                             </div>
                                         </div>
                                     </div>
