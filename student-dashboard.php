@@ -427,11 +427,7 @@ if (isset($_POST['submit'])) {
             // Generate a unique filename for the uploaded file
             $uniqueFileName = uniqid() . '_' . $submissionFileName;
             $submissionFilePath = $uploadDirectory . $uniqueFileName;
-           
-
-            
-            
-
+        
             // Move the uploaded file to the specified directory with the unique filename
             if (move_uploaded_file($tempFile, $submissionFilePath)) {
                 // File uploaded successfully
