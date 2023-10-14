@@ -425,7 +425,7 @@ if ($connection) {
                                                 <div class="col-md-3">
                                                     <div class="card custom-card">
                                                         <div class="card-body">
-                                                            <h5 class="card-title"><?php echo $course['course_name']; ?></h5>
+                                                            <h5 class="card-title course-title" data-toggle="modal" data-target="#courseModal" data-description="<?php echo $course['course_description']; ?>" data-credits="<?php echo $course['course_credits']; ?>" data-semester="<?php echo $course['course_semester']; ?>" data-outline="<?php echo isset($course['course_outline']) ? $course['course_outline'] : ''; ?>"><?php echo $course['course_name']; ?></h5>
                                                             <p class="card-text">Credits: <b><?php echo $course['course_credits']; ?></b></p>
                                                             <p class="card-semester">Semester: <b><?php echo $course['course_semester']; ?></b></p>
                                                         </div>
@@ -435,6 +435,26 @@ if ($connection) {
                                         </div>
                                     <?php endif; ?>
                                 </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true" data-backdrop="false">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="courseModalLabel">Course Details</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p><?php echo $course['course_description']; ?></p>
+                                                <p>Credits: <span id="courseCredits"></span></p>
+                                                <p>Semester: <span id="courseSemester"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="container mt-4 col-md-6" style="margin-left:0px;">
                                     <h2 style="margin-bottom:20px;">Create a Course</h2>
                                     <form method="POST" enctype="multipart/form-data">
