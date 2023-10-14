@@ -428,6 +428,9 @@ if (isset($_POST['submit'])) {
             $uniqueFileName = uniqid() . '_' . $submissionFileName;
             $submissionFilePath = $uploadDirectory . $uniqueFileName;
 
+            
+            
+
             // Move the uploaded file to the specified directory with the unique filename
             if (move_uploaded_file($tempFile, $submissionFilePath)) {
                 // File uploaded successfully
@@ -436,7 +439,7 @@ if (isset($_POST['submit'])) {
                 $insertSubmissionQuery = "INSERT INTO assignmentsubmissions (student_id, AssignmentID, SubmissionDate, FilePath) VALUES (:student_id, :AssignmentID, NOW(), :filePath)";
                 $stmt = $pdo->prepare($insertSubmissionQuery);
                 $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
-                $stmt->bindParam(':AssignmentID', $assignments[$index]['AssignmentID'], PDO::PARAM_INT);
+                $stmt->bindParam(':AssignmentID', $assignments[$index]['AssignmentID'], PDO::PARAM_INT); // Use the assignment ID obtained from POST
                 $stmt->bindParam(':filePath', $submissionFilePath, PDO::PARAM_STR);
             
                 if ($stmt->execute()) {
@@ -490,19 +493,6 @@ if (isset($_POST['submit'])) {
         </form>
     </section>
 </div>
-
-<script>
-    // Disable the submit button for assignments that have been submitted
-    const submittedAssignmentIds = <?php echo json_encode($AssignmentId); ?>;
-    const submitButtons = document.querySelectorAll('.submit-button');
-
-    submitButtons.forEach(button => {
-        const AssignmentId = button.getAttribute('data-assignment-id');
-        if (submittedAssignmentIds.includes(AssignmentId)) {
-            button.disabled = true;
-        }
-    });
-</script>
 
 
 
