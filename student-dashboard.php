@@ -427,6 +427,7 @@ if (isset($_POST['submit'])) {
             // Generate a unique filename for the uploaded file
             $uniqueFileName = uniqid() . '_' . $submissionFileName;
             $submissionFilePath = $uploadDirectory . $uniqueFileName;
+           
 
             
             
@@ -439,7 +440,7 @@ if (isset($_POST['submit'])) {
                 $insertSubmissionQuery = "INSERT INTO assignmentsubmissions (student_id, AssignmentID, SubmissionDate, FilePath) VALUES (:student_id, :AssignmentID, NOW(), :filePath)";
                 $stmt = $pdo->prepare($insertSubmissionQuery);
                 $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
-                $stmt->bindParam(':AssignmentID', $assignments[$index]['AssignmentID'], PDO::PARAM_INT); // Use the assignment ID obtained from POST
+                $stmt->bindParam(':AssignmentID', $assignmentID, PDO::PARAM_INT);
                 $stmt->bindParam(':filePath', $submissionFilePath, PDO::PARAM_STR);
             
                 if ($stmt->execute()) {
@@ -483,8 +484,8 @@ if (isset($_POST['submit'])) {
                             <td><?= $assignment['course_name'] ?></td>
                             <td><a href="<?= $assignment['AssignmentQuestionURL'] ?>" target="_blank">View Assignment</a></td>
                             <td><input type="file" name="submission_file[]"></td>
-                            <td><button type="submit" name="submit" class="submit-button">Submit</button></td>
-
+                            <td><button type="submit" name="submit">Submit</button></td>
+                    
                         </tr>
                         <?php $index++; // Increment the counter variable ?>
                     <?php endforeach; ?>
