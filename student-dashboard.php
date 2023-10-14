@@ -406,12 +406,15 @@ try {
 }
 
 if (isset($_POST['submit'])) {
-    $index = 0; // Initialize a counter variable
+    $submissionFiles = $_FILES['submission_file'];
+    
 
-    foreach ($_FILES['submission_file']['tmp_name'] as $tempFile) {
+    for ($index = 0; $index < count($submissionFiles['tmp_name']); $index++) {
+        $tempFile = $submissionFiles['tmp_name'][$index];
+
         // Check if a file was uploaded for this assignment
         if (!empty($tempFile)) {
-            $submissionFileName = $_FILES['submission_file']['name'][$index];
+            $submissionFileName = $submissionFiles['name'][$index];
 
             // Define the directory where uploaded files will be stored
             $uploadDirectory = 'submit/'; // Change this to your desired directory
@@ -427,18 +430,20 @@ if (isset($_POST['submit'])) {
             // Generate a unique filename for the uploaded file
             $uniqueFileName = uniqid() . '_' . $submissionFileName;
             $submissionFilePath = $uploadDirectory . $uniqueFileName;
-        
+
+            
+            
+
             // Move the uploaded file to the specified directory with the unique filename
             if (move_uploaded_file($tempFile, $submissionFilePath)) {
                 // File uploaded successfully
-                // Store the file path (URL or local file path) in the database
                 // Insert the submission into the AssignmentSubmissions table.
-                $insertSubmissionQuery = "INSERT INTO assignmentsubmissions (student_id, AssignmentID, SubmissionDate, FilePath) VALUES (:student_id, :AssignmentID, NOW(), :filePath)";
+                $insertSubmissionQuery = "INSERT INTO assignmentsubmissions(student_id, AssignmentID, SubmissionDate, FilePath) VALUES (:student_id, :AssignmentID, NOW(), :filePath)";
                 $stmt = $pdo->prepare($insertSubmissionQuery);
                 $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
                 $stmt->bindParam(':AssignmentID', $assignmentID, PDO::PARAM_INT);
                 $stmt->bindParam(':filePath', $submissionFilePath, PDO::PARAM_STR);
-            
+
                 if ($stmt->execute()) {
                     echo "File uploaded and submission record inserted successfully!";
                 } else {
