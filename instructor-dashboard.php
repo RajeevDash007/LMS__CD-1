@@ -325,6 +325,11 @@ if ($connection) {
         .fc-today {
             background-color: #E35335 !important;
         }
+
+        #courseModal .modal-dialog {
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
     </style>
     <title>Instructor Dashboard</title>
 </head>
@@ -438,7 +443,7 @@ if ($connection) {
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true" data-backdrop="false">
-                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-dialog" role="document" style="max-width:800px;">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="courseModalLabel">Course Details</h5>
@@ -450,7 +455,7 @@ if ($connection) {
                                                 <p><?php echo $course['course_description']; ?></p>
                                                 <p>Credits: <span id="courseCredits"></span></p>
                                                 <p>Semester: <span id="courseSemester"></span></p>
-                                                 <iframe id="courseOutlineIframe" src="<?php echo $course['course_outline']; ?>" frameborder="0" width="100%" height="500"></iframe>
+                                                <iframe id="courseOutlineIframe" src="<?php echo $course['course_outline']; ?>" frameborder="0" width="100%" height="500"></iframe>
                                             </div>
                                         </div>
                                     </div>
