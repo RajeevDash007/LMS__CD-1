@@ -438,7 +438,7 @@ if (isset($_POST['submit'])) {
                 $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
                 $stmt->bindParam(':AssignmentID', $assignments[$index]['AssignmentID'], PDO::PARAM_INT);
                 $stmt->bindParam(':filePath', $submissionFilePath, PDO::PARAM_STR);
-
+            
                 if ($stmt->execute()) {
                     echo "File uploaded and submission record inserted successfully!";
                 } else {
@@ -480,7 +480,8 @@ if (isset($_POST['submit'])) {
                             <td><?= $assignment['course_name'] ?></td>
                             <td><a href="<?= $assignment['AssignmentQuestionURL'] ?>" target="_blank">View Assignment</a></td>
                             <td><input type="file" name="submission_file[]"></td>
-                            <td><button type="submit" name="submit">Submit</button></td>
+                            <td><button type="submit" name="submit" class="submit-button">Submit</button></td>
+
                         </tr>
                         <?php $index++; // Increment the counter variable ?>
                     <?php endforeach; ?>
@@ -489,6 +490,19 @@ if (isset($_POST['submit'])) {
         </form>
     </section>
 </div>
+
+<script>
+    // Disable the submit button for assignments that have been submitted
+    const submittedAssignmentIds = <?php echo json_encode($AssignmentId); ?>;
+    const submitButtons = document.querySelectorAll('.submit-button');
+
+    submitButtons.forEach(button => {
+        const AssignmentId = button.getAttribute('data-assignment-id');
+        if (submittedAssignmentIds.includes(AssignmentId)) {
+            button.disabled = true;
+        }
+    });
+</script>
 
 
 
