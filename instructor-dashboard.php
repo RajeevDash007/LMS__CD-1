@@ -43,8 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "File upload error.";
         exit();
     }
-        $file = $_FILES['course_outline'];
-    
+    $file = $_FILES['course_outline'];
+
 
     $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
@@ -65,7 +65,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $courses = [];
 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 if ($connection) {
-    $query = "SELECT courses.course_name, instructors.name, courses.course_semester AS instructor_name, courses.course_credits, courses.course_semester
+    $query = "SELECT 
+                courses.course_name, 
+                instructors.name AS instructor_name, 
+                courses.course_credits, 
+                courses.course_semester, 
+                courses.course_description, 
+                courses.course_outline
               FROM courses
               JOIN instructors ON courses.instructor_id = instructors.instructor_id
               WHERE instructors.instructor_id = ?";
