@@ -455,6 +455,24 @@ if ($connection) {
                                     </div>
                                 </div>
 
+                                <script>
+                                    $('.course-title').click(function() {
+                                        var courseDescription = $(this).data('description');
+                                        var courseCredits = $(this).data('credits');
+                                        var courseSemester = $(this).data('semester');
+                                        var courseOutline = $(this).data('outline');
+
+                                        $('#courseModalLabel').text($(this).text());
+                                        $('#courseDescription').text(courseDescription);
+                                        $('#courseCredits').text('Credits: ' + courseCredits);
+                                        $('#courseSemester').text('Semester: ' + courseSemester);
+
+
+                                        $('#courseModal').modal('show');
+                                    });
+                                </script>
+
+
                                 <div class="container mt-4 col-md-6" style="margin-left:0px;">
                                     <h2 style="margin-bottom:20px;">Create a Course</h2>
                                     <form method="POST" enctype="multipart/form-data">
