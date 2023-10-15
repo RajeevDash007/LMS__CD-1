@@ -453,7 +453,7 @@ if ($connection) {
                                             </div>
                                             <div class="modal-body">
                                                 <div class="modal-body">
-                                                    <form id="courseForm">
+                                                    <form id="courseForm" action="./assets/update-course-details.php">
                                                         <div class="form-group">
                                                             <label for="courseName">Course Name</label>
                                                             <input type="text" class="form-control" id="courseName" value="<?php echo $course['course_name']; ?>">
@@ -466,7 +466,11 @@ if ($connection) {
                                                             <label for="courseSemester">Course Semester</label>
                                                             <input type="text" class="form-control" id="courseSemester" value="<?php echo $course['course_semester']; ?>">
                                                         </div>
-
+                                                        <div class="form-group">
+                                                            <label for="courseOutline">Course Outline (PDF)</label>
+                                                            <input type="file" class="form-control" id="courseOutline" name="course_outline" accept=".pdf">
+                                                        </div>
+                                                        <iframe id="courseOutlineIframe" src="<?php echo $course['course_outline']; ?>" frameborder="0" width="100%" height="500"></iframe>
                                                         <button type="submit" class="btn btn-primary">Update Course</button>
                                                     </form>
                                                 </div>
