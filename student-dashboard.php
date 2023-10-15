@@ -2,7 +2,6 @@
 session_start();
 
 
-
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'student') {
     header('Location: auth.php');
     exit();
@@ -405,62 +404,62 @@ try {
     echo "Database Error: " . $e->getMessage();
 }
 
+
 if (isset($_POST['submit'])) {
     $submissionFiles = $_FILES['submission_file'];
 
-    for ($index = 0; $index < count($submissionFiles['tmp_name']); $index++) {
-        $tempFile = $submissionFiles['tmp_name'][$index];
-        $assignmentID = $_POST['assignment_id'][$index];
+    foreach ($_POST['assignment_id'] as $assignmentID) {
+        if (isset($submissionFiles['tmp_name'][$assignmentID]) && isset($_POST['assignment_id'][$assignmentID])) {
+            $tempFile = $submissionFiles['tmp_name'][$assignmentID];
 
-        // Check if a file was uploaded for this assignment
-        if (!empty($tempFile)) {
-            $submissionFileName = $submissionFiles['name'][$index];
+            // Check if a file was uploaded for this assignment
+            if (!empty($tempFile)) {
+                $submissionFileName = $submissionFiles['name'][$assignmentID];
 
-            // Define the directory where uploaded files will be stored
-            $uploadDirectory = 'submit/'; // Change this to your desired directory
+                // Define the directory where uploaded files will be stored
+                $uploadDirectory = 'submit/'; // Change this to your desired directory
 
-            if (!is_dir($uploadDirectory)) {
-                if (!mkdir($uploadDirectory, 0755, true)) {
-                    // Handle directory creation failure
-                    echo "Failed to create the directory.";
-                    exit;
+                if (!is_dir($uploadDirectory)) {
+                    if (!mkdir($uploadDirectory, 0755, true)) {
+                        // Handle directory creation failure
+                        echo "Failed to create the directory.";
+                        exit;
+                    }
                 }
-            }
 
-            // Generate a unique filename for the uploaded file
-            $uniqueFileName = uniqid() . '_' . $submissionFileName;
-            $submissionFilePath = $uploadDirectory . $uniqueFileName;
+                // Generate a unique filename for the uploaded file
+                $uniqueFileName = uniqid() . '_' . $submissionFileName;
+                $submissionFilePath = $uploadDirectory . $uniqueFileName;
 
-            // Move the uploaded file to the specified directory with the unique filename
-            if (move_uploaded_file($tempFile, $submissionFilePath)) {
-                // File uploaded successfully
-                // Insert the submission into the AssignmentSubmissions table.
-                $insertSubmissionQuery = "INSERT INTO assignmentsubmissions(student_id, AssignmentID, SubmissionDate, FilePath) VALUES (:student_id, :AssignmentID, NOW(), :filePath)";
-                $stmt = $pdo->prepare($insertSubmissionQuery);
-                $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
-                $stmt->bindParam(':AssignmentID', $assignmentID, PDO::PARAM_INT);
-                $stmt->bindParam(':filePath', $submissionFilePath, PDO::PARAM_STR);
+                // Move the uploaded file to the specified directory with the unique filename
+                if (move_uploaded_file($tempFile, $submissionFilePath)) {
+                    // File uploaded successfully
+                    // Insert the submission into the AssignmentSubmissions table.
+                    $insertSubmissionQuery = "INSERT INTO assignmentsubmissions(student_id, AssignmentID, SubmissionDate, FilePath) VALUES (:student_id, :AssignmentID, NOW(), :filePath)";
+                    $stmt = $pdo->prepare($insertSubmissionQuery);
+                    $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
+                    $stmt->bindParam(':AssignmentID', $assignmentID, PDO::PARAM_INT);
+                    $stmt->bindParam(':filePath', $submissionFilePath, PDO::PARAM_STR);
 
-                if ($stmt->execute()) {
+                    if ($stmt->execute()) {
+                        // Update the submission status to 'Closed' for the specific student and assignment
+                        $updateSubmissionStatusQuery = "UPDATE assignmentsubmissions SET Status = 'Closed' WHERE student_id = :student_id AND AssignmentID = :assignment_id";
+                        $stmt = $pdo->prepare($updateSubmissionStatusQuery);
+                        $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
+                        $stmt->bindParam(':assignment_id', $assignmentID, PDO::PARAM_INT);
+                        $stmt->execute();
 
-                     // Update the submission status to 'Closed' for the specific student and assignment
-        $updateSubmissionStatusQuery = "UPDATE assignmentsubmissions SET Status = 'Closed' WHERE student_id = :student_id AND AssignmentID = :assignment_id";
-        $stmt = $pdo->prepare($updateSubmissionStatusQuery);
-        $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
-        $stmt->bindParam(':assignment_id', $assignmentID, PDO::PARAM_INT);
-        $stmt->execute();
-                    echo "File uploaded and submission record inserted successfully!";
+                        echo "File uploaded and submission record inserted successfully!";
+                    } else {
+                        echo "Submission record insertion failed.";
+                        var_dump($stmt->errorInfo());
+                    }
                 } else {
-                    echo "Submission record insertion failed.";
-                    var_dump($stmt->errorInfo());
+                    echo "File upload failed for assignment $assignmentID.";
+                    var_dump(error_get_last());
                 }
-            } else {
-                echo "File upload failed for assignment {$assignments[$index]['AssignmentTitle']}.";
-                var_dump(error_get_last());
             }
         }
-        
-        $index++; // Increment the counter variable
     }
 }
 ?>
@@ -490,9 +489,9 @@ if (isset($_POST['submit'])) {
                             <td><a href="<?= $assignment['AssignmentQuestionURL'] ?>" target="_blank">View Assignment</a></td>
                             <!-- <td><input type="file" name="submission_file[]"></td>  -->
                             <td>
-                                <input type="file" name="submission_file[]">
+                            <input type="file" name="submission_file[<?= $assignment['AssignmentID'] ?>]">
                                 <!-- Include a hidden input field for AssignmentID -->
-                                <input type="hidden" name="assignment_id[]" value="<?= $assignment['AssignmentID'] ?>">
+                                <input type="hidden" name="assignment_id[<?= $assignment['AssignmentID'] ?>]" value="<?= $assignment['AssignmentID'] ?>">
                             </td> 
                             <!-- <td><button type="submit" name="submit">Submit</button></td> -->
                             <td>
@@ -505,11 +504,12 @@ if (isset($_POST['submit'])) {
                                 $stmt->execute();
                                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                                if ($result && $result['Status'] == 'Closed') {
-                                    echo "Submission Closed"; // Display "Submission Closed" message
-                                } else {
-                                    echo '<button type="submit" name="submit">Submit</button>';
-                                }
+                               if ($result && $result['Status'] == 'Closed') {
+        echo "Submission Closed"; // Display "Submission Closed" message
+    } else {
+        echo '<button type="submit" name="submit">Submit</button>';
+    }
+                                
                                 ?>
                             </td>
                     
