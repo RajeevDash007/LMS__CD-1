@@ -407,9 +407,6 @@ try {
 
 if (isset($_POST['submit'])) {
     $submissionFiles = $_FILES['submission_file'];
-   
-    
-    
 
     for ($index = 0; $index < count($submissionFiles['tmp_name']); $index++) {
         $tempFile = $submissionFiles['tmp_name'][$index];
@@ -434,9 +431,6 @@ if (isset($_POST['submit'])) {
             $uniqueFileName = uniqid() . '_' . $submissionFileName;
             $submissionFilePath = $uploadDirectory . $uniqueFileName;
 
-            
-            
-
             // Move the uploaded file to the specified directory with the unique filename
             if (move_uploaded_file($tempFile, $submissionFilePath)) {
                 // File uploaded successfully
@@ -448,6 +442,13 @@ if (isset($_POST['submit'])) {
                 $stmt->bindParam(':filePath', $submissionFilePath, PDO::PARAM_STR);
 
                 if ($stmt->execute()) {
+
+                     // Update the submission status to 'Closed' for the specific student and assignment
+        $updateSubmissionStatusQuery = "UPDATE assignmentsubmissions SET Status = 'Closed' WHERE student_id = :student_id AND AssignmentID = :assignment_id";
+        $stmt = $pdo->prepare($updateSubmissionStatusQuery);
+        $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
+        $stmt->bindParam(':assignment_id', $assignmentID, PDO::PARAM_INT);
+        $stmt->execute();
                     echo "File uploaded and submission record inserted successfully!";
                 } else {
                     echo "Submission record insertion failed.";
@@ -493,7 +494,24 @@ if (isset($_POST['submit'])) {
                                 <!-- Include a hidden input field for AssignmentID -->
                                 <input type="hidden" name="assignment_id[]" value="<?= $assignment['AssignmentID'] ?>">
                             </td> 
-                            <td><button type="submit" name="submit">Submit</button></td>
+                            <!-- <td><button type="submit" name="submit">Submit</button></td> -->
+                            <td>
+                                <?php
+                                // Check the submission status for this assignment
+                                $checkSubmissionStatusQuery = "SELECT Status FROM assignmentsubmissions WHERE student_id = :student_id AND AssignmentID = :assignment_id";
+                                $stmt = $pdo->prepare($checkSubmissionStatusQuery);
+                                $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
+                                $stmt->bindParam(':assignment_id', $assignment['AssignmentID'], PDO::PARAM_INT);
+                                $stmt->execute();
+                                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                if ($result && $result['Status'] == 'Closed') {
+                                    echo "Submission Closed"; // Display "Submission Closed" message
+                                } else {
+                                    echo '<button type="submit" name="submit">Submit</button>';
+                                }
+                                ?>
+                            </td>
                     
                         </tr>
                         <?php $index++; // Increment the counter variable ?>
