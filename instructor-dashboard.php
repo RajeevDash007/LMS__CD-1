@@ -443,10 +443,10 @@ if ($connection) {
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true" data-backdrop="false">
-                                    <div class="modal-dialog" role="document" style="max-width:800px;">
+                                    <div class="modal-dialog" role="document" style="max-width:800px; border-radius:20px; scrollbar-width:1px;">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="courseModalLabel">Course Details</h5>
+                                            <div class="modal-header" style="background-color: #F06105; color: white;">
+                                                <h5 class="modal-title" id="courseModalLabel">Edit Course Details</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
