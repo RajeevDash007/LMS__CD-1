@@ -453,7 +453,7 @@ if ($connection) {
                                             </div>
                                             <div class="modal-body">
                                                 <div class="modal-body">
-                                                    <form id="courseForm" action="./assets/update-course-details.php">
+                                                    <form id="courseForm">
                                                         <div class="form-group">
                                                             <label for="courseName">Course Name</label>
                                                             <input type="text" class="form-control" id="courseName" value="<?php echo $course['course_name']; ?>">
@@ -483,16 +483,11 @@ if ($connection) {
                                 <script>
                                     $('#courseForm').submit(function(event) {
                                         event.preventDefault();
-
-                                        // Retrieve the updated values from the input fields
                                         var courseName = $('#courseName').val();
                                         var courseCredits = $('#courseCredits').val();
                                         var courseSemester = $('#courseSemester').val();
                                         var courseOutlineFile = $('#courseOutline')[0].files[0];
 
-                                        // Perform validation or data processing if needed
-
-                                        // Create a FormData object to send the form data including the file
                                         var formData = new FormData();
                                         formData.append('courseId', <?php echo $course['id']; ?>);
                                         formData.append('courseName', courseName);
@@ -507,12 +502,9 @@ if ($connection) {
                                             contentType: false,
                                             success: function(response) {
                                                 console.log('Course details and outline updated successfully');
-                                                // You can display a success message or perform any other actions here
                                             },
                                             error: function(xhr, status, error) {
-                                                // Handle the error response
                                                 console.error('Error updating course details and outline:', error);
-                                                // You can display an error message or perform any other actions here
                                             }
                                         });
                                     });
