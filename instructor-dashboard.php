@@ -68,6 +68,7 @@ if ($connection) {
     $query = "SELECT 
                 courses.course_name, 
                 instructors.name AS instructor_name, 
+                courses.course_id,
                 courses.course_credits, 
                 courses.course_semester, 
                 courses.course_description, 
@@ -126,7 +127,6 @@ if ($connection) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -452,63 +452,36 @@ if ($connection) {
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="modal-body">
-                                                    <form id="courseForm">
-                                                        <div class="form-group">
-                                                            <label for="courseName">Course Name</label>
-                                                            <input type="text" class="form-control" id="courseName" value="<?php echo $course['course_name']; ?>">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="courseCredits">Course Credits</label>
-                                                            <input type="number" class="form-control" id="courseCredits" value="<?php echo $course['course_credits']; ?>">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="courseSemester">Course Semester</label>
-                                                            <input type="text" class="form-control" id="courseSemester" value="<?php echo $course['course_semester']; ?>">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="courseOutline">Course Outline (PDF)</label>
-                                                            <input type="file" class="form-control" id="courseOutline" name="course_outline" accept=".pdf">
-                                                        </div>
-                                                        <iframe id="courseOutlineIframe" src="<?php echo $course['course_outline']; ?>" frameborder="0" width="100%" height="500"></iframe>
-                                                        <button type="submit" class="btn btn-primary">Update Course</button>
-                                                    </form>
-                                                </div>
+                                                <form id="courseForm" method="POST" action="./update_course.php" enctype="multipart/form-data">
+                                                    <input type="hidden" id="courseId" name="courseId" value="<?php echo $course['course_id']; ?>">
+                                                    <div class="form-group">
+                                                        <label for="courseName">Course Name</label>
+                                                        <input type="text" class="form-control" id="courseName" name="courseName" value="<?php echo $course['course_name']; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="courseCredits">Course Credits</label>
+                                                        <input type="number" class="form-control" id="courseCredits" name="courseCredits" value="<?php echo $course['course_credits']; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="courseSemester">Course Semester</label>
+                                                        <input type="text" class="form-control" id="courseSemester" name="courseSemester" value="<?php echo $course['course_semester']; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="courseOutline">Course Outline (PDF)</label>
+                                                        <input type="file" class="form-control" id="courseOutline" name="courseOutline" accept=".pdf">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="courseDescription">Course Description</label>
+                                                        <textarea class="form-control" id="courseDescription" name="courseDescription"><?php echo $course['course_description']; ?></textarea>
+                                                    </div>
+                                                    <iframe id="courseOutlineIframe" src="<?php echo $course['course_outline']; ?>" frameborder="0" width="100%" height="500"></iframe>
+                                                    <button type="submit" class="btn btn-primary">Update Course</button>
+                                                </form>
 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <script>
-                                    $('#courseForm').submit(function(event) {
-                                        event.preventDefault();
-                                        var courseName = $('#courseName').val();
-                                        var courseCredits = $('#courseCredits').val();
-                                        var courseSemester = $('#courseSemester').val();
-                                        var courseOutlineFile = $('#courseOutline')[0].files[0];
-
-                                        var formData = new FormData();
-                                        formData.append('courseId', <?php echo $course['id']; ?>);
-                                        formData.append('courseName', courseName);
-                                        formData.append('courseCredits', courseCredits);
-                                        formData.append('courseSemester', courseSemester);
-                                        formData.append('courseOutline', courseOutlineFile);
-                                        $.ajax({
-                                            url: '',
-                                            method: 'POST',
-                                            data: formData,
-                                            processData: false,
-                                            contentType: false,
-                                            success: function(response) {
-                                                console.log('Course details and outline updated successfully');
-                                            },
-                                            error: function(xhr, status, error) {
-                                                console.error('Error updating course details and outline:', error);
-                                            }
-                                        });
-                                    });
-                                </script>
 
 
                                 <div class="container mt-4 col-md-6" style="margin-left:0px;">
