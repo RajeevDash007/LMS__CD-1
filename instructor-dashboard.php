@@ -330,6 +330,10 @@ if ($connection) {
             overflow-y: auto;
             max-height: calc(100vh - 200px);
         }
+
+        .course-title:hover{
+            text-decoration: underline;
+        }
     </style>
     <title>Instructor Dashboard</title>
 </head>
@@ -430,7 +434,7 @@ if ($connection) {
                                                 <div class="col-md-3">
                                                     <div class="card custom-card">
                                                         <div class="card-body">
-                                                            <h5 class="card-title course-title" data-toggle="modal" data-target="#courseModal" data-description="<?php echo $course['course_description']; ?>" data-credits="<?php echo $course['course_credits']; ?>" data-semester="<?php echo $course['course_semester']; ?>" data-outline="<?php echo isset($course['course_outline']) ? $course['course_outline'] : ''; ?>"><?php echo $course['course_name']; ?></h5>
+                                                            <h5 class="card-title course-title" data-toggle="modal" data-target="#courseModal" data-description="<?php echo $course['course_description']; ?>" data-credits="<?php echo $course['course_credits']; ?>" data-semester="<?php echo $course['course_semester']; ?>" data-outline="<?php echo isset($course['course_outline']) ? $course['course_outline'] : ''; ?>" style="cursor: pointer;"><?php echo $course['course_name']; ?></h5>
                                                             <p class="card-text">Credits: <b><?php echo $course['course_credits']; ?></b></p>
                                                             <p class="card-semester">Semester: <b><?php echo $course['course_semester']; ?></b></p>
                                                         </div>
