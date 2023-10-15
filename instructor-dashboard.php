@@ -480,6 +480,45 @@ if ($connection) {
                                     </div>
                                 </div>
 
+                                <script>
+                                    $('#courseForm').submit(function(event) {
+                                        event.preventDefault();
+
+                                        // Retrieve the updated values from the input fields
+                                        var courseName = $('#courseName').val();
+                                        var courseCredits = $('#courseCredits').val();
+                                        var courseSemester = $('#courseSemester').val();
+                                        var courseOutlineFile = $('#courseOutline')[0].files[0];
+
+                                        // Perform validation or data processing if needed
+
+                                        // Create a FormData object to send the form data including the file
+                                        var formData = new FormData();
+                                        formData.append('courseId', <?php echo $course['id']; ?>);
+                                        formData.append('courseName', courseName);
+                                        formData.append('courseCredits', courseCredits);
+                                        formData.append('courseSemester', courseSemester);
+                                        formData.append('courseOutline', courseOutlineFile);
+                                        $.ajax({
+                                            url: '',
+                                            method: 'POST',
+                                            data: formData,
+                                            processData: false,
+                                            contentType: false,
+                                            success: function(response) {
+                                                console.log('Course details and outline updated successfully');
+                                                // You can display a success message or perform any other actions here
+                                            },
+                                            error: function(xhr, status, error) {
+                                                // Handle the error response
+                                                console.error('Error updating course details and outline:', error);
+                                                // You can display an error message or perform any other actions here
+                                            }
+                                        });
+                                    });
+                                </script>
+
+
                                 <div class="container mt-4 col-md-6" style="margin-left:0px;">
                                     <h2 style="margin-bottom:20px;">Create a Course</h2>
                                     <form method="POST" enctype="multipart/form-data">
