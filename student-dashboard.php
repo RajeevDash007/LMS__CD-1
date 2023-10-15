@@ -389,7 +389,7 @@ try {
         $student_id = $result['student_id'];
 
     // Fetch assignments for the logged-in student's batch
-    $stmt = $pdo->prepare("SELECT a.AssignmentTitle, a.course_name, a.AssignmentQuestionURL, a.AssignmentFileURL, i.name AS instructor_name
+    $stmt = $pdo->prepare("SELECT a.AssignmentID, a.AssignmentTitle, a.course_name, a.AssignmentQuestionURL, a.AssignmentFileURL, i.name AS instructor_name
                         FROM assignment a
                         INNER JOIN instructors i ON a.instructor_id = i.instructor_id
                         WHERE a.batch = (SELECT batch FROM students WHERE student_id = :student_id)");
@@ -407,10 +407,13 @@ try {
 
 if (isset($_POST['submit'])) {
     $submissionFiles = $_FILES['submission_file'];
+   
+    
     
 
     for ($index = 0; $index < count($submissionFiles['tmp_name']); $index++) {
         $tempFile = $submissionFiles['tmp_name'][$index];
+        $assignmentID = $_POST['assignment_id'][$index];
 
         // Check if a file was uploaded for this assignment
         if (!empty($tempFile)) {
@@ -484,7 +487,12 @@ if (isset($_POST['submit'])) {
                             <td><?= $assignment['AssignmentTitle'] ?></td>
                             <td><?= $assignment['course_name'] ?></td>
                             <td><a href="<?= $assignment['AssignmentQuestionURL'] ?>" target="_blank">View Assignment</a></td>
-                            <td><input type="file" name="submission_file[]"></td>
+                            <!-- <td><input type="file" name="submission_file[]"></td>  -->
+                            <td>
+                                <input type="file" name="submission_file[]">
+                                <!-- Include a hidden input field for AssignmentID -->
+                                <input type="hidden" name="assignment_id[]" value="<?= $assignment['AssignmentID'] ?>">
+                            </td> 
                             <td><button type="submit" name="submit">Submit</button></td>
                     
                         </tr>
