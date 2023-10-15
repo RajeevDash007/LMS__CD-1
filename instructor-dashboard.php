@@ -459,6 +459,10 @@ if ($connection) {
                                                         <input type="text" class="form-control" id="courseName" name="courseName" value="<?php echo $course['course_name']; ?>">
                                                     </div>
                                                     <div class="form-group">
+                                                        <label for="courseDescription">Course Description</label>
+                                                        <textarea class="form-control" id="courseDescription" name="courseDescription"><?php echo $course['course_description']; ?></textarea>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="courseCredits">Course Credits</label>
                                                         <input type="number" class="form-control" id="courseCredits" name="courseCredits" value="<?php echo $course['course_credits']; ?>">
                                                     </div>
@@ -469,10 +473,6 @@ if ($connection) {
                                                     <div class="form-group">
                                                         <label for="courseOutline">Course Outline (PDF)</label>
                                                         <input type="file" class="form-control" id="courseOutline" name="courseOutline" accept=".pdf">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="courseDescription">Course Description</label>
-                                                        <textarea class="form-control" id="courseDescription" name="courseDescription"><?php echo $course['course_description']; ?></textarea>
                                                     </div>
                                                     <iframe id="courseOutlineIframe" src="<?php echo $course['course_outline']; ?>" frameborder="0" width="100%" height="500"></iframe>
                                                     <button type="submit" class="btn btn-primary">Update Course</button>
