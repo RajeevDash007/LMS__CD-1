@@ -452,32 +452,29 @@ if ($connection) {
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <p><?php echo $course['course_description']; ?></p>
-                                                <p><span id="courseCredits"></span></p>
-                                                <p><span id="courseSemester"></span></p>
-                                                <iframe id="courseOutlineIframe" src="<?php echo $course['course_outline']; ?>" frameborder="0" width="100%" height="500"></iframe>
+                                                <div class="modal-body">
+                                                    <form id="courseForm">
+                                                        <div class="form-group">
+                                                            <label for="courseName">Course Name</label>
+                                                            <input type="text" class="form-control" id="courseName" value="<?php echo $course['course_name']; ?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="courseCredits">Course Credits</label>
+                                                            <input type="number" class="form-control" id="courseCredits" value="<?php echo $course['course_credits']; ?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="courseSemester">Course Semester</label>
+                                                            <input type="text" class="form-control" id="courseSemester" value="<?php echo $course['course_semester']; ?>">
+                                                        </div>
+
+                                                        <button type="submit" class="btn btn-primary">Update Course</button>
+                                                    </form>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <script>
-                                    $('.course-title').click(function() {
-                                        var courseDescription = $(this).data('description');
-                                        var courseCredits = $(this).data('credits');
-                                        var courseSemester = $(this).data('semester');
-                                        var courseOutline = $(this).data('outline');
-
-                                        $('#courseModalLabel').text($(this).text());
-                                        $('#courseDescription').text(courseDescription);
-                                        $('#courseCredits').text('Credits: ' + courseCredits);
-                                        $('#courseSemester').text('Semester: ' + courseSemester);
-
-
-                                        $('#courseModal').modal('show');
-                                    });
-                                </script>
-
 
                                 <div class="container mt-4 col-md-6" style="margin-left:0px;">
                                     <h2 style="margin-bottom:20px;">Create a Course</h2>
