@@ -453,8 +453,8 @@ if ($connection) {
                                             </div>
                                             <div class="modal-body">
                                                 <p><?php echo $course['course_description']; ?></p>
-                                                <p>Credits: <span id="courseCredits"></span></p>
-                                                <p>Semester: <span id="courseSemester"></span></p>
+                                                <p><span id="courseCredits"></span></p>
+                                                <p><span id="courseSemester"></span></p>
                                                 <iframe id="courseOutlineIframe" src="<?php echo $course['course_outline']; ?>" frameborder="0" width="100%" height="500"></iframe>
                                             </div>
                                         </div>
