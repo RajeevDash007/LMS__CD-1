@@ -6,7 +6,6 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'teacher') {
 }
 include_once 'config.php';
 
-// Establish database connection
 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
 if (!$connection) {
@@ -22,8 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['courseId'])) {
     $courseCredits = $_POST['courseCredits'];
     $courseSemester = $_POST['courseSemester'];
 
-    // Handle file upload (course outline)
-    $courseOutlineDestination = '';  // Set this to the correct path for the uploaded course outline
+    $courseOutlineDestination = ''; 
     if (isset($_FILES['courseOutline']) && $_FILES['courseOutline']['error'] === UPLOAD_ERR_OK) {
         $courseOutlineFile = $_FILES['courseOutline']['tmp_name'];
         $courseOutlineFileName = $_FILES['courseOutline']['name'];
@@ -37,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['courseId'])) {
         }
     }
 
-    // Update the course details in the database
     $query = "UPDATE courses 
               SET course_name = ?, 
                   course_description = ?, 
