@@ -699,6 +699,12 @@ if ($connection) {
                                     <div class="col-md-6">
                                         <button onclick="generatePDF()" class="btn btn-primary">Download Timetable as PDF</button>
                                     </div>
+                                    <script>
+                                        function generatePDF() {
+                                            const element = document.getElementById('timetable-container');
+                                            html2pdf(element);
+                                        }
+                                    </script>
                                     <div class="animated-search-filter adm grid fadeInUp delay-1">
 
                                     </div>
