@@ -696,7 +696,9 @@ if ($connection) {
                                     echo '</div>';
                                     $conn->close();
                                     ?>
-                                    
+                                    <div class="col-md-6">
+                                        <button onclick="generatePDF()" class="btn btn-primary">Download Timetable as PDF</button>
+                                    </div>
                                     <div class="animated-search-filter adm grid fadeInUp delay-1">
 
                                     </div>
