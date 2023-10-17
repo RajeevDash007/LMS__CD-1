@@ -127,6 +127,7 @@ if ($connection) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js" integrity="sha512-w3u9q/DeneCSwUDjhiMNibTRh/1i/gScBVp2imNVAMCt6cUHIw6xzhzcPFIaL3Q1EbI2l+nu17q2aLJJLo4ZYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -331,7 +332,7 @@ if ($connection) {
             max-height: calc(100vh - 200px);
         }
 
-        .course-title:hover{
+        .course-title:hover {
             text-decoration: underline;
         }
     </style>
@@ -655,7 +656,7 @@ if ($connection) {
                                     }
                                     $instructor_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
                                     $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-                                    echo '<div class="table-responsive timetable">';
+                                    echo '<div  id="timetable-container" class="table-responsive timetable">';
                                     echo '<table class="table table-bordered">';
                                     echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
                                     echo '<tbody class="timetable-tbody">';
@@ -695,12 +696,14 @@ if ($connection) {
                                     echo '</div>';
                                     $conn->close();
                                     ?>
+                                    
                                     <div class="animated-search-filter adm grid fadeInUp delay-1">
 
                                     </div>
                                 </div>
                             </div>
                         </div>
+
 
                         <script>
                             $(document).ready(function() {
