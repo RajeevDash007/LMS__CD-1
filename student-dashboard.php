@@ -480,7 +480,9 @@ if (isset($_POST['submit'])) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $index = 1; // Initialize a counter variable ?>
+                    <?php 
+                    $assignments = array_reverse($assignments);
+                    $index = 1; // Initialize a counter variable ?>
                     <?php foreach ($assignments as $assignment) : ?>
                         <tr>
                             <td><?= $index ?></td>
