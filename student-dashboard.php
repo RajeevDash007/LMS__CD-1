@@ -465,7 +465,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 
-<div class="table">
+<div class="table" style="width:80vw;">
     <section class="table_body">
         <form method="POST" action="" enctype="multipart/form-data">
             <table>
@@ -474,7 +474,7 @@ if (isset($_POST['submit'])) {
                         <th>Sl No.</th>
                         <th>Title</th>
                         <th>Course</th>
-                        <th>Question file</th>
+                        <th>Question File</th>
                         <th>Submission file</th>
                         <th>Submit</th>
                     </tr>
