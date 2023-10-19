@@ -411,7 +411,7 @@ if ($connection) {
                                 </div>
                                 <div class="form-group">
                                     <label for="instructorPhoto">Photo</label>
-                                    <input type="text" class="form-control-file" id="instructorPhoto" name="instructor_photo">
+                                    <input type="text" class="form-control-file" id="instructorPhoto" name="instructor_photo" value="<?php echo $user_photo; ?>">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>
