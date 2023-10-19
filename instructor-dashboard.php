@@ -404,14 +404,14 @@ if ($connection) {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form id="profileForm" method="POST" action="update-profile.php" enctype="multipart/form-data">
+                            <form id="profileForm" method="POST" action="./assets/update-profile.php">
                                 <div class="form-group">
                                     <label for="instructorName">Name</label>
                                     <input type="text" class="form-control" id="instructorName" name="instructor_name" value="<?php echo $instructor['name']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="instructorPhoto">Photo</label>
-                                    <input type="file" class="form-control-file" id="instructorPhoto" name="instructor_photo">
+                                    <input type="text" class="form-control-file" id="instructorPhoto" name="instructor_photo">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>
