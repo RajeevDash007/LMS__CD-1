@@ -361,7 +361,7 @@ if ($connection) {
                     <li class="nav-item pl-4 dropdown">
                         <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Instructor Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;" data-toggle="dropdown">
                         <div class="dropdown-menu dropdown-menu-right" style="position: static; float: left;">
-                            <a class="dropdown-item" href="#">My Profile</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">My Profile</a>
                             <a class="dropdown-item" href="./assets/logout.php">Log Out</a>
                         </div>
                     </li>
@@ -394,6 +394,31 @@ if ($connection) {
             </div>
         </div>
         <div id="page-content-wrapper">
+            <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="profileModalLabel">My Profile</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="profileForm" method="POST" action="update-profile.php" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="instructorName">Name</label>
+                                    <input type="text" class="form-control" id="instructorName" name="instructor_name" value="<?php echo $instructor['name']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="instructorPhoto">Photo</label>
+                                    <input type="file" class="form-control-file" id="instructorPhoto" name="instructor_photo">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="container-fluid px-4">
 
@@ -447,7 +472,7 @@ if ($connection) {
                                 </div>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true" data-backdrop="false">
+                                <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true" >
                                     <div class="modal-dialog" role="document" style="max-width:800px; border-radius:20px; scrollbar-width:1px;">
                                         <div class="modal-content">
                                             <div class="modal-header" style="background-color: #F06105; color: white;">
