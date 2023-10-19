@@ -404,10 +404,10 @@ if ($connection) {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form id="profileForm" method="POST" action="./assets/update-profile.php">
+                            <form id="profileForm" method="POST" action="./assets/instructor-update-profile.php">
                                 <div class="form-group">
                                     <label for="instructorName">Name</label>
-                                    <input type="text" class="form-control" id="instructorName" name="instructor_name" value="<?php echo $instructor['name']; ?>">
+                                    <input type="text" class="form-control" id="instructorName" name="instructor_name" value="<?php echo $user_name; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="instructorPhoto">Photo</label>
@@ -472,7 +472,7 @@ if ($connection) {
                                 </div>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true" >
+                                <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true" data-backdrop="false">
                                     <div class="modal-dialog" role="document" style="max-width:800px; border-radius:20px; scrollbar-width:1px;">
                                         <div class="modal-content">
                                             <div class="modal-header" style="background-color: #F06105; color: white;">
