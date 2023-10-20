@@ -406,7 +406,7 @@ if ($connection) {
                         <div class="modal-body">
                             <form id="profileForm" method="POST" action="./assets/instructor-update-profile.php">
                                 <div class="m-b-25">
-                                    <img src="<?php echo $user_photo; ?>" alt="User-Profile-Image">
+                                    <img src="<?php echo $user_photo; ?>" alt="User-Profile-Image" style="width: 100px; height: auto; border-radius: 50%;">
                                 </div>
                                 <div class="form-group">
                                     <label for="instructorName">Name</label>
