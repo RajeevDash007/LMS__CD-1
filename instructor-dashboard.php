@@ -415,6 +415,24 @@ if ($connection) {
                                 </div>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="profileModalLabel"></h5>
+                            </div>
+                            <form id="changePasswordForm" method="POST" action="./assets/change-password.php">
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" class="form-control" id="currentPassword" name="current_password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" class="form-control" id="newPassword" name="new_password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmNewPassword">Confirm New Password</label>
+                                    <input type="password" class="form-control" id="confirmNewPassword" name="confirm_new_password">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Change Password</button>
+                            </form>
                         </div>
                     </div>
                 </div>
