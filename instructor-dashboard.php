@@ -405,6 +405,9 @@ if ($connection) {
                         </div>
                         <div class="modal-body">
                             <form id="profileForm" method="POST" action="./assets/instructor-update-profile.php">
+                                <div class="m-b-25">
+                                    <img src="<?php echo $user_photo; ?>" alt="User-Profile-Image">
+                                </div>
                                 <div class="form-group">
                                     <label for="instructorName">Name</label>
                                     <input type="text" class="form-control" id="instructorName" name="instructor_name" value="<?php echo $user_name; ?>">
@@ -415,10 +418,10 @@ if ($connection) {
                                 </div>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="profileModalLabel"></h5>
+                            <div class="modal-header" style="border: 1px solid #000; margin-top:20px;margin-bottom:20px;">
+                                <h5 class="modal-title" id="profileModalLabel">Change password</h5>
                             </div>
-                            <form id="changePasswordForm" method="POST" action="./assets/change-password.php">
+                            <form id="changePasswordForm" method="POST" action="./assets/instructor-change-password.php">
                                 <div class="form-group">
                                     <label for="currentPassword">Current Password</label>
                                     <input type="password" class="form-control" id="currentPassword" name="current_password">
