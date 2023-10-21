@@ -4,7 +4,9 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'teacher') {
     header('Location: auth.php');
     exit();
 }
+
 require_once './config.php';
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 
@@ -19,35 +21,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $semester = $_POST['semester'];
     $course = $_POST['course_name'];
 
+    // Define the target directory and file path
     $targetDirectory = "uploads/";
     $targetFileName = $targetDirectory . basename($_FILES["question_file"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($targetFileName, PATHINFO_EXTENSION));
 
-
-    if (isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["question_file"]["tmp_name"]);
-        if ($check !== false) {
-            echo "File is an image - " . $check["mime"] . ".";
-            $uploadOk = 1;
-        } else {
-            echo "File is not an image.";
-            $uploadOk = 0;
-        }
-    }
-
-
-    if ($_FILES["question_file"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-
-
+    // Check if the file is a valid PDF or DOCX
     if ($imageFileType !== "pdf" && $imageFileType !== "docx") {
         echo "Sorry, only PDF and DOCX files are allowed.";
         $uploadOk = 0;
     }
 
+    // Check for file upload errors
+    if ($_FILES["question_file"]["error"] != UPLOAD_ERR_OK) {
+        echo "File upload error: " . $_FILES["question_file"]["error"];
+        $uploadOk = 0;
+    }
 
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
@@ -59,9 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
-
-    $sql = "INSERT INTO assignment (instructor_id,AssignmentTitle, AssignmentQuestionURL, AssignmentDueDate, AssignmentMarks, batch, course_name)
-            VALUES ($instructorId,'$title', '$targetFileName', '$dueDate', $marks, $semester, '$course')";
+    $sql = "INSERT INTO assignment (instructor_id, AssignmentTitle, AssignmentQuestionURL, AssignmentDueDate, AssignmentMarks, batch, course_name)
+            VALUES ($instructorId, '$title', '$targetFileName', '$dueDate', $marks, $semester, '$course')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Assignment created successfully.";
@@ -69,6 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
-
     $conn->close();
 }
+?>
