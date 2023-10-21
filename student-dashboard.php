@@ -176,7 +176,7 @@ if ($connection) {
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>
                             <div class="modal-header" style="border-bottom: 1px solid #000; margin-top:20px;margin-bottom:20px;">
-                                <h5 class="modal-title" id="profileModalLabel" style="color: red;">Forgot your password?</h5>
+                                <h5 class="modal-title" id="profileModalLabel" style="color: red;">Change your password</h5>
                             </div>
                             <form id="changePasswordForm" method="POST" action="./assets/instructor-change-password.php">
                                 <div class="form-group">
