@@ -110,7 +110,7 @@ if ($connection) {
                     <li class="nav-item pl-4 dropdown">
                         <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Instructor Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;" data-toggle="dropdown">
                         <div class="dropdown-menu dropdown-menu-right" style="position: static; float: left;">
-                            <a class="dropdown-item" href="#">My Profile</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">My Profile</a>
                             <a class="dropdown-item" href="./assets/logout.php" style="color: crimson;">Log Out</a>
                         </div>
                     </li>
@@ -151,7 +151,52 @@ if ($connection) {
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-
+        <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="profileModalLabel">My Profile</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="profileForm" method="POST" action="./assets/student-update-profile.php">
+                                <div class="m-b-25" style="margin-left: 170px;" >
+                                    <img src="<?php echo $user_photo; ?>" alt="User-Profile-Image" style="width: 100px; height: auto; border-radius: 50%;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="instructorName">Name</label>
+                                    <input type="text" class="form-control" id="studentName" name="student_name" value="<?php echo $user_name; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="instructorPhoto">Photo</label>
+                                    <input type="text" class="form-control-file" id="studentPhoto" name="student_photo" value="<?php echo $user_photo; ?>">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </form>
+                            <div class="modal-header" style="border-bottom: 1px solid #000; margin-top:20px;margin-bottom:20px;">
+                                <h5 class="modal-title" id="profileModalLabel" style="color: red;">Forgot your password?</h5>
+                            </div>
+                            <form id="changePasswordForm" method="POST" action="./assets/instructor-change-password.php">
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" class="form-control" id="currentPassword" name="current_password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" class="form-control" id="newPassword" name="new_password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmNewPassword">Confirm New Password</label>
+                                    <input type="password" class="form-control" id="confirmNewPassword" name="confirm_new_password">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Change Password</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="container-fluid px-4">
                 <!-- Mode Escuro para dispositivos mobile -->
                 <div class="row mx-auto mt-3 justify-content-center d-flex d-md-none">
