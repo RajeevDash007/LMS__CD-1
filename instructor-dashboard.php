@@ -400,7 +400,7 @@ if ($connection) {
                         </div>
                         <div class="modal-body">
                             <form id="profileForm" method="POST" action="./assets/instructor-update-profile.php">
-                                <div class="m-b-25" style="margin-left: 170px;" >
+                                <div class="m-b-25" style="margin-left: 170px;">
                                     <img src="<?php echo $user_photo; ?>" alt="User-Profile-Image" style="width: 100px; height: auto; border-radius: 50%;">
                                 </div>
                                 <div class="form-group">
@@ -437,45 +437,45 @@ if ($connection) {
             </div>
 
             <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true" data-backdrop="false">
-                                    <div class="modal-dialog" role="document" style="max-width:800px; border-radius:20px;">
-                                        <div class="modal-content">
-                                            <div class="modal-header" style="background-color: #F06105; color: white;">
-                                                <h5 class="modal-title" id="courseModalLabel">Edit Course Details</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form id="courseForm" method="POST" action="./update_course.php" enctype="multipart/form-data">
-                                                    <input type="hidden" id="courseId" name="courseId" value="<?php echo $course['course_id']; ?>">
-                                                    <div class="form-group">
-                                                        <label for="courseName">Course Name</label>
-                                                        <input type="text" class="form-control" id="courseName" name="courseName" value="<?php echo $course['course_name']; ?>">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="courseDescription">Course Description</label>
-                                                        <textarea class="form-control" id="courseDescription" name="courseDescription"><?php echo $course['course_description']; ?></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="courseCredits">Course Credits</label>
-                                                        <input type="number" class="form-control" id="courseCredits" name="courseCredits" value="<?php echo $course['course_credits']; ?>">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="courseSemester">Course Semester</label>
-                                                        <input type="text" class="form-control" id="courseSemester" name="courseSemester" value="<?php echo $course['course_semester']; ?>">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="courseOutline">Course Outline (PDF)</label>
-                                                        <input type="file" class="form-control" id="courseOutline" name="courseOutline" accept=".pdf">
-                                                    </div>
-                                                    <iframe id="courseOutlineIframe" src="<?php echo $course['course_outline']; ?>" frameborder="0" width="100%" height="500"></iframe>
-                                                    <button type="submit" class="btn btn-primary">Update Course</button>
-                                                </form>
-
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="modal-dialog" role="document" style="max-width:800px; border-radius:20px;">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color: #F06105; color: white;">
+                            <h5 class="modal-title" id="courseModalLabel">Edit Course Details</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="courseForm" method="POST" action="./update_course.php" enctype="multipart/form-data">
+                                <input type="hidden" id="courseId" name="courseId" value="<?php echo $course['course_id']; ?>">
+                                <div class="form-group">
+                                    <label for="courseName">Course Name</label>
+                                    <input type="text" class="form-control" id="courseName" name="courseName" value="<?php echo $course['course_name']; ?>">
                                 </div>
+                                <div class="form-group">
+                                    <label for="courseDescription">Course Description</label>
+                                    <textarea class="form-control" id="courseDescription" name="courseDescription"><?php echo $course['course_description']; ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="courseCredits">Course Credits</label>
+                                    <input type="number" class="form-control" id="courseCredits" name="courseCredits" value="<?php echo $course['course_credits']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="courseSemester">Course Semester</label>
+                                    <input type="text" class="form-control" id="courseSemester" name="courseSemester" value="<?php echo $course['course_semester']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="courseOutline">Course Outline (PDF)</label>
+                                    <input type="file" class="form-control" id="courseOutline" name="courseOutline" accept=".pdf">
+                                </div>
+                                <iframe id="courseOutlineIframe" src="<?php echo $course['course_outline']; ?>" frameborder="0" width="100%" height="500"></iframe>
+                                <button type="submit" class="btn btn-primary">Update Course</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="container-fluid px-4">
 
@@ -671,7 +671,21 @@ if ($connection) {
                                         </table>
                                     </div>
 
+                                </div>
+                                <div class="container mt-4">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Student's Name</th>
+                                                <th>Assignment Name</th>
+                                                <th>Course Name</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
