@@ -287,12 +287,18 @@ if ($connection) {
                         coursesData.forEach(function (course) {
                         var card = document.createElement("div");
                         card.className = "card swiper-slide";
+                    
                         card.innerHTML = `
                         <div class="card-content">
                             <h2 class="name">${course.course_name}</h2>
                             <p class="description">Credits: ${course.course_credits}</p>
+                            <a class="description" href="${course.course_outline_url}" target="_blank">Course Outline</a>
                         </div>
+                        
                          `;
+                         
+                         
+                         
                         dynamicCardWrapper.appendChild(card);
                         });
 
