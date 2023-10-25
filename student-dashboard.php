@@ -89,7 +89,14 @@ if ($connection) {
     color: white; /* White text color */
   }
 
-  
+  #semesterSelect {
+    background-color: #7c87aa;
+    color: white;
+    padding: 5px;
+    border: 3px solid #555;
+    border-radius: 5px;
+    font-size: 16px;
+  }
     </style>
 </head>
 
