@@ -139,7 +139,7 @@ if ($connection) {
             <div class="list-group list-group-flush bg-white" id="sidenav">
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary home active"><i class="lni lni-home size-sm pr-4 font-24"></i>Home</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i class="lni lni-graduation size-sm pr-4 font-24"></i></i>Assignments</a>
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i class="lni lni-briefcase size-sm pr-4 font-24"></i>To Do Tasks</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i class="lni lni-briefcase size-sm pr-4 font-24"></i>Time Table</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
                         class="lni lni-handshake size-sm pr-4 font-24"></i>Statistics</a>
                 <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes"
@@ -615,7 +615,7 @@ if (isset($_POST['submit'])) {
                         </div>
 
                         <div class="adm display fadeInUp" style="display: none">
-                            <h3 class="mt-4">To Do tasks</h3>
+                            <h3 class="mt-4">Time Table</h3>
                             <div class="container">
                                 <div class="row mb-5">
                                     <p class="lead w-100"></p>
