@@ -108,7 +108,7 @@ if ($connection) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-md-2">
                     <li class="nav-item pl-4 dropdown">
-                        <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Instructor Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;" data-toggle="dropdown">
+                        <img src="<?php echo $user_photo; ?>" class="rounded-circle" alt="Student Photo" style="width: 40px; height: 40px; object-fit: cover; cursor:pointer;" data-toggle="dropdown">
                         <div class="dropdown-menu dropdown-menu-right" style="position: static; float: left;">
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">My Profile</a>
                             <a class="dropdown-item" href="./assets/logout.php" style="color: crimson;">Log Out</a>
