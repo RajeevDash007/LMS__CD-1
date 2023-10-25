@@ -53,7 +53,7 @@ if ($connection) {
 
 
 #fetchCoursesButton {
-  background-color: #7199ce;
+  background-color: #007bff;
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
@@ -83,6 +83,13 @@ if ($connection) {
 #fetchCoursesButton:focus {
   background-color: #7199ce;
 }
+
+.dark-mode label {
+    
+    color: white; /* White text color */
+  }
+
+  
     </style>
 </head>
 
