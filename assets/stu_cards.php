@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare and execute a query to fetch course data for the selected semester
-    $query = "SELECT course_name, course_credits FROM courses WHERE course_semester = ?";
+    $query = "SELECT course_name, course_credits ,course_outline FROM courses WHERE course_semester = ?";
     $stmt = $connection->prepare($query);
     $stmt->bind_param("s", $selectedSemester);
     $stmt->execute();
