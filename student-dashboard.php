@@ -289,11 +289,13 @@ if ($connection) {
                         card.className = "card swiper-slide";
                     
                         card.innerHTML = `
+                        <a class="description" href="${course.course_outline}" target="_blank">
                         <div class="card-content">
                             <h2 class="name">${course.course_name}</h2>
                             <p class="description">Credits: ${course.course_credits}</p>
-                            <a class="description" href="${course.course_outline}" target="_blank">Course Outline</a>
+                            
                         </div>
+                        </a>
                         
                          `;
                          
