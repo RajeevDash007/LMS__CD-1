@@ -433,7 +433,7 @@ try {
                             <h3 class="mt-4">All assignments details</h3>
                             <div class="container">
                                 <div class="row mb-5">
-                                    <p class="lead w-100">Options panel</p>
+                                    <p class="lead w-100"></p>
                                     <!-- add your code here -->
                                     <?php
                                  
