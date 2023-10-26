@@ -636,13 +636,80 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
 
-                        <div class="adm display fadeInUp" style="display: none">
-                            <h3 class="mt-4">Time Table</h3>
-                            <div class="container">
-                                <div class="row mb-5">
-                                    <p class="lead w-100"></p>
-                                    <div class="animated-search-filter adm grid fadeInUp delay-1">
+                        
                                             <!-- add your code here -->
+                                            <div class="adm display fadeInUp" style="display: none">
+                            <h3 class="mt-4">Time Table</h3>
+                            <div class="container" style="margin-top: 40px;">
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label for="courseSearch">Search by Course Name:</label>
+                                        <input type="text" class="form-control" id="courseSearch" placeholder="Enter course name">
+                                    </div>
+                                </div>
+                                <div class="row mb-5">
+                                    <!-- add your code here -->
+                                    <?php
+                                    require_once('./config.php');
+                                    $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
+
+                                    if ($conn->connect_error) {
+                                        die("Connection failed: " . $conn->connect_error);
+                                    }
+                                    $instructor_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+                                    $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+                                    echo '<div  id="timetable-container" class="table-responsive timetable">';
+                                    echo '<table class="table table-bordered">';
+                                    echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
+                                    echo '<tbody class="timetable-tbody">';
+
+                                    $timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '2:00 PM - 3:00 PM', '3:00 PM - 4:00 PM', '4:00 PM - 5:00 PM'];
+                                    foreach ($timeSlots as $timeSlot) {
+                                        echo '<tr>';
+                                        echo '<td>' . $timeSlot . '</td>';
+
+                                        foreach ($days as $day) {
+                                            $query = "SELECT c.course_name, cl.semester, cl.room_no 
+                                            FROM classes cl
+                                            JOIN courses c ON cl.course_id = c.course_id
+                                            WHERE cl.instructor_id = $instructor_id 
+                                                AND cl.day = '$day' 
+                                                AND cl.start_time <= '$timeSlot' 
+                                                AND cl.end_time > '$timeSlot'";
+                                            $result = $conn->query($query);
+
+                                            if ($result->num_rows > 0) {
+                                                $row = $result->fetch_assoc();
+                                                echo '<td>';
+                                                echo '' . $row['course_name'] . '<br>';
+                                                echo '( ' . $row['semester'] . ' )' . '<br>';
+                                                echo '( ' . $row['room_no'] . ' )';
+                                                echo '</td>';
+                                            } else {
+                                                echo '<td></td>';
+                                            }
+                                        }
+
+                                        echo '</tr>';
+                                    }
+
+                                    echo '</tbody>';
+                                    echo '</table>';
+                                    echo '</div>';
+                                    $conn->close();
+                                    ?>
+                                    <div class="col-md-6">
+                                        <button onclick="generatePDF()" class="btn btn-primary">Download Timetable as PDF</button>
+                                    </div>
+                                    <script>
+                                        function generatePDF() {
+                                            const element = document.getElementById('timetable-container');
+                                            html2pdf(element);
+                                        }
+                                    </script>
+                                    <div class="animated-search-filter adm grid fadeInUp delay-1">
+
+                                    </div>
                                             
                                     </div>
                                 </div>
