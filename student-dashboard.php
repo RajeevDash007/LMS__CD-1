@@ -109,6 +109,12 @@ if ($connection) {
             color: #fff;
         }
 
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #e57639;
+            border-color: #e57639;
+        }
+
         .rwd-table tr {
             border-top: 1px solid #ddd;
             border-bottom: 1px solid #ddd;
@@ -176,7 +182,7 @@ if ($connection) {
         }
 
         .timetable th {
-            background-color: #9EC0EA;
+            background-color: #bec1c4;
         }
 
         .timetable tbody tr:nth-child(even) {
@@ -766,10 +772,10 @@ if (isset($_POST['submit'])) {
                             <h3 class="mt-4">Time Table</h3>
                             <div class="container">
                                 <div class="row mb-5">
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                         <label for="courseSearch">Search by Course Name:</label>
                                         <input type="text" class="form-control" id="courseSearch" placeholder="Enter course name">
-                                    </div>
+                                    </div> -->
                                 <div>
                                     <p></p>
                                     
@@ -824,7 +830,8 @@ if (isset($_POST['submit'])) {
                                     $conn->close();
                                     ?>
                                     <div class="col-md-6">
-                                        <button onclick="generatePDF()" class="btn btn-primary">Download Timetable as PDF</button>
+                                        <button onclick="generatePDF()" class="btn btn-primary" style="background-color: #e57639; border-color:#e57639">Download Timetable as PDF</button>
+            
                                     </div>
                                     <script>
                                         function generatePDF() {
