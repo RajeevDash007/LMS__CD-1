@@ -97,6 +97,132 @@ if ($connection) {
     border-radius: 5px;
     font-size: 16px;
   }
+
+  .rwd-table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        .rwd-table thead tr:first-child {
+            border-top: none;
+            background: #428bca;
+            color: #fff;
+        }
+
+        .rwd-table tr {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            background-color: #f5f9fc;
+        }
+
+        .rwd-table tr:nth-child(even) {
+            background-color: #ebf3f9;
+        }
+
+        .rwd-table th {
+            display: none;
+        }
+
+        .rwd-table td {
+            display: block;
+        }
+
+        .rwd-table td:first-child {
+            margin-top: .5em;
+        }
+
+        .rwd-table td:last-child {
+            margin-bottom: .5em;
+        }
+
+        .rwd-table td:before {
+            content: attr(data-th) ": ";
+            font-weight: bold;
+            width: 120px;
+            display: inline-block;
+            color: #000;
+        }
+
+        .rwd-table th,
+        .rwd-table td {
+            text-align: left;
+        }
+
+        .rwd-table {
+            color: #333;
+            border-radius: .4em;
+            overflow: hidden;
+        }
+
+        .rwd-table tr {
+            border-color: #bfbfbf;
+        }
+
+        .rwd-table th,
+        .rwd-table td {
+            padding: .5em 1em;
+        }
+
+        .timetable table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .timetable th,
+        .timetable td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 15px;
+        }
+
+        .timetable th {
+            background-color: #9EC0EA;
+        }
+
+        .timetable tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        @media screen and (max-width: 601px) {
+            .rwd-table tr:nth-child(2) {
+                border-top: none;
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            .rwd-table tr:hover:not(:first-child) {
+                background-color: #d8e7f3;
+            }
+
+            .rwd-table td:before {
+                display: none;
+            }
+
+            .rwd-table th,
+            .rwd-table td {
+                display: table-cell;
+                padding: .25em .5em;
+            }
+
+            .rwd-table th:first-child,
+            .rwd-table td:first-child {
+                padding-left: 0;
+            }
+
+            .rwd-table th:last-child,
+            .rwd-table td:last-child {
+                padding-right: 0;
+            }
+
+            .rwd-table th,
+            .rwd-table td {
+                padding: 1em !important;
+            }
+        }
+
+        .fc-today {
+            background-color: #E35335 !important;
+        }
     </style>
 </head>
 
@@ -640,10 +766,74 @@ if (isset($_POST['submit'])) {
                             <h3 class="mt-4">Time Table</h3>
                             <div class="container">
                                 <div class="row mb-5">
-                                    <p class="lead w-100"></p>
-                                    <div class="animated-search-filter adm grid fadeInUp delay-1">
+                                <div class="col-md-6">
+                                        <label for="courseSearch">Search by Course Name:</label>
+                                        <input type="text" class="form-control" id="courseSearch" placeholder="Enter course name">
+                                    </div>
+                                <div>
+                                    <p></p>
+                                    
                                             <!-- add your code here -->
-                                            
+                                            <?php
+                                    require_once('./config.php');
+                                    $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
+
+                                    if ($conn->connect_error) {
+                                        die("Connection failed: " . $conn->connect_error);
+                                    }
+                                    $instructor_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+                                    $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+                                    echo '<div  id="timetable-container" class="table-responsive timetable">';
+                                    echo '<table class="table table-bordered">';
+                                    echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
+                                    echo '<tbody class="timetable-tbody">';
+
+                                    $timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '2:00 PM - 3:00 PM', '3:00 PM - 4:00 PM', '4:00 PM - 5:00 PM'];
+                                    foreach ($timeSlots as $timeSlot) {
+                                        echo '<tr>';
+                                        echo '<td>' . $timeSlot . '</td>';
+
+                                        foreach ($days as $day) {
+                                            $query = "SELECT c.course_name, cl.semester, cl.room_no 
+                                            FROM classes cl
+                                            JOIN courses c ON cl.course_id = c.course_id
+                                            WHERE cl.instructor_id = $instructor_id 
+                                                AND cl.day = '$day' 
+                                                AND cl.start_time <= '$timeSlot' 
+                                                AND cl.end_time > '$timeSlot'";
+                                            $result = $conn->query($query);
+
+                                            if ($result->num_rows > 0) {
+                                                $row = $result->fetch_assoc();
+                                                echo '<td>';
+                                                echo '' . $row['course_name'] . '<br>';
+                                                echo '( ' . $row['semester'] . ' )' . '<br>';
+                                                echo '( ' . $row['room_no'] . ' )';
+                                                echo '</td>';
+                                            } else {
+                                                echo '<td></td>';
+                                            }
+                                        }
+
+                                        echo '</tr>';
+                                    }
+
+                                    echo '</tbody>';
+                                    echo '</table>';
+                                    echo '</div>';
+                                    $conn->close();
+                                    ?>
+                                    <div class="col-md-6">
+                                        <button onclick="generatePDF()" class="btn btn-primary">Download Timetable as PDF</button>
+                                    </div>
+                                    <script>
+                                        function generatePDF() {
+                                            const element = document.getElementById('timetable-container');
+                                            html2pdf(element);
+                                        }
+                                    </script>
+                                    <div class="animated-search-filter adm grid fadeInUp delay-1">
+                                    </div>
                                     </div>
                                 </div>
                             </div>
