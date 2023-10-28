@@ -298,7 +298,7 @@ if ($connection) {
         <!-- Page Content -->
         <div id="page-content-wrapper">
         <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true" data-backdrop="false">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog" role="document" style="min-width: 800px;">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="profileModalLabel">My Profile</h5>
