@@ -400,7 +400,7 @@ if ($connection) {
                         </div>
                         <div class="modal-body">
                             <form id="profileForm" method="POST" action="./assets/instructor-update-profile.php">
-                                <div class="m-b-25">
+                                <div class="m-b-25" style="margin-left: 330px;">
                                     <img src="<?php echo $user_photo; ?>" alt="User-Profile-Image" style="width: 100px; height: auto; border-radius: 50%;">
                                 </div>
                                 <div class="form-group">
