@@ -390,7 +390,7 @@ if ($connection) {
         </div>
         <div id="page-content-wrapper">
             <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true" data-backdrop="false">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog" role="document" style="min-width: 800px;">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="profileModalLabel">My Profile</h5>
@@ -400,7 +400,7 @@ if ($connection) {
                         </div>
                         <div class="modal-body">
                             <form id="profileForm" method="POST" action="./assets/instructor-update-profile.php">
-                                <div class="m-b-25" style="margin-left: 170px;">
+                                <div class="m-b-25">
                                     <img src="<?php echo $user_photo; ?>" alt="User-Profile-Image" style="width: 100px; height: auto; border-radius: 50%;">
                                 </div>
                                 <div class="form-group">
