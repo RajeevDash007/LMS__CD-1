@@ -385,7 +385,7 @@ if ($connection) {
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i class="lni lni-graduation size-sm pr-4 font-24"></i></i>Assign tasks</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i class="lni lni-briefcase size-sm pr-4 font-24"></i>Time Table</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i class="lni lni-handshake size-sm pr-4 font-24"></i>Statistics</a>
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes" style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>extra sect</a>
+                <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes" style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>extra sect</a> -->
             </div>
         </div>
         <div id="page-content-wrapper">
@@ -798,7 +798,19 @@ if ($connection) {
                             </div>
                         </div>
 
-                        
+                        <!-- <div class="visoes display fadeInUp" style="display: none">
+                            <h3 class="mt-4">extra section</h3>
+                            <div class="container">
+                                <div class="row mb-5">
+                                    <p class="lead w-100"></p>
+                                   
+
+                                    <div class="animated-search-filter grid fadeInUp delay-1">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
 
                     <div class="col-md-4 fadeInUp atalhos">
