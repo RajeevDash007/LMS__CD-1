@@ -672,21 +672,7 @@ if ($connection) {
                                     </div>
 
                                 </div>
-                                <div class="container mt-4">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Student's Name</th>
-                                                <th>Assignment Name</th>
-                                                <th>Course Name</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
+                                
                             </div>
                         </div>
 
