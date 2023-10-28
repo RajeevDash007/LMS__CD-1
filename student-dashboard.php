@@ -913,14 +913,14 @@ if (isset($_POST['submit'])) {
                                     });
                                 </script>
 
-                                <div class="card shadow-card rounded-lg border-0 px-3 pb-4 mb-4">
+                                <!-- <div class="card shadow-card rounded-lg border-0 px-3 pb-4 mb-4">
                                     <p class="text-center mb-0 mt-3">Extra things</p>
 
 
-                                </div>
+                                </div> -->
 
                             </div>
-                            <div class="row mb-5 mt-2 fadeInUp delay-2">
+                            <!-- <div class="row mb-5 mt-2 fadeInUp delay-2">
                                 <div class="col-md-12 mt-4 mt-md-0 notice-container">
                                     <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4 fadeInUp">
                                         <p class="text-center mb-3">Notice</p>
@@ -981,7 +981,7 @@ if (isset($_POST['submit'])) {
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
