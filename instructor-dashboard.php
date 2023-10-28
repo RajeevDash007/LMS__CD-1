@@ -798,19 +798,7 @@ if ($connection) {
                             </div>
                         </div>
 
-                        <div class="visoes display fadeInUp" style="display: none">
-                            <h3 class="mt-4">extra section</h3>
-                            <div class="container">
-                                <div class="row mb-5">
-                                    <p class="lead w-100"></p>
-                                    <!-- add your code here -->
-
-                                    <div class="animated-search-filter grid fadeInUp delay-1">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <div class="col-md-4 fadeInUp atalhos">
