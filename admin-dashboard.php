@@ -71,11 +71,11 @@
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary home active"><i
                         class="lni lni-home size-sm pr-4 font-24"></i>Home</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i
-                        class="lni lni-graduation size-sm pr-4 font-24"></i></i>Study</a>
+                        class="lni lni-graduation size-sm pr-4 font-24"></i></i>Instructor Info</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i
-                        class="lni lni-briefcase size-sm pr-4 font-24"></i>Business</a>
+                        class="lni lni-briefcase size-sm pr-4 font-24"></i>Stdent Info</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
-                        class="lni lni-handshake size-sm pr-4 font-24"></i>Benefit</a>
+                        class="lni lni-handshake size-sm pr-4 font-24"></i>Time Table</a>
                 <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes"
                     style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>Documents</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary info"><i
