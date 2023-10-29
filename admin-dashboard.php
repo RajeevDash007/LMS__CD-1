@@ -111,6 +111,7 @@
                                         <div class="row">
                                             <div class="col-sm-6 order-1 order-sm-1">
                                                 <h4 class="text-primary pt-3 pt-sm-5 pl-3 pl-lg-4 pr-3">Hi, welcome</h4>
+                                                
                                             </div>
                                             <div
                                                 class="col-sm-6 d-flex d-lg-block d-lg-block align-items-center justify-content-center order-0 order-sm-1">
