@@ -162,8 +162,11 @@
                                         </div> -->
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
+
+                        
 
                         <!-- <div class="acad display fadeInUp" style="display: none">
                             <h3 class="mt-4">Study</h3>
@@ -418,6 +421,7 @@
                                 </div>
                             </div>
                         </div>  Controle de Display -->
+                    
 
                         <div class="visoes display fadeInUp" style="display: none">
                             <h3 class="mt-4">Documents</h3>
@@ -493,6 +497,7 @@
                         </div> <!-- Controle de Display -->
 
                     </div> <!-- Fim Coluna 8 -->
+                    
 
                     <div class="col-md-4 fadeInUp atalhos">
                         <div class="row mx-auto mt-3 justify-content-center d-none d-md-flex">
@@ -806,10 +811,12 @@
                         <a class="btn-sm button-link blue-color confirm"><i class="lni lni-plus pr-2"></i>Continue</a>
                     </div>
                 </div>
-            </div> -->
+            </div> 
+
+            
 
         </div>
-
+        
         <script>
         var lstsis =
             "Envio de Mensagens do Portal - EMP|Materiais|Consulta Cadastro MEGA |Catalogo de Itens em Geral|Materiais Geral|Uso Comum|Bolsa de Estudos |Solicitação/Renovação|Cesta Básica|Confraternização|Dicionário Aurélio|Documentos Normativos|Pesquisa de Clima Organizacional";
