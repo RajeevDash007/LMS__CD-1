@@ -76,7 +76,7 @@
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i
                         class="lni lni-graduation size-sm pr-4 font-24"></i></i>Instructor Info</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i
-                        class="lni lni-briefcase size-sm pr-4 font-24"></i>Stdent Info</a>
+                        class="lni lni-briefcase size-sm pr-4 font-24"></i>Student Info</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
                         class="lni lni-handshake size-sm pr-4 font-24"></i>Time Table</a>
               
@@ -119,10 +119,7 @@
                                             </div>
                                             <div class="col-12 order-2 order-sm-1">
                                                 <p class="px-3 pt-2 pb-3 text-banner"
-                                                    style="color: #5584bc; font-size: 15px">Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit. Morbi sed metus quis mauris tempor
-                                                    lacinia. Etiam maximus arcu a erat dapibus tempus eget et justo. Nam
-                                                    eget iaculis arcu, eu aliquam risus.</p>
+                                                    style="color: #5584bc; font-size: 15px">"Welcome to the Admin Dashboard! You have successfully logged in as an admin. Feel free to manage and control the system efficiently."</p>
                                             </div>
                                         </div>
                                     </div>
