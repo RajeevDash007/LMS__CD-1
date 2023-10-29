@@ -2,18 +2,18 @@
 session_start();
 
 
-if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'Administrators') {
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
     header('Location: auth.php');
     exit();
 }
 require_once('config.php');
 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 if ($connection) {
-    $query = "SELECT name, photo FROM Administators WHERE email=?";
+    $query = "SELECT name FROM administrators WHERE email=?";
     $stmt = mysqli_prepare($connection, $query);
     mysqli_stmt_bind_param($stmt, "s", $_SESSION['user_email']);
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $user_name, $user_photo);
+    mysqli_stmt_bind_result($stmt, $user_name);
     mysqli_stmt_fetch($stmt);
     mysqli_stmt_close($stmt);
     mysqli_close($connection);
