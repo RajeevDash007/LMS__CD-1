@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <title>Admin Dashboard</title>
 </head>
 
 <body>
@@ -416,7 +419,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> <!-- Controle de Display -->
+                        </div>  Controle de Display -->
 
                         <div class="visoes display fadeInUp" style="display: none">
                             <h3 class="mt-4">Documents</h3>
@@ -509,7 +512,31 @@
                                     <div
                                         class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4">
                                         <p class="text-center mb-3">Calender</p>
+                                        <div id="calendar"></div>
                                     </div>
+                                    <script>
+                                    $(document).ready(function() {
+                                        $('#calendar').fullCalendar({
+                                            header: {
+                                                left: 'prev',
+                                                center: 'title',
+                                                right: 'next'
+                                            },
+                                            defaultDate: new Date(),
+                                            editable: true,
+                                            eventLimit: true, 
+                                            events: [
+                                                //add all the holidays in this format
+                                                {
+                                                    title: 'Event 1',
+                                                    start: '2022-01-01',
+                                                    end: '2022-01-03'
+                                                },
+                                            ]
+                                        });
+                                    });
+                                </script>
+
                                 </div>
 
                                 <div class="card shadow-card rounded-lg border-0 px-3 pb-4 mb-4">
