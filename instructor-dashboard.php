@@ -129,6 +129,7 @@ if ($connection) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js" integrity="sha512-w3u9q/DeneCSwUDjhiMNibTRh/1i/gScBVp2imNVAMCt6cUHIw6xzhzcPFIaL3Q1EbI2l+nu17q2aLJJLo4ZYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
@@ -517,7 +518,7 @@ if ($connection) {
                                                 <div class="col-md-3">
                                                     <div class="card custom-card">
                                                         <div class="card-body">
-                                                            <h5 class="card-title course-title" data-toggle="modal" data-target="#courseModal" data-description="<?php echo $course['course_description']; ?>" data-credits="<?php echo $course['course_credits']; ?>" data-semester="<?php echo $course['course_semester']; ?>" data-outline="<?php echo isset($course['course_outline']) ? $course['course_outline'] : ''; ?>" style="cursor: pointer;"><?php echo $course['course_name']; ?></h5>
+                                                            <h5 class="card-title course-title" data-toggle="modal" data-target="#courseModal" data-courseid="<?php echo $course['course_id']; ?>" data-description="<?php echo $course['course_description']; ?>" data-credits="<?php echo $course['course_credits']; ?>" data-semester="<?php echo $course['course_semester']; ?>" data-outline="<?php echo isset($course['course_outline']) ? $course['course_outline'] : ''; ?>" style="cursor: pointer;"><?php echo $course['course_name']; ?></h5>
                                                             <p class="card-text">Credits: <b><?php echo $course['course_credits']; ?></b></p>
                                                             <p class="card-semester">Semester: <b><?php echo $course['course_semester']; ?></b></p>
                                                         </div>
@@ -528,6 +529,7 @@ if ($connection) {
                                     <?php endif; ?>
                                 </div>
 
+                               
 
                                 <div class="container mt-4 col-md-6" style="margin-left:0px;">
                                     <h2 style="margin-bottom:20px;">Create a Course</h2>
@@ -672,7 +674,7 @@ if ($connection) {
                                     </div>
 
                                 </div>
-                                
+
                             </div>
                         </div>
 
@@ -787,13 +789,14 @@ if ($connection) {
                                 });
                             });
                         </script>
-
+                       
 
                         <div class="beneficios display fadeInUp" style="display: none">
                             <div class="container">
                                 <div class="mb-5">
                                     <h3 class="my-4">Statistics</h3>
-                                    <!-- add your code here -->
+                                    
+
                                 </div>
                             </div>
                         </div>
