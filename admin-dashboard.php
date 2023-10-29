@@ -43,7 +43,7 @@
                         <a class="nav-link dropdown-toggle" style="white-space: normal" data-toggle="collapse"
                             href="#collapseExample" role="button" aria-expanded="false"
                             aria-controls="collapseExample"><i
-                                class="lni lni-user border rounded-circle border-primary p-1 mr-1"></i> Options<span
+                                class="lni lni-user border rounded-circle border-primary p-1 mr-1"></i> Admin<span
                                 class="sr-only">(current)</span>
                         </a>
 
