@@ -76,10 +76,7 @@
                         class="lni lni-briefcase size-sm pr-4 font-24"></i>Stdent Info</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
                         class="lni lni-handshake size-sm pr-4 font-24"></i>Time Table</a>
-                <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes"
-                    style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>Documents</a>
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary info"><i
-                        class="lni lni-keyword-research size-sm pr-4 font-24"></i>Informations</a> -->
+              
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -136,22 +133,7 @@
                                         </nav>
                                         <div class="content-wrap news mt-2 text-right">
                                             <section id="section-linemove-5">
-                                                <!-- <a href="#" class="card-news shadow-card rounded-lg">
-                                                    <i class="lni lni-star-fill"></i>
-                                                    <div class="text">
-                                                        <h5 class="card-news-title pb-2">Course 1( from backend ) </h5>
-                                                        <span class="card-news-description">Teacher Name<br>batch
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                                <a href="#" class="card-news shadow-card rounded-lg">
-                                                    <i class="lni lni-star-fill"></i>
-                                                    <div class="text">
-                                                        <h5 class="card-news-title pb-2">Course 1( from backend ) </h5>
-                                                        <span class="card-news-description">Teacher Name<br>batch
-                                                        </span>
-                                                    </div>
-                                                </a> -->
+                                                
                                             </section>
                                             <section id="section-linemove-4">
                                                 <a href="#" class="card-news shadow-card rounded-lg">
