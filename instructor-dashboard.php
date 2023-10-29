@@ -535,8 +535,19 @@ if ($connection) {
                                            
                                             const courseId = $(this).data('courseid');
                                             const courseName = $(this).text();
+                                            const courseDescription = $(this).data('description');
+                                            const courseCredits = $(this).data('credits');
+                                            const courseSemester = $(this).data('semester');
+                                            const courseOutline = $(this).data('outline');
+
+                                           
                                             $('#courseId').val(courseId);
                                             $('#courseName').val(courseName);
+                                            $('#courseDescription').val(courseDescription);
+                                            $('#courseCredits').val(courseCredits);
+                                            $('#courseSemester').val(courseSemester);
+
+                                          
 
                                             $('#courseModal').modal('show');
                                         });
