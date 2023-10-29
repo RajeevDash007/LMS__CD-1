@@ -69,16 +69,16 @@
     <div class="d-flex" id="wrapper">
 
         <!-- Sidebar -->
+        <!-- Sidebar -->
         <div id="sidebar-wrapper" style="z-index: 1">
             <div class="list-group list-group-flush bg-white" id="sidenav">
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary home active"><i
-                        class="lni lni-home size-sm pr-4 font-24"></i>Home</a>
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i
-                        class="lni lni-graduation size-sm pr-4 font-24"></i></i>Instructor Info</a>
-                <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i
-                        class="lni lni-briefcase size-sm pr-4 font-24"></i>Student Info</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary home active"><i class="lni lni-home size-sm pr-4 font-24"></i>Home</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary acad" id="acad"><i class="lni lni-graduation size-sm pr-4 font-24"></i>Instructor Info</a>
+                <a class="d-flex align-items-center border-bottom p-3 text-secondary adm" id="adm"><i class="lni lni-briefcase size-sm pr-4 font-24"></i>Student Info</a>
                 <a class="d-flex align-items-center border-bottom p-3 text-secondary beneficios"><i
                         class="lni lni-handshake size-sm pr-4 font-24"></i>Time Table</a>
+                <!-- <a class="d-flex align-items-center border-bottom p-3 text-secondary visoes"
+                    style="white-space: nowrap;"><i class="lni lni-files size-sm pr-4 font-24"></i>extra sect</a> -->
               
             </div>
         </div>
