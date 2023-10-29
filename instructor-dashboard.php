@@ -547,7 +547,11 @@ if ($connection) {
                                             $('#courseCredits').val(courseCredits);
                                             $('#courseSemester').val(courseSemester);
 
-                                          
+                                            if (courseOutline) {
+                                                $('#courseOutlineIframe').attr('src', courseOutline);
+                                            } else {
+                                                $('#courseOutlineIframe').attr('src', '');
+                                            }
 
                                             $('#courseModal').modal('show');
                                         });
