@@ -529,7 +529,20 @@ if ($connection) {
                                     <?php endif; ?>
                                 </div>
 
-                               
+                                <script>
+                                    $(document).ready(function() {
+                                        $('.course-title').click(function() {
+                                           
+                                            const courseId = $(this).data('courseid');
+                                            const courseName = $(this).text();
+                                            $('#courseId').val(courseId);
+                                            $('#courseName').val(courseName);
+
+                                            $('#courseModal').modal('show');
+                                        });
+                                    });
+                                </script>
+
 
                                 <div class="container mt-4 col-md-6" style="margin-left:0px;">
                                     <h2 style="margin-bottom:20px;">Create a Course</h2>
