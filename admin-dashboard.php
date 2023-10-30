@@ -9,11 +9,11 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
 require_once('config.php');
 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 if ($connection) {
-    $query = "SELECT name FROM administrators WHERE email=?";
+    $query = "SELECT name, photo FROM administrators WHERE email=?";
     $stmt = mysqli_prepare($connection, $query);
     mysqli_stmt_bind_param($stmt, "s", $_SESSION['user_email']);
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $user_name);
+    mysqli_stmt_bind_result($stmt, $user_name, $user_photo);
     mysqli_stmt_fetch($stmt);
     mysqli_stmt_close($stmt);
     mysqli_close($connection);
