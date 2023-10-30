@@ -222,12 +222,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
 
                         <div class="acad display fadeInUp" style="display: none">
-                            <h3 class="mt-4">Instructor Info</h3>
+                            <h3 class="mt-4">Instructor Time Table input</h3>
                             <div class="container">
                                 <div class="row mb-5">
                                     <p class="lead w-100"></p>
                                     <!-- add your code here -->
-                                    <h3>Instructor Time Table input</h3>
                                     <form id="timetableForm" method="POST" class="col-md-8">
                                         <div class="form-group">
                                             <label for="instructorId">Instructor:</label>
