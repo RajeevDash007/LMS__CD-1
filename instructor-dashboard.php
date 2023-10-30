@@ -823,6 +823,11 @@ if ($connection) {
                                 gap: 20px;
                                 font-size: 80%;
                             }
+
+                            .assignment-card {
+                                border: 2px solid black;
+                                width: 100%;
+                            }
                         </style>
 
                         <div class="beneficios display fadeInUp" style="display: none">
