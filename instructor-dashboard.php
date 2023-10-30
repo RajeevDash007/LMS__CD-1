@@ -819,7 +819,7 @@ if ($connection) {
                         <style>
                             .assignments {
                                 display: grid;
-                                
+                                font-size: 80%;
                             }
                         </style>
 
