@@ -886,8 +886,8 @@ if ($connection) {
                                                 echo 'labels: ["Submitted", "Not Submitted"],';
                                                 echo 'datasets: [{';
                                                 echo 'data: [' . $submittedCount . ', ' . ($totalEnrolled - $submittedCount) . '],';
-                                                echo 'backgroundColor: ["#36A2EB", "#FF6384"],';
-                                                echo 'hoverBackgroundColor: ["#36A2EB", "#FF6384"]';
+                                                echo 'backgroundColor: ["#50C878", "#FF6384"],';
+                                                echo 'hoverBackgroundColor: ["#228B22", "#C70039"]';
                                                 echo '}]';
                                                 echo '},';
                                                 echo 'options: {';
