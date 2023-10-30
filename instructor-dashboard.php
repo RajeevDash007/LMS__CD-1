@@ -837,6 +837,7 @@ if ($connection) {
                             canvas {
                                 width: 180px !important;
                                 height: 180px !important;
+                                margin-bottom: 10px;
                             }
                         </style>
 
