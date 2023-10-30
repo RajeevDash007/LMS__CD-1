@@ -833,7 +833,10 @@ if ($connection) {
                                 justify-content: center;
                                 text-align: center;
                                 width: 100%;
-
+                            }
+                            canvas {
+                                width: 180px !important;
+                                height: 180px !important;
                             }
                         </style>
 
