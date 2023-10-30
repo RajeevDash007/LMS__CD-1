@@ -38,6 +38,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = mysqli_prepare($connection, $query);
         mysqli_stmt_bind_param($stmt, "isssiss", $instructorId, $day, $startTime, $endTime, $courseId, $semester, $roomNo);
 
+        if (mysqli_stmt_execute($stmt)) {
+            mysqli_stmt_close($stmt);
+            mysqli_close($connection);
+            header("Location: admin-dashboard.php"); // Redirect to admin dashboard after successful insertion
+            exit();
+        } else {
+            echo "Error: " . mysqli_error($connection); // Handle insertion error
+        }
     } else {
         echo "Database connection error.";
     }
