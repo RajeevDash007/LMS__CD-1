@@ -1,3 +1,28 @@
+<?php
+session_start();
+
+
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
+    header('Location: auth.php');
+    exit();
+}
+require_once('config.php');
+$connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+if ($connection) {
+    $query = "SELECT name FROM administrators WHERE email=?";
+    $stmt = mysqli_prepare($connection, $query);
+    mysqli_stmt_bind_param($stmt, "s", $_SESSION['user_email']);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $user_name);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+    mysqli_close($connection);
+} else {
+    echo "Database connection error.";
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,11 +121,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="instructorName">Name</label>
-                                    <input type="text" class="form-control" id="studentName" name="student_name" value="<?php echo $user_name; ?>">
+                                    <input type="text" class="form-control" id="adminName" name="admin_name" value="<?php echo $user_name; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="instructorPhoto">Photo</label>
-                                    <input type="text" class="form-control-file" id="studentPhoto" name="student_photo" value="<?php echo $user_photo; ?>">
+                                    <input type="text" class="form-control-file" id="adminPhoto" name="admin_photo" value="<?php echo $user_photo; ?>">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>
@@ -148,7 +173,7 @@
                                         <div class="row">
                                             <div class="col-sm-6 order-1 order-sm-1">
                                                 <h4 class="text-primary pt-3 pt-sm-5 pl-3 pl-lg-4 pr-3">
-                                                Hi , welcome</h4>
+                                                Hi <?php echo $user_name; ?> , welcome</h4>
                                             </div>
                                             <div class="col-sm-6 d-flex d-lg-block d-lg-block align-items-center justify-content-center order-0 order-sm-1">
 
