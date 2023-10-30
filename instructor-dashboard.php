@@ -819,6 +819,7 @@ if ($connection) {
                         <style>
                             .assignments {
                                 display: grid;
+                                grid-template-columns: repeat(2, 1fr);
                                 font-size: 80%;
                             }
                         </style>
