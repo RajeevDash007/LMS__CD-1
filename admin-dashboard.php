@@ -32,7 +32,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
-    
+    if ($connection) {
+        $query = "INSERT INTO classes (instructor_id, day, start_time, end_time, course_id, semester, room_no)
+                  VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($connection, $query);
+        mysqli_stmt_bind_param($stmt, "isssiss", $instructorId, $day, $startTime, $endTime, $courseId, $semester, $roomNo);
+
+    } else {
+        echo "Database connection error.";
+    }
 }
 ?>
 
