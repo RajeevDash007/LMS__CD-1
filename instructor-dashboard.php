@@ -817,11 +817,37 @@ if ($connection) {
                             });
                         </script>
                         
+
                         <div class="beneficios display fadeInUp" style="display: none">
                             <div class="container">
                                 <div class="mb-5">
                                     <h3 class="my-4">Statistics</h3>
-                             
+                                    <div class="assignments">
+                                        <?php
+                                        include_once('./config.php');
+                                        $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+                                        $instructor_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+                                        if ($connection) {
+                                            $query = "SELECT a.AssignmentID, a.AssignmentTitle, c.course_name, c.course_semester, COUNT(s.SubmissionID) as submittedCount,
+                                                        (SELECT COUNT(*) FROM students st WHERE st.batch = c.course_semester) as totalEnrolled
+                                                        FROM assignment a
+                                                        LEFT JOIN courses c ON a.course_id = c.course_id
+                                                        LEFT JOIN assignmentsubmissions s ON a.AssignmentID = s.AssignmentID AND s.Status = 'Closed'
+                                                        WHERE a.instructor_id = $instructor_id
+                                                        GROUP BY a.AssignmentID, a.AssignmentTitle, c.course_name, c.course_semester";
+
+                                            $result = mysqli_query($connection, $query);
+
+                                           
+
+                                            // Close the database connection
+                                            mysqli_close($connection);
+                                        }
+                                        ?>
+
+
+                                    </div>
 
                                 </div>
                             </div>
