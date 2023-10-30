@@ -839,7 +839,38 @@ if ($connection) {
 
                                             $result = mysqli_query($connection, $query);
 
-                                           
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                
+                                                echo '<div class="assignment-card" style="width: 350px; height: 390px;">';
+                                                echo '<h4>' . $row['AssignmentTitle'] . '</h4>';
+                                                echo '<p>' . $row['course_name'] . '</p>';
+                                                echo '<p>Semester: ' . $row['course_semester'] . '</p>';
+                                                echo '<canvas id="pieChart' . $assignmentId . '" width="106"></canvas>';
+                                                echo '<p>Total Students Enrolled: ' . $totalEnrolled . '</p>';
+                                                echo '<p>Students Submitted: ' . $submittedCount . '</p>';
+                                                echo '</div>';
+
+                                                // JavaScript to create and update pie charts
+                                                echo '<script>';
+                                                echo 'var ctx = document.getElementById("pieChart' . $assignmentId . '").getContext("2d");';
+                                                echo 'var pieChart' . $assignmentId . ' = new Chart(ctx, {';
+                                                echo 'type: "pie",';
+                                                echo 'data: {';
+                                                echo 'labels: ["Submitted", "Not Submitted"],';
+                                                echo 'datasets: [{';
+                                                echo 'data: [' . $submittedCount . ', ' . ($totalEnrolled - $submittedCount) . '],';
+                                                echo 'backgroundColor: ["#36A2EB", "#FF6384"],';
+                                                echo 'hoverBackgroundColor: ["#36A2EB", "#FF6384"]';
+                                                echo '}]';
+                                                echo '},';
+                                                echo 'options: {';
+                                                echo 'responsive: true,';
+                                                echo 'legend: { display: false },';
+                                                echo 'title: { display: true, text: "Submission Status" }';
+                                                echo '}';
+                                                echo '});';
+                                                echo '</script>';
+                                            }
 
                                             // Close the database connection
                                             mysqli_close($connection);
