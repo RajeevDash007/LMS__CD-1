@@ -347,7 +347,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
                                         <div class="form-group">
                                             <label for="courseId">Course:</label>
-                                            <select class="form-control" name="course_id" id="courseId">
+                                            <select class="form-control" name="course_id" id="courseid">
                                             <?php
                                                 include_once('./config.php');
                                                 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
@@ -371,6 +371,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                         
                                     </form>
+                                    <script>
+    document.getElementById("sem").addEventListener("change", function () {
+        var selectedSemester = this.value;
+
+        // Send an AJAX request to fetch courses for the selected semester
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "./assets/fetch_courses.php?sem=" + selectedSemester, true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Parse the JSON response
+                var courses = JSON.parse(xhr.responseText);
+
+                // Clear the current options
+                var courseDropdown = document.getElementById("courseid");
+                courseDropdown.innerHTML = "";
+
+                // Populate the course dropdown with the new options
+                courses.forEach(function (courses) {
+                    var option = document.createElement("option");
+                    option.value = courses.course_id;
+                    option.text = courses.course_name;
+                    courseDropdown.appendChild(option);
+                });
+            }
+        };
+
+        xhr.send();
+    });
+</script>
                                                 
                                             
 
