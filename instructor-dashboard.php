@@ -881,7 +881,7 @@ if ($connection) {
                                                 echo '<script>';
                                                 echo 'var ctx = document.getElementById("pieChart' . $assignmentId . '").getContext("2d");';
                                                 echo 'var pieChart' . $assignmentId . ' = new Chart(ctx, {';
-                                                echo 'type: "pie",';
+                                                echo 'type: "doughnut",';
                                                 echo 'data: {';
                                                 echo 'labels: ["Submitted", "Not Submitted"],';
                                                 echo 'datasets: [{';
