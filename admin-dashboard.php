@@ -208,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                             </div>
                                             <div class="col-12 order-2 order-sm-1">
-                                                <p class="px-3 pt-2 pb-3 text-banner" style="color: #5584bc; font-size: 15px">Welcome to the student dashboard! Here, you'll find all the tools and resources to make your learning journey successful. If you ever need assistance or have questions, our support team is here to help. Happy learning!"</p>
+                                                <p class="px-3 pt-2 pb-3 text-banner" style="color: #5584bc; font-size: 15px">Welcome to the Admin Dashboard! You have successfully logged in as an admin. Feel free to manage and control the system efficiently."</p>
                                             </div>
                                         </div>
                                     </div>
