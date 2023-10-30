@@ -198,7 +198,46 @@ if ($connection) {
                                 <div class="row mb-5">
                                     <p class="lead w-100"></p>
                                     <!-- add your code here -->
-                                    
+                                    <h3>Instructor Time Table input</h3>
+                                    <form id="timetableForm" method="POST" class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="instructorId">Instructor:</label>
+                                            <select class="form-control" name="instructor_id" id="instructorId">
+                                                <option value="">Select Instructor</option>
+                                                
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="day">Day:</label>
+                                            <select class="form-control" name="day" id="day">
+                                                
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="startTime">Start Time:</label>
+                                            <input type="time" class="form-control" name="start_time" id="startTime" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="endTime">End Time:</label>
+                                            <input type="time" class="form-control" name="end_time" id="endTime" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="courseId">Course:</label>
+                                            <select class="form-control" name="course_id" id="courseId">
+                                                <option value="">Select Course</option>
+                                                
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="semester">Semester:</label>
+                                            <input type="text" class="form-control" name="semester" id="semester" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="roomNo">Room Number:</label>
+                                            <input type="text" class="form-control" name="room_no" id="roomNo" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Add Timetable Entry</button>
+                                    </form>
 
 
 
