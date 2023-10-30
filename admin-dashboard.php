@@ -161,7 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="modal-header" style="border-bottom: 1px solid #000; margin-top:20px;margin-bottom:20px;">
                                 <h5 class="modal-title" id="profileModalLabel" style="color: red;">Change your password</h5>
                             </div>
-                            <form id="changePasswordForm" method="POST" action="./assets/student-change-password.php">
+                            <form id="changePasswordForm" method="POST" action="./assets/admin-change-password.php">
                                 <div class="form-group">
                                     <label for="currentPassword">Current Password</label>
                                     <input type="password" class="form-control" id="currentPassword" name="current_password">
