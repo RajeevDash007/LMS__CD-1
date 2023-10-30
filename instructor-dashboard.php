@@ -816,7 +816,12 @@ if ($connection) {
                                 });
                             });
                         </script>
-                        
+                        <style>
+                            .assignments {
+                                display: grid;
+                                
+                            }
+                        </style>
 
                         <div class="beneficios display fadeInUp" style="display: none">
                             <div class="container">
