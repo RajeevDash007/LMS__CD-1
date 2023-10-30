@@ -21,6 +21,19 @@ if ($connection) {
     echo "Database connection error.";
     exit();
 }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $instructorId = $_POST["instructor_id"];
+    $day = $_POST["day"];
+    $startTime = $_POST["start_time"];
+    $endTime = $_POST["end_time"];
+    $courseId = $_POST["course_id"];
+    $semester = $_POST["semester"];
+    $roomNo = $_POST["room_no"];
+
+    $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+
+    
+}
 ?>
 
 <!DOCTYPE html>
