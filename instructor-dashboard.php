@@ -825,6 +825,7 @@ if ($connection) {
                             }
 
                             .assignment-card {
+                                padding: 30px;
                                 border: 2px solid black;
                                 width: 100%;
                             }
