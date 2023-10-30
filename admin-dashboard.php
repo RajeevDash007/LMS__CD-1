@@ -308,14 +308,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
 
                         <div class="adm display fadeInUp" style="display: none">
-                            <h3 class="mt-4">Student Info</h3>
+                            <h3 class="mt-4">Student Time Table input</h3>
                             <div class="container">
                                 <div class="row mb-5">  
                                 <p class="lead w-100"></p>             
-                                
-                                    
+                                        <!-- add your code here -->
+                                        <form id="studentForm" method="POST" class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="day">Semester:</label>
+                                            <select class="form-control" name="sem" id="sem">
+                                                <option value="SEM1">Semester-1</option>
+                                                <option value="SEM2">Semester-2</option>
+                                                <option value="SEM3">Semester-3</option>
+                                                <option value="SEM4">Semester-4</option>
+                                                <option value="SEM5">Semester-5</option>
+                                                <option value="SEM5">Semester-6</option>
+                                                <option value="SEM5">Semester-7</option>
+                                                <option value="SEM5">Semester-8</option>
+                                            </select>
+                                        </div>   
+                                        <div class="form-group">
+                                            <label for="day">Day:</label>
+                                            <select class="form-control" name="day" id="day">
+                                                <option value="Monday">Monday</option>
+                                                <option value="Tuesday">Tuesday</option>
+                                                <option value="Wednesday">Wednesday</option>
+                                                <option value="Thursday">Thursday</option>
+                                                <option value="Friday">Friday</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="startTime">Start Time:</label>
+                                            <input type="time" class="form-control" name="start_time" id="startTime" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="endTime">End Time:</label>
+                                            <input type="time" class="form-control" name="end_time" id="endTime" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="courseId">Course:</label>
+                                            <select class="form-control" name="course_id" id="courseId">
+                                            <?php
+                                                include_once('./config.php');
+                                                $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+                                                if ($connection) {
+                                                    $query = "SELECT course_id, course_name FROM courses";
+                                                    $result = mysqli_query($connection, $query);
+                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                        echo "<option value=\"{$row['course_id']}\">{$row['course_name']}</option>";
+                                                    }
+                                                    mysqli_close($connection);
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="roomNo">Room Number:</label>
+                                            <input type="text" class="form-control" name="room_no" id="roomNo" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Add Timetable Entry</button>
+
+                                        
+                                    </form>
                                                 
-                                            <!-- add your code here -->
+                                            
 
                                             
                                     
