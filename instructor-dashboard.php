@@ -828,6 +828,10 @@ if ($connection) {
                                 padding: 30px;
                                 border: 2px solid black;
                                 line-height: 10px;
+                                align-items: center;
+                                justify-items: center;
+                                justify-content: center;
+                                text-align: center;
                                 width: 100%;
 
                             }
