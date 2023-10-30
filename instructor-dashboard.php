@@ -840,7 +840,10 @@ if ($connection) {
                                             $result = mysqli_query($connection, $query);
 
                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                
+                                                $assignmentId = $row['AssignmentID'];
+                                                $submittedCount = $row['submittedCount'];
+                                                $totalEnrolled = $row['totalEnrolled'];
+
                                                 echo '<div class="assignment-card" style="width: 350px; height: 390px;">';
                                                 echo '<h4>' . $row['AssignmentTitle'] . '</h4>';
                                                 echo '<p>' . $row['course_name'] . '</p>';
