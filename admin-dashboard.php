@@ -210,7 +210,12 @@ if ($connection) {
                                         <div class="form-group">
                                             <label for="day">Day:</label>
                                             <select class="form-control" name="day" id="day">
-                                                
+                                                <option value="Monday">Monday</option>
+                                                <option value="Tuesday">Tuesday</option>
+                                                <option value="Wednesday">Wednesday</option>
+                                                <option value="Thursday">Thursday</option>
+                                                <option value="Friday">Friday</option>
+                                               
                                             </select>
                                         </div>
                                         <div class="form-group">
