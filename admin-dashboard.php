@@ -144,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form id="profileForm" method="POST" action="./assets/student-update-profile.php">
+                            <form id="profileForm" method="POST" action="./assets/admin-update-profile.php">
                                 <div class="m-b-25" style="margin-left: 330px;" >
                                     <img src="<?php echo $user_photo; ?>" alt="User-Profile-Image" style="width: 100px; height: auto; border-radius: 50%;">
                                 </div>
