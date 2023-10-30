@@ -204,7 +204,18 @@ if ($connection) {
                                             <label for="instructorId">Instructor:</label>
                                             <select class="form-control" name="instructor_id" id="instructorId">
                                                 <option value="">Select Instructor</option>
-                                                
+                                                <?php
+                                                include_once('./config.php');
+                                                $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+                                                if ($connection) {
+                                                    $query = "SELECT instructor_id, name FROM instructors";
+                                                    $result = mysqli_query($connection, $query);
+                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                        echo "<option value=\"{$row['instructor_id']}\">{$row['name']}</option>";
+                                                    }
+                                                    mysqli_close($connection);
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -215,7 +226,6 @@ if ($connection) {
                                                 <option value="Wednesday">Wednesday</option>
                                                 <option value="Thursday">Thursday</option>
                                                 <option value="Friday">Friday</option>
-                                               
                                             </select>
                                         </div>
                                         <div class="form-group">
