@@ -230,7 +230,18 @@ if ($connection) {
                                             <label for="courseId">Course:</label>
                                             <select class="form-control" name="course_id" id="courseId">
                                                 <option value="">Select Course</option>
-                                                
+                                                <?php
+                                                include_once('./config.php');
+                                                $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+                                                if ($connection) {
+                                                    $query = "SELECT course_id, course_name FROM courses";
+                                                    $result = mysqli_query($connection, $query);
+                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                        echo "<option value=\"{$row['course_id']}\">{$row['course_name']}</option>";
+                                                    }
+                                                    mysqli_close($connection);
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
