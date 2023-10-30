@@ -838,6 +838,7 @@ if ($connection) {
                                 width: 180px !important;
                                 height: 180px !important;
                                 margin-bottom: 10px;
+                                margin-left: 50px;
                             }
                         </style>
 
