@@ -85,8 +85,9 @@ if ($connection) {
     }
     $courseOptions = '';
     foreach ($courses as $course) {
+        $courseId = $course['course_id'];
         $courseName = $course['course_name'];
-        $courseOptions .= "<option value='$courseName'>$courseName</option>";
+        $courseOptions .= "<option value='$courseId'>$courseName</option>";
     }
     mysqli_stmt_close($stmt);
     mysqli_close($connection);
@@ -532,7 +533,6 @@ if ($connection) {
                                 <script>
                                     $(document).ready(function() {
                                         $('.course-title').click(function() {
-                                           
                                             const courseId = $(this).data('courseid');
                                             const courseName = $(this).text();
                                             const courseDescription = $(this).data('description');
@@ -540,7 +540,6 @@ if ($connection) {
                                             const courseSemester = $(this).data('semester');
                                             const courseOutline = $(this).data('outline');
 
-                                           
                                             $('#courseId').val(courseId);
                                             $('#courseName').val(courseName);
                                             $('#courseDescription').val(courseDescription);
@@ -817,13 +816,12 @@ if ($connection) {
                                 });
                             });
                         </script>
-                       
-
+                        
                         <div class="beneficios display fadeInUp" style="display: none">
                             <div class="container">
                                 <div class="mb-5">
                                     <h3 class="my-4">Statistics</h3>
-                                    
+                             
 
                                 </div>
                             </div>
