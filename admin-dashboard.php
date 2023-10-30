@@ -310,17 +310,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="adm display fadeInUp" style="display: none">
                             <h3 class="mt-4">Student Info</h3>
                             <div class="container">
-                                <div class="row mb-5">
+                                <div class="row mb-5">  
+                                <p class="lead w-100"></p>             
                                 
-                                <div>
-                                    <p></p>
                                     
+                                                
                                             <!-- add your code here -->
+
                                             
                                     
                                     <div class="animated-search-filter adm grid fadeInUp delay-1">
                                     </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
