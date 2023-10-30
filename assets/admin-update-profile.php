@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $instructorId = $_SESSION['user_id'];
-    $instructorName = $_POST['instructor_name'];
-    $instructorPhoto = $_POST['instructor_photo'];
+    $instructorName = $_POST['admin_name'];
+    $instructorPhoto = $_POST['admin_photo'];
 
     // Update the instructor's name and/or photo in the database
     $query = "UPDATE administrators SET name = ?, photo = ? WHERE admin_id = ?";
