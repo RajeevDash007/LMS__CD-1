@@ -740,6 +740,25 @@ if ($connection) {
 
                                                         $result = mysqli_query($connection, $sql);
 
+                                                        if ($result) {
+                                                            $serialNo = 1;
+                                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                                echo "<tr>";
+                                                                echo "<td>" . $serialNo++ . "</td>";
+                                                                echo "<td>" . $row['student_name'] . "</td>";
+                                                                echo "<td>" . $row['course_name'] . "</td>";
+                                                                echo "<td>" . $row['AssignmentMarks'] . "</td>";
+                                                                echo '<td><a href="' . $row['FilePath'] . '" target="_blank">Download</a></td>';
+                                                                echo '<td>
+                                    <input type="number" name="marks[' . $row['student_id'] . ']" required>
+                                    <input type="hidden" name="student_id" value="' . $row['student_id'] . '">
+                                    <input type="hidden" name="assignment_id" value="' . $row['AssignmentID'] . '">
+                                </td>';
+                                                                echo "</tr>";
+                                                            }
+                                                        } else {
+                                                            echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                                                        }
                                                     } else {
                                                         echo "Instructor not logged in.";
                                                     }
