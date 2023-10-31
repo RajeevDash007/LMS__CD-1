@@ -701,6 +701,30 @@ if ($connection) {
                                     </div>
 
                                 </div>
+                                <div class="row mb-5" style="margin-right: -277px;
+  margin-left: -25px;">
+                                    <div class="container mt-5">
+                                        <h2 class="mb-4">Assignment Submission Details</h2>
+                                        <form method="post" action="./assets/save_marks.php"> 
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Serial No.</th>
+                                                        <th>Name</th>
+                                                        <th>Course Name</th>
+                                                        <th>Full Marks</th>
+                                                        <th>Assignment File</th>
+                                                        <th>Assign Marks</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                  
+                                                </tbody>
+                                            </table>
+                                            <button type="submit" class="btn btn-primary">Save Marks</button> <!-- This button will submit all marks at once -->
+                                        </form>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
@@ -834,6 +858,7 @@ if ($connection) {
                                 text-align: center;
                                 width: 100%;
                             }
+
                             canvas {
                                 width: 180px !important;
                                 height: 180px !important;
