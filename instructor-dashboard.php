@@ -748,7 +748,7 @@ if ($connection) {
                                                                 echo "<td>" . $row['student_name'] . "</td>";
                                                                 echo "<td>" . $row['course_name'] . "</td>";
                                                                 echo "<td>" . $row['AssignmentMarks'] . "</td>";
-                                                                echo '<td><a href="' . $row['FilePath'] . '" target="_blank">Download</a></td>';
+                                                                echo '<td><a href="' . $row['FilePath'] . '" target="_blank">View</a></td>';
                                                                 echo '<td>
                                     <input type="number" name="marks[' . $row['student_id'] . ']" required>
                                     <input type="hidden" name="student_id" value="' . $row['student_id'] . '">
