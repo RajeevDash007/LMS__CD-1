@@ -718,7 +718,34 @@ if ($connection) {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                    require_once('./config.php');
+                                                    $connection = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
+
+                                                    if ($connection->connect_error) {
+                                                        die("Connection failed: " . $conn->connect_error);
+                                                    }
+
                                                   
+                                                    $instructorId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+                                                    if ($instructorId !== null) {
+                                        
+                                                        $sql = "SELECT s.student_id, s.name AS student_name, c.course_name, a.AssignmentMarks,a.AssignmentID, sub.FilePath
+                            FROM students s
+                            INNER JOIN assignmentsubmissions sub ON s.student_id = sub.student_id
+                            INNER JOIN assignment a ON sub.AssignmentID = a.AssignmentID
+                            INNER JOIN courses c ON a.course_id = c.course_id
+                            WHERE a.instructor_id = $instructorId AND sub.Status = 'Closed'";
+
+                                                        $result = mysqli_query($connection, $sql);
+
+                                                    } else {
+                                                        echo "Instructor not logged in.";
+                                                    }
+
+                                                    mysqli_close($connection);
+                                                    ?>
                                                 </tbody>
                                             </table>
                                             <button type="submit" class="btn btn-primary">Save Marks</button> <!-- This button will submit all marks at once -->
