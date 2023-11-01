@@ -371,27 +371,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         
                                     </form>
                                     <script>
-    document.getElementById("sem").addEventListener("change", function () {
-        var selectedSemester = this.value;
+    document.addEventListener("DOMContentLoaded", function() {
+    var semDropdown = document.getElementById("sem");
+    var courseDropdown = document.getElementById("courseid");
 
+    semDropdown.addEventListener("change", function () {
+        var selectedSemester = this.value;
         // Send an AJAX request to fetch courses for the selected semester
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "./assets/fetch_courses.php?sem=" + selectedSemester, true);
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                // Parse the JSON response
                 var courses = JSON.parse(xhr.responseText);
-
-                // Clear the current options
-                var courseDropdown = document.getElementById("courseid");
-                courseDropdown.innerHTML = "";
-
-                // Populate the course dropdown with the new options
-                courses.forEach(function (courses) {
+                courseDropdown.innerHTML = ""; // Clear the current options
+                courses.forEach(function (course) {
                     var option = document.createElement("option");
-                    option.value = courses.course_id;
-                    option.text = courses.course_name;
+                    option.value = course.course_id;
+                    option.text = course.course_name;
                     courseDropdown.appendChild(option);
                 });
             }
@@ -399,6 +396,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         xhr.send();
     });
+});
+
 </script>
                                                 
                                             

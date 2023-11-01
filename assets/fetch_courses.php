@@ -17,7 +17,6 @@ if (isset($_GET['sem'])) {
 
         mysqli_close($connection);
 
-        // Return the courses as JSON
         header('Content-Type: application/json');
         echo json_encode($courses);
     }
