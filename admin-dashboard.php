@@ -316,6 +316,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <div class="form-group">
                                             <label for="day">Semester:</label>
                                             <select class="form-control" name="sem" id="sem">
+                                            <option value="Select">Select semester</option>
                                                 <option value="SEM1">Semester-1</option>
                                                 <option value="SEM2">Semester-2</option>
                                                 <option value="SEM3">Semester-3</option>
@@ -344,9 +345,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <label for="endTime">End Time:</label>
                                             <input type="time" class="form-control" name="end_time" id="endTime" required>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" id="courseDiv" style="display: none">
                                             <label for="courseId">Course:</label>
                                             <select class="form-control" name="course_id" id="courseid">
+                                            <option value="select_course">Select course</option>
                                             <?php
                                                 include_once('./config.php');
                                                 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
@@ -372,32 +374,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </form>
                                     <script>
     document.addEventListener("DOMContentLoaded", function() {
-    var semDropdown = document.getElementById("sem");
-    var courseDropdown = document.getElementById("courseid");
+        var semDropdown = document.getElementById("sem");
+        var courseDropdown = document.getElementById("courseid");
+        var courseDiv = document.getElementById("courseDiv");
 
-    semDropdown.addEventListener("change", function () {
-        var selectedSemester = this.value;
-        // Send an AJAX request to fetch courses for the selected semester
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "./assets/fetch_courses.php?sem=" + selectedSemester, true);
+        semDropdown.addEventListener("change", function () {
+            var selectedSemester = this.value;
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var courses = JSON.parse(xhr.responseText);
-                courseDropdown.innerHTML = ""; // Clear the current options
-                courses.forEach(function (course) {
-                    var option = document.createElement("option");
-                    option.value = course.course_id;
-                    option.text = course.course_name;
-                    courseDropdown.appendChild(option);
-                });
+            if (selectedSemester !== 'Select') {
+                // Show the course dropdown and fetch courses for the selected semester
+                courseDiv.style.display = "block";
+                fetchCourses(selectedSemester);
+            } else {
+                // Hide the course dropdown if "Select" is chosen
+                courseDiv.style.display = "none";
             }
-        };
+        });
 
-        xhr.send();
+        function fetchCourses(selectedSemester) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "./assets/fetch_courses.php?sem=" + selectedSemester, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var courses = JSON.parse(xhr.responseText);
+                    courseDropdown.innerHTML = ""; // Clear the current options
+                    courses.forEach(function (course) {
+                        var option = document.createElement("option");
+                        option.value = course.course_id;
+                        option.text = course.course_name;
+                        courseDropdown.appendChild(option);
+                    });
+                }
+            };
+
+            xhr.send();
+        }
     });
-});
-
 </script>
                                                 
                                             
