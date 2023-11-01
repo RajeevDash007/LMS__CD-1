@@ -312,11 +312,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="row mb-5">  
                                 <p class="lead w-100"></p>             
                                         <!-- add your code here -->
-                                        <form id="studentForm" method="POST" class="col-md-8">
+                                        <!-- <form id="studentForm" method="POST" class="col-md-8">
                                         <div class="form-group">
                                             <label for="day">Semester:</label>
                                             <select class="form-control" name="sem" id="sem">
-                                            <option value="Select">Select semester</option>
                                                 <option value="SEM1">Semester-1</option>
                                                 <option value="SEM2">Semester-2</option>
                                                 <option value="SEM3">Semester-3</option>
@@ -345,10 +344,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <label for="endTime">End Time:</label>
                                             <input type="time" class="form-control" name="end_time" id="endTime" required>
                                         </div>
-                                        <div class="form-group" id="courseDiv" style="display: none">
+                                        <div class="form-group">
                                             <label for="courseId">Course:</label>
                                             <select class="form-control" name="course_id" id="courseid">
-                                            <option value="select_course">Select course</option>
                                             <?php
                                                 include_once('./config.php');
                                                 $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
@@ -363,55 +361,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 ?>
                                             </select>
                                         </div>
-
                                         <div class="form-group">
                                             <label for="roomNo">Room Number:</label>
                                             <input type="text" class="form-control" name="room_no" id="roomNo" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Add Timetable Entry</button>
-
                                         
-                                    </form>
-                                    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var semDropdown = document.getElementById("sem");
-        var courseDropdown = document.getElementById("courseid");
-        var courseDiv = document.getElementById("courseDiv");
-
-        semDropdown.addEventListener("change", function () {
-            var selectedSemester = this.value;
-
-            if (selectedSemester !== 'Select') {
-                // Show the course dropdown and fetch courses for the selected semester
-                courseDiv.style.display = "block";
-                fetchCourses(selectedSemester);
-            } else {
-                // Hide the course dropdown if "Select" is chosen
-                courseDiv.style.display = "none";
+                                    </form> -->
+                                    <!-- <script>
+    document.getElementById("sem").addEventListener("change", function () {
+        var selectedSemester = this.value;
+        // Send an AJAX request to fetch courses for the selected semester
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "./assets/fetch_courses.php?sem=" + selectedSemester, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Parse the JSON response
+                var courses = JSON.parse(xhr.responseText);
+                // Clear the current options
+                var courseDropdown = document.getElementById("courseid");
+                courseDropdown.innerHTML = "";
+                // Populate the course dropdown with the new options
+                courses.forEach(function (courses) {
+                    var option = document.createElement("option");
+                    option.value = courses.course_id;
+                    option.text = courses.course_name;
+                    courseDropdown.appendChild(option);
+                });
             }
-        });
-
-        function fetchCourses(selectedSemester) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "./assets/fetch_courses.php?sem=" + selectedSemester, true);
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var courses = JSON.parse(xhr.responseText);
-                    courseDropdown.innerHTML = ""; // Clear the current options
-                    courses.forEach(function (course) {
-                        var option = document.createElement("option");
-                        option.value = course.course_id;
-                        option.text = course.course_name;
-                        courseDropdown.appendChild(option);
-                    });
-                }
-            };
-
-            xhr.send();
-        }
+        };
+        xhr.send();
     });
-</script>
+</script> -->
                                                 
                                             
 
