@@ -312,19 +312,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="row mb-5">  
                                 <p class="lead w-100"></p>             
                                         <!-- add your code here -->
-                                        <!-- <form id="studentForm" method="POST" class="col-md-8">
+                                         <form id="studentForm" method="POST" class="col-md-8">
                                         <div class="form-group">
-                                            <label for="day">Semester:</label>
-                                            <select class="form-control" name="sem" id="sem">
-                                                <option value="SEM1">Semester-1</option>
-                                                <option value="SEM2">Semester-2</option>
-                                                <option value="SEM3">Semester-3</option>
-                                                <option value="SEM4">Semester-4</option>
-                                                <option value="SEM5">Semester-5</option>
-                                                <option value="SEM5">Semester-6</option>
-                                                <option value="SEM5">Semester-7</option>
-                                                <option value="SEM5">Semester-8</option>
-                                            </select>
+                                            <label for="">Semester:</label>
+                                            <input type="text" class="form-control" name="semesternum" id="semesternum">
                                         </div>   
                                         <div class="form-group">
                                             <label for="day">Day:</label>
@@ -345,21 +336,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <input type="time" class="form-control" name="end_time" id="endTime" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="courseId">Course:</label>
-                                            <select class="form-control" name="course_id" id="courseid">
-                                            <?php
-                                                include_once('./config.php');
-                                                $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
-                                                if ($connection) {
-                                                    $query = "SELECT course_id, course_name FROM courses";
-                                                    $result = mysqli_query($connection, $query);
-                                                    while ($row = mysqli_fetch_assoc($result)) {
-                                                        echo "<option value=\"{$row['course_id']}\">{$row['course_name']}</option>";
-                                                    }
-                                                    mysqli_close($connection);
-                                                }
-                                                ?>
-                                            </select>
+                                            <label for="">Course:</label>
+                                            <input type="text" class="form-control" name="coursename" id="coursename">
                                         </div>
                                         <div class="form-group">
                                             <label for="roomNo">Room Number:</label>
@@ -367,7 +345,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
                                         <button type="submit" class="btn btn-primary">Add Timetable Entry</button>
                                         
-                                    </form> -->
+                                    </form> 
                                     <!-- <script>
     document.getElementById("sem").addEventListener("change", function () {
         var selectedSemester = this.value;
