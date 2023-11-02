@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/dashboard.css">
+    <link rel="stylesheet" href="./assets/stu-cards.css">
     <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -66,7 +67,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="./assets/swiper-bundle.min.css">
     <title>Admin Dashboard</title>
+    <style>
+    #fetchCoursesButton {
+  background-color: #007bff;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 35px;
+  line-height: 20px;
+  list-style: none;
+  margin-left: 5px;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#fetchCoursesButton:hover,
+#fetchCoursesButton:focus {
+  background-color: #7199ce;
+}
+.dark-mode label {
+    
+    color: white; /* White text color */
+  }
+
+  #semesterSelect {
+    background-color: #7c87aa;
+    color: white;
+    padding: 5px;
+    border: 3px solid #555;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+</style>
 </head>
 
 <body>
@@ -308,10 +357,127 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                         <div class="adm display fadeInUp" style="display: none">
                             <h3 class="mt-4">Student Time Table input</h3>
+                            <h6 class="mt-2">{Select a semester to view courses and add them to the time-table}</h6>
                             <div class="container">
                                 <div class="row mb-5">  
                                 <p class="lead w-100"></p>             
                                         <!-- add your code here -->
+                                        <div class="student-course-selection">
+                                    <label for="semesterSelect">Select Semester:</label>
+                                    <select id="semesterSelect">
+                                        <option value="1">Semester 1</option>
+                                        <option value="2">Semester 2</option>
+                                        <option value="3">Semester 3</option>
+                                        <option value="4">Semester 4</option>
+                                        <option value="5">Semester 5</option>
+                                        <option value="6">Semester 6</option>
+                                        <option value="7">Semester 7</option>
+                                        <option value="8">Semester 8</option>
+                                        <option value="9">Semester 9</option>
+                                        <option value="10">Semester 10</option>
+        
+                                    </select>
+                                <button id="fetchCoursesButton">Fetch Courses</button>
+                                </div>
+                                
+                            <div class="slide-container swiper">
+                            <div class="slide-content">
+            <div class="card-wrapper swiper-wrapper" id="dynamic-card-wrapper"></div>
+        </div>
+                                        
+                            
+                                
+                                <div class="swiper-button-next swiper-navBtn" style="display: none;"></div>
+                                <div class="swiper-button-prev swiper-navBtn" style="display: none;"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                            <script src="./assets/swiper-bundle.min.js"></script>
+                            <script >
+                                var dynamicCardWrapper = document.getElementById("dynamic-card-wrapper");
+                                document.getElementById("fetchCoursesButton").addEventListener("click", function () {
+                                var selectedSemester = document.getElementById("semesterSelect").value;
+
+                            // Make an AJAX request to fetch course data
+                            fetch('./assets/stu_cards.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                body: 'selected_semester=' + selectedSemester,
+                                })
+                                .then(function (response) {
+                                 return response.json();
+                                })
+                                .then(function (data) {
+                            // Update the coursesData array with the fetched data
+                            coursesData = data;
+
+                            // Dynamically create and populate the course cards
+                            dynamicCardWrapper.innerHTML = ''; // Clear existing cards
+
+                        coursesData.forEach(function (course) {
+                        var card = document.createElement("div");
+                        card.className = "card swiper-slide";
+                    
+                        card.innerHTML = `
+                        <a class="description" href="${course.course_outline}" target="_blank" title="Course Outline: ${course.course_name}">
+                        <div class="card-content">
+                            <h2 class="name">${course.course_name}</h2>
+                            <p class="description">Credits: ${course.course_credits}</p>
+                            
+                        </div>
+                        </a>
+                        
+                         `;
+                         
+                         
+                         
+                        dynamicCardWrapper.appendChild(card);
+                        });
+
+
+
+                        var swiper = new Swiper(".slide-content", {
+            slidesPerView: 3,
+            spaceBetween: 25,
+            loop: false,
+            centerSlide: true,
+            fade: true,
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 25,
+                },
+            },
+            
+        });
+        
+        
+    })
+    .catch(function (error) {
+        console.error('Error:', error);
+    });
+});
+                            </script>
+                            
                                          <form id="studentForm" method="POST" class="col-md-8">
                                         <div class="form-group">
                                             <label for="">Semester:</label>
@@ -346,35 +512,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <button type="submit" class="btn btn-primary">Add Timetable Entry</button>
                                         
                                     </form> 
-                                    <!-- <script>
-    document.getElementById("sem").addEventListener("change", function () {
-        var selectedSemester = this.value;
-        // Send an AJAX request to fetch courses for the selected semester
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "./assets/fetch_courses.php?sem=" + selectedSemester, true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // Parse the JSON response
-                var courses = JSON.parse(xhr.responseText);
-                // Clear the current options
-                var courseDropdown = document.getElementById("courseid");
-                courseDropdown.innerHTML = "";
-                // Populate the course dropdown with the new options
-                courses.forEach(function (courses) {
-                    var option = document.createElement("option");
-                    option.value = courses.course_id;
-                    option.text = courses.course_name;
-                    courseDropdown.appendChild(option);
-                });
-            }
-        };
-        xhr.send();
-    });
-</script> -->
-                                                
-                                            
-
-                                            
+                                          
                                     
                                     <div class="animated-search-filter adm grid fadeInUp delay-1">
                                     </div>
