@@ -526,6 +526,74 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="mb-5">
                                     <h3 class="my-4">Time Table</h3>
                                     <!-- add your code here -->
+                                    <div id="timetable-container" class="table-responsive timetable">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th colspan="6">Instructor's Time Table</th>
+      </tr>
+      <tr>
+        <th>Time</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+    </thead>
+    <tbody class="timetable-tbody">
+      <tr>
+        <td>9:30 AM - 10:30 AM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>10:30 AM - 11:30 AM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>11:30 AM - 12:30 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2:00 PM - 3:00 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>3:00 PM - 4:00 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>4:00 PM - 5:00 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
                                 </div>
                             </div>
                         </div> <!-- Controle de Display -->
