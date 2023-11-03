@@ -118,6 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   .rwd-table {
             margin: auto;
             border-collapse: collapse;
+           
         }
 
         .rwd-table thead tr:first-child {
@@ -242,6 +243,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 padding: 1em !important;
             }
         }
+
+        /* Dark mode styles */
+.dark-mode .timetable {
+  background-color: #333333; /* Background color for dark mode */
+  color: #FFFFFF; /* Default text color for dark mode */
+
+}
+
+.dark-mode .timetable tr:nth-child(odd) {
+  background-color: #444444; /* Background color for even rows in dark mode */
+  color: #FFFFFF; /* Text color for even rows in dark mode */
+}
+
 </style>
 </head>
 
@@ -653,7 +667,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="mb-5">
                                     <h3 class="my-4">Time Table</h3>
                                     <!-- add your code here -->
-                                    <div id="timetable-container" class="table-responsive timetable">
+                                    <div id="timetable-container" class="table-responsive timetable" style=" margin-bottom:100px;">
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -722,6 +736,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 
+<p></p>
 
 
 <div id="timetable-container" class="table-responsive timetable">
