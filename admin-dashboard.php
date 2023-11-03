@@ -667,7 +667,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="mb-5">
                                     <h3 class="my-4">Time Table</h3>
                                     <!-- add your code here -->
-                                    <div id="timetable-container" class="table-responsive timetable" style=" margin-bottom:100px;">
+                                    <div id="timetable-container" class="table-responsive timetable" style=" margin-bottom:50px;">
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -736,7 +736,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 
-<p></p>
+<div class="student-course-selection">
+                                    <label for="semesterSelect">Select Semester:</label>
+                                    <select id="semesterSelect">
+                                        <option value="1">Semester 1</option>
+                                        <option value="2">Semester 2</option>
+                                        <option value="3">Semester 3</option>
+                                        <option value="4">Semester 4</option>
+                                        <option value="5">Semester 5</option>
+                                        <option value="6">Semester 6</option>
+                                        <option value="7">Semester 7</option>
+                                        <option value="8">Semester 8</option>
+                                        <option value="9">Semester 9</option>
+                                        <option value="10">Semester 10</option>
+        
+                                    </select>
+                                <button id ="fetchCoursesButton" style="margin-bottom:30px">Fetch Time-Table</button>
+                                </div>
+
 
 
 <div id="timetable-container" class="table-responsive timetable">
