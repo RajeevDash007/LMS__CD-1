@@ -705,7 +705,7 @@ if ($connection) {
   margin-left: -25px;">
                                     <div class="container mt-5">
                                         <h2 class="mb-4">Assignment Submission Details</h2>
-                                        <form method="post" action="./assets/save_marks.php"> 
+                                        <form method="post" action="./assets/save_marks.php">
                                             <table class="table">
                                                 <thead>
                                                     <tr>
@@ -726,11 +726,11 @@ if ($connection) {
                                                         die("Connection failed: " . $conn->connect_error);
                                                     }
 
-                                                  
+
                                                     $instructorId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
                                                     if ($instructorId !== null) {
-                                        
+
                                                         $sql = "SELECT s.student_id, s.name AS student_name, c.course_name, a.AssignmentMarks,a.AssignmentID, sub.FilePath
                             FROM students s
                             INNER JOIN assignmentsubmissions sub ON s.student_id = sub.student_id
@@ -740,8 +740,9 @@ if ($connection) {
 
                                                         $result = mysqli_query($connection, $sql);
 
-                                                        if ($result) {
+                                                        if (mysqli_num_rows($result) > 0) {
                                                             $serialNo = 1;
+                                                            
                                                             while ($row = mysqli_fetch_assoc($result)) {
                                                                 echo "<tr>";
                                                                 echo "<td>" . $serialNo++ . "</td>";
@@ -756,9 +757,7 @@ if ($connection) {
                                 </td>';
                                                                 echo "</tr>";
                                                             }
-                                                        } else {
-                                                            echo "Error: " . $sql . "<br>" . mysqli_error($connection);
-                                                        }
+                                                        } 
                                                     } else {
                                                         echo "Instructor not logged in.";
                                                     }
@@ -933,46 +932,50 @@ if ($connection) {
                                                         GROUP BY a.AssignmentID, a.AssignmentTitle, c.course_name, c.course_semester";
 
                                             $result = mysqli_query($connection, $query);
+                                            if (mysqli_num_rows($result) > 0) {
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    $assignmentId = $row['AssignmentID'];
+                                                    $submittedCount = $row['submittedCount'];
+                                                    $totalEnrolled = $row['totalEnrolled'];
 
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                $assignmentId = $row['AssignmentID'];
-                                                $submittedCount = $row['submittedCount'];
-                                                $totalEnrolled = $row['totalEnrolled'];
+                                                    echo '<div class="assignment-card" style="width: 350px; height: 390px;">';
+                                                    echo '<h4>' . $row['AssignmentTitle'] . '</h4>';
+                                                    echo '<p>' . $row['course_name'] . '</p>';
+                                                    echo '<p>Semester: ' . $row['course_semester'] . '</p>';
+                                                    echo '<canvas id="pieChart' . $assignmentId . '" width="106"></canvas>';
+                                                    echo '<p>Total Students Enrolled: ' . $totalEnrolled . '</p>';
+                                                    echo '<p>Students Submitted: ' . $submittedCount . '</p>';
+                                                    echo '</div>';
 
-                                                echo '<div class="assignment-card" style="width: 350px; height: 390px;">';
-                                                echo '<h4>' . $row['AssignmentTitle'] . '</h4>';
-                                                echo '<p>' . $row['course_name'] . '</p>';
-                                                echo '<p>Semester: ' . $row['course_semester'] . '</p>';
-                                                echo '<canvas id="pieChart' . $assignmentId . '" width="106"></canvas>';
-                                                echo '<p>Total Students Enrolled: ' . $totalEnrolled . '</p>';
-                                                echo '<p>Students Submitted: ' . $submittedCount . '</p>';
-                                                echo '</div>';
-
-                                                // JavaScript to create and update pie charts
-                                                echo '<script>';
-                                                echo 'var ctx = document.getElementById("pieChart' . $assignmentId . '").getContext("2d");';
-                                                echo 'var pieChart' . $assignmentId . ' = new Chart(ctx, {';
-                                                echo 'type: "doughnut",';
-                                                echo 'data: {';
-                                                echo 'labels: ["Submitted", "Not Submitted"],';
-                                                echo 'datasets: [{';
-                                                echo 'data: [' . $submittedCount . ', ' . ($totalEnrolled - $submittedCount) . '],';
-                                                echo 'backgroundColor: ["#50C878", "#FF6384"],';
-                                                echo 'hoverBackgroundColor: ["#228B22", "#C70039"]';
-                                                echo '}]';
-                                                echo '},';
-                                                echo 'options: {';
-                                                echo 'responsive: true,';
-                                                echo 'legend: { display: false },';
-                                                echo 'title: { display: true, text: "Submission Status" }';
-                                                echo '}';
-                                                echo '});';
-                                                echo '</script>';
+                                                    // JavaScript to create and update pie charts
+                                                    echo '<script>';
+                                                    echo 'var ctx = document.getElementById("pieChart' . $assignmentId . '").getContext("2d");';
+                                                    echo 'var pieChart' . $assignmentId . ' = new Chart(ctx, {';
+                                                    echo 'type: "doughnut",';
+                                                    echo 'data: {';
+                                                    echo 'labels: ["Submitted", "Not Submitted"],';
+                                                    echo 'datasets: [{';
+                                                    echo 'data: [' . $submittedCount . ', ' . ($totalEnrolled - $submittedCount) . '],';
+                                                    echo 'backgroundColor: ["#50C878", "#FF6384"],';
+                                                    echo 'hoverBackgroundColor: ["#228B22", "#C70039"]';
+                                                    echo '}]';
+                                                    echo '},';
+                                                    echo 'options: {';
+                                                    echo 'responsive: true,';
+                                                    echo 'legend: { display: false },';
+                                                    echo 'title: { display: true, text: "Submission Status" }';
+                                                    echo '}';
+                                                    echo '});';
+                                                    echo '</script>';
+                                                }
+                                            } else {
+                                                echo '<p>No assignments found.</p>';
                                             }
 
                                             // Close the database connection
                                             mysqli_close($connection);
                                         }
+
                                         ?>
 
 
