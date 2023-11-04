@@ -856,6 +856,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </tbody>
   </table>
 </div>
+<button type="submit" class="btn btn-primary" id="submitTimetableButton">Add the time-table</button>
 
                                 </div>
                             </div>
