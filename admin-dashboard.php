@@ -21,35 +21,35 @@ if ($connection) {
     echo "Database connection error.";
     exit();
 }
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $instructorId = $_POST["instructor_id"];
-    $day = $_POST["day"];
-    $startTime = $_POST["start_time"];
-    $endTime = $_POST["end_time"];
-    $courseId = $_POST["course_id"];
-    $semester = $_POST["semester"];
-    $roomNo = $_POST["room_no"];
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     $instructorId = $_POST["instructor_id"];
+//     $day = $_POST["day"];
+//     $startTime = $_POST["start_time"];
+//     $endTime = $_POST["end_time"];
+//     $courseId = $_POST["course_id"];
+//     $semester = $_POST["semester"];
+//     $roomNo = $_POST["room_no"];
 
-    $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+//     $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
-    if ($connection) {
-        $query = "INSERT INTO classes (instructor_id, day, start_time, end_time, course_id, semester, room_no)
-                  VALUES (?, ?, ?, ?, ?, ?, ?)";
-        $stmt = mysqli_prepare($connection, $query);
-        mysqli_stmt_bind_param($stmt, "isssiss", $instructorId, $day, $startTime, $endTime, $courseId, $semester, $roomNo);
+//     if ($connection) {
+//         $query = "INSERT INTO classes (instructor_id, day, start_time, end_time, course_id, semester, room_no)
+//                   VALUES (?, ?, ?, ?, ?, ?, ?)";
+//         $stmt = mysqli_prepare($connection, $query);
+//         mysqli_stmt_bind_param($stmt, "isssiss", $instructorId, $day, $startTime, $endTime, $courseId, $semester, $roomNo);
 
-        if (mysqli_stmt_execute($stmt)) {
-            mysqli_stmt_close($stmt);
-            mysqli_close($connection);
-            header("Location: admin-dashboard.php"); // Redirect to admin dashboard after successful insertion
-            exit();
-        } else {
-            echo "Error: " . mysqli_error($connection); // Handle insertion error
-        }
-    } else {
-        echo "Database connection error.";
-    }
-}
+//         if (mysqli_stmt_execute($stmt)) {
+//             mysqli_stmt_close($stmt);
+//             mysqli_close($connection);
+//             header("Location: admin-dashboard.php"); // Redirect to admin dashboard after successful insertion
+//             exit();
+//         } else {
+//             echo "Error: " . mysqli_error($connection); // Handle insertion error
+//         }
+//     } else {
+//         echo "Database connection error.";
+//     }
+// }
 ?>
 
 <!DOCTYPE html>
@@ -857,6 +857,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </table>
 </div>
 <button type="submit" class="btn btn-primary" id="submitTimetableButton">Add the time-table</button>
+
 
                                 </div>
                             </div>
