@@ -97,6 +97,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   touch-action: manipulation;
 }
 
+#fetchTimetableButton{
+    background-color: #007bff;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 35px;
+  line-height: 20px;
+  list-style: none;
+  margin-left: 5px;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+}
+
+#fetchTimetableButton:hover,
+#fetchTimetableButton:focus {
+  background-color: #7199ce;
+}
+
 #fetchCoursesButton:hover,
 #fetchCoursesButton:focus {
   background-color: #7199ce;
@@ -626,7 +659,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>   
                                         <div class="form-group">
                                             <label for="day">Day:</label>
-                                            <select class="form-control" name="day" id="day">
+                                            <select class="form-control" name="day" id="stu_day">
                                                 <option value="Monday">Monday</option>
                                                 <option value="Tuesday">Tuesday</option>
                                                 <option value="Wednesday">Wednesday</option>
@@ -636,11 +669,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
                                         <div class="form-group">
                                             <label for="startTime">Start Time:</label>
-                                            <input type="time" class="form-control" name="start_time" id="startTime" required>
+                                            <input type="time" class="form-control" name="start_time" id="stu_startTime" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="endTime">End Time:</label>
-                                            <input type="time" class="form-control" name="end_time" id="endTime" required>
+                                            <input type="time" class="form-control" name="end_time" id="stu_endTime" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="">Course:</label>
@@ -648,7 +681,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
                                         <div class="form-group">
                                             <label for="roomNo">Room Number:</label>
-                                            <input type="text" class="form-control" name="room_no" id="roomNo" required>
+                                            <input type="text" class="form-control" name="room_no" id="stu_roomNo" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Add Timetable Entry</button>
                                         
@@ -751,7 +784,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <option value="10">Semester 10</option>
         
                                     </select>
-                                <button id ="fetchCoursesButton" style="margin-bottom:30px">Fetch Time-Table</button>
+                                <button id ="fetchTimetableButton" style="margin-bottom:30px">Fetch Time-Table</button>
                                 </div>
 
 
@@ -771,7 +804,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <th>Friday</th>
       </tr>
     </thead>
-    <tbody class="timetable-tbody">
+    <tbody class="timetable-tbody_stu">
       <tr>
         <td>9:30 AM - 10:30 AM</td>
         <td></td>
@@ -823,6 +856,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </tbody>
   </table>
 </div>
+
                                 </div>
                             </div>
                         </div> <!-- Controle de Display -->
