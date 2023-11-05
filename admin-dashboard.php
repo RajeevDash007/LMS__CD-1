@@ -652,14 +652,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 });
                             </script>
                             
-                                         <form id="studentForm" method="POST" class="col-md-8">
+                            
+                                    <form id="studentForm" method="POST" class="col-md-8" action="./assets/submit-student-timetable.php">
                                         <div class="form-group">
                                             <label for="">Semester:</label>
                                             <input type="text" class="form-control" name="semesternum" id="semesternum">
                                         </div>   
                                         <div class="form-group">
                                             <label for="day">Day:</label>
-                                            <select class="form-control" name="day" id="stu_day">
+                                            <select class="form-control" name="stu_day" id="stu_day">
                                                 <option value="Monday">Monday</option>
                                                 <option value="Tuesday">Tuesday</option>
                                                 <option value="Wednesday">Wednesday</option>
@@ -669,22 +670,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
                                         <div class="form-group">
                                             <label for="startTime">Start Time:</label>
-                                            <input type="time" class="form-control" name="start_time" id="stu_startTime" required>
+                                            <input type="time" class="form-control" name="stu_start_time" id="stu_startTime" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="endTime">End Time:</label>
-                                            <input type="time" class="form-control" name="end_time" id="stu_endTime" required>
+                                            <input type="time" class="form-control" name="stu_end_time" id="stu_endTime" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="">Course:</label>
-                                            <input type="text" class="form-control" name="coursename" id="coursename">
+                                            <input type="text" class="form-control" name="stu_coursename" id="coursename">
                                         </div>
                                         <div class="form-group">
                                             <label for="roomNo">Room Number:</label>
-                                            <input type="text" class="form-control" name="room_no" id="stu_roomNo" required>
+                                            <input type="text" class="form-control" name="stu_room_no" id="stu_roomNo" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Add Timetable Entry</button>
-                                        
+                                        <div id="messageDiv">
+    
+</div>
                                     </form> 
                                           
                                     
@@ -856,7 +859,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </tbody>
   </table>
 </div>
-<button type="submit" class="btn btn-primary" id="submitTimetableButton">Add the time-table</button>
+<!-- <button type="submit" class="btn btn-primary" id="submitTimetableButton">Add the time-table</button> -->
 
 
                                 </div>
