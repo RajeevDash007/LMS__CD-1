@@ -751,7 +751,9 @@ if ($connection) {
                                         <h2 class="mb-4">Assign Marks</h2>
                                         <form method="post" action="./assets/save_marks.php">
                                             <table class="table">
-                                                <thead>
+                                                <thead style="color: #fff;
+  background-color: #428bca;
+  border-color: #007bff; background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);">
                                                     <tr>
                                                         <th>Serial No.</th>
                                                         <th>Name</th>
