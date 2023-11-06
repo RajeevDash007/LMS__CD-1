@@ -935,6 +935,10 @@ if ($connection) {
                                 grid-template-columns: repeat(2, 1fr);
                                 gap: 20px;
                                 font-size: 80%;
+                                border: 1px solid black;
+                                padding:50px;
+                                border-radius: 50px;
+                                background: #FAD5A5;
                             }
 
                             .assignment-card {
@@ -945,7 +949,8 @@ if ($connection) {
                                 justify-items: center;
                                 justify-content: center;
                                 text-align: center;
-                                width: 100%;
+                                background-color: white;
+                               
                             }
 
                             canvas {
