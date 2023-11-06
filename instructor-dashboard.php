@@ -959,7 +959,7 @@ if ($connection) {
                         <div class="beneficios display fadeInUp" style="display: none">
                             <div class="container">
                                 <div class="mb-5">
-                                    <h3 class="my-4">Statistics</h3>
+                                    <h3 class="my-4">Assignment Statistics</h3>
                                     <div class="assignments">
                                         <?php
                                         include_once('./config.php');
