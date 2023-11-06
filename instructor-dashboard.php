@@ -748,7 +748,7 @@ if ($connection) {
                                 <div class="row mb-5" style="margin-right: -277px;
   margin-left: -25px;">
                                     <div class="container mt-5">
-                                        <h2 class="mb-4">Assignment Submission Details</h2>
+                                        <h2 class="mb-4">Assign Marks</h2>
                                         <form method="post" action="./assets/save_marks.php">
                                             <table class="table">
                                                 <thead>
