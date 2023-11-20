@@ -44,6 +44,9 @@ if ($connection) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <title>Student Dashboard</title>
     <style>
         .fc-today{
@@ -838,6 +841,7 @@ $conn->close();
                                         function generatePDF() {
                                             const element = document.getElementById('timetable-container');
                                             html2pdf(element);
+                                            
                                         }
                                     </script>
                                     <div class="animated-search-filter adm grid fadeInUp delay-1">
