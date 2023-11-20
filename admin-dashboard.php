@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="./assets/swiper-bundle.min.css">
     <title>Admin Dashboard</title>
     <style>
-    #fetchCoursesButton {
+    .fetchCoursesButton {
   background-color: #007bff;
   border-radius: 8px;
   border-style: none;
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   touch-action: manipulation;
 }
 
-#fetchTimetableButton{
+.fetchTimetableButton{
     background-color: #007bff;
   border-radius: 8px;
   border-style: none;
@@ -125,13 +125,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 
-#fetchTimetableButton:hover,
-#fetchTimetableButton:focus {
+.fetchTimetableButton:hover,
+.fetchTimetableButton:focus {
   background-color: #7199ce;
 }
 
-#fetchCoursesButton:hover,
-#fetchCoursesButton:focus {
+.fetchCoursesButton:hover,
+.fetchCoursesButton:focus {
   background-color: #7199ce;
 }
 .dark-mode label {
@@ -147,6 +147,59 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     border-radius: 5px;
     font-size: 16px;
   }
+
+  #instructor-select {
+    background-color: #7c87aa;
+    color: white;
+    padding: 5px;
+    border: 3px solid #555;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  #semester_Select{
+    background-color: #7c87aa;
+    color: white;
+    padding: 5px;
+    border: 3px solid #555;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  #stu-fetch{ background-color: #007bff;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 35px;
+  line-height: 20px;
+  list-style: none;
+  margin-left: 5px;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+}
+
+#stu-fetch:hover,
+#stu-fetch:focus {
+  background-color: #7199ce;
+}
+
+#stu-fetch:hover,
+#stu-fetch:focus {
+  background-color: #7199ce;
+}
 
   .rwd-table {
             margin: auto;
@@ -703,78 +756,81 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="mb-5">
                                     <h3 class="my-4">Time Table</h3>
                                     <!-- add your code here -->
-                                    <div id="timetable-container" class="table-responsive timetable" style=" margin-bottom:50px;">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th colspan="6">Instructor's Time Table</th>
-      </tr>
-      <tr>
-        <th>Time</th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-      </tr>
-    </thead>
-    <tbody class="timetable-tbody">
-      <tr>
-        <td>9:30 AM - 10:30 AM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>10:30 AM - 11:30 AM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>11:30 AM - 12:30 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2:00 PM - 3:00 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>3:00 PM - 4:00 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>4:00 PM - 5:00 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+                                    <div class="instructor-course-selection">
+                                    <label for="instructor-select">Select Instructor:</label>
+                                    <select id="instructor-select">
+                                    <option value="">Select Instructor</option>
+                                                <?php
+                                                include_once('./config.php');
+                                                $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+                                                if ($connection) {
+                                                    $query = "SELECT instructor_id, name FROM instructors";
+                                                    $result = mysqli_query($connection, $query);
+                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                        echo "<option value=\"{$row['instructor_id']}\">{$row['name']}</option>";
+                                                    }
+                                                    mysqli_close($connection);
+                                                }
+                                                ?> 
+        
+                                    </select>
+                                <button class ="fetchTimetableButton" style="margin-bottom:30px">Fetch Time-Table</button>
+                                </div>
+                                    <?php
+require_once('./config.php');
+$conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$student_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+$days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+$timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '14:00 PM - 15:00 PM', '15:00 PM - 16:00 PM', '16:00 PM - 17:00 PM'];
+
+echo '<div id="timetable-container" class="table-responsive timetable">';
+echo '<table class="table table-bordered">';
+echo '<thead><tr><th colspan="6">Instructor Timetable</th></tr><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
+echo '<tbody class="timetable-tbody">';
+
+foreach ($timeSlots as $timeSlot) {
+    echo '<tr>';
+    echo '<td>' . $timeSlot . '</td>';
+
+    foreach ($days as $day) {
+        $query = "SELECT id, semester, day, start_time, end_time, course_name, room_no 
+                  FROM student_timetable
+                  WHERE day = '$day' 
+                      AND start_time <= '$timeSlot' 
+                      AND end_time > '$timeSlot'
+                      AND semester = (SELECT batch FROM students WHERE student_id = $student_id)";
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            echo '<td>';
+            echo '' . $row['course_name'] . '<br>';
+            // echo '( ' . $row['semester'] . ' )' . '<br>';
+            echo '( ' . $row['room_no'] . ' )';
+            echo '</td>';
+        } else {
+            echo '<td></td>';
+        }
+    }
+
+    echo '</tr>';
+}
+
+echo '</tbody>';
+echo '</table>';
+echo '</div>';
+$conn->close();
+?>
 
 
 <div class="student-course-selection">
-                                    <label for="semesterSelect">Select Semester:</label>
-                                    <select id="semesterSelect">
+                                    <label for="semester_Select">Select Semester:</label>
+                                    <select id="semester_Select">
                                         <option value="1">Semester 1</option>
                                         <option value="2">Semester 2</option>
                                         <option value="3">Semester 3</option>
@@ -787,78 +843,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <option value="10">Semester 10</option>
         
                                     </select>
-                                <button id ="fetchTimetableButton" style="margin-bottom:30px">Fetch Time-Table</button>
+                                <button id ="stu-fetch" style="margin-bottom:30px">Fetch Time-Table</button>
                                 </div>
 
 
 
-<div id="timetable-container" class="table-responsive timetable">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th colspan="6">Student's Time Table</th>
-      </tr>
-      <tr>
-        <th>Time</th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-      </tr>
-    </thead>
-    <tbody class="timetable-tbody_stu">
-      <tr>
-        <td>9:30 AM - 10:30 AM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>10:30 AM - 11:30 AM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>11:30 AM - 12:30 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2:00 PM - 3:00 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>3:00 PM - 4:00 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>4:00 PM - 5:00 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+                                <?php
+require_once('./config.php');
+$conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$student_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+$days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+$timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '14:00 PM - 15:00 PM', '15:00 PM - 16:00 PM', '16:00 PM - 17:00 PM'];
+$selectedSemester = isset($_POST['semester_Select']) ? $_POST['semester_Select'] : null;
+echo '<div id="timetable-container" class="table-responsive timetable">';
+echo '<table class="table table-bordered">';
+echo '<thead><tr><th colspan="6">Student Timetable</th></tr><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
+echo '<tbody class="timetable-tbody">';
+
+
+foreach ($timeSlots as $timeSlot) {
+    echo '<tr>';
+    echo '<td>' . $timeSlot . '</td>';
+
+    foreach ($days as $day) {
+        $query = "SELECT day, start_time, end_time, course_name, room_no 
+        FROM student_timetable
+        WHERE semester = '$selectedSemester'
+          AND day = '$day' 
+          AND start_time <= '$timeSlot' 
+          AND end_time > '$timeSlot'";
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            echo '<td>';
+            echo '' . $row['course_name'] . '<br>';
+            // echo '( ' . $row['semester'] . ' )' . '<br>';
+            echo '( ' . $row['room_no'] . ' )';
+            echo '</td>';
+        } else {
+            echo '<td></td>';
+        }
+    }
+
+    echo '</tr>';
+}
+
+echo '</tbody>';
+echo '</table>';
+echo '</div>';
+$conn->close();
+?>
 <!-- <button type="submit" class="btn btn-primary" id="submitTimetableButton">Add the time-table</button> -->
 
 
