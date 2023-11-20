@@ -781,54 +781,55 @@ if (isset($_POST['submit'])) {
                                     
                                             <!-- add your code here -->
                                             <?php
-                                    require_once('./config.php');
-                                    $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
+require_once('./config.php');
+$conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 
-                                    if ($conn->connect_error) {
-                                        die("Connection failed: " . $conn->connect_error);
-                                    }
-                                    $instructor_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
-                                    $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-                                    echo '<div  id="timetable-container" class="table-responsive timetable">';
-                                    echo '<table class="table table-bordered">';
-                                    echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
-                                    echo '<tbody class="timetable-tbody">';
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-                                    $timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '2:00 PM - 3:00 PM', '3:00 PM - 4:00 PM', '4:00 PM - 5:00 PM'];
-                                    foreach ($timeSlots as $timeSlot) {
-                                        echo '<tr>';
-                                        echo '<td>' . $timeSlot . '</td>';
+$student_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+$days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+$timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '14:00 PM - 15:00 PM', '15:00 PM - 16:00 PM', '16:00 PM - 17:00 PM'];
 
-                                        foreach ($days as $day) {
-                                            $query = "SELECT c.course_name, cl.semester, cl.room_no 
-                                            FROM classes cl
-                                            JOIN courses c ON cl.course_id = c.course_id
-                                            WHERE cl.instructor_id = $instructor_id 
-                                                AND cl.day = '$day' 
-                                                AND cl.start_time <= '$timeSlot' 
-                                                AND cl.end_time > '$timeSlot'";
-                                            $result = $conn->query($query);
+echo '<div id="timetable-container" class="table-responsive timetable">';
+echo '<table class="table table-bordered">';
+echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
+echo '<tbody class="timetable-tbody">';
 
-                                            if ($result->num_rows > 0) {
-                                                $row = $result->fetch_assoc();
-                                                echo '<td>';
-                                                echo '' . $row['course_name'] . '<br>';
-                                                echo '( ' . $row['semester'] . ' )' . '<br>';
-                                                echo '( ' . $row['room_no'] . ' )';
-                                                echo '</td>';
-                                            } else {
-                                                echo '<td></td>';
-                                            }
-                                        }
+foreach ($timeSlots as $timeSlot) {
+    echo '<tr>';
+    echo '<td>' . $timeSlot . '</td>';
 
-                                        echo '</tr>';
-                                    }
+    foreach ($days as $day) {
+        $query = "SELECT id, semester, day, start_time, end_time, course_name, room_no 
+                  FROM student_timetable
+                  WHERE day = '$day' 
+                      AND start_time <= '$timeSlot' 
+                      AND end_time > '$timeSlot'
+                      AND semester = (SELECT batch FROM students WHERE student_id = $student_id)";
+        $result = $conn->query($query);
 
-                                    echo '</tbody>';
-                                    echo '</table>';
-                                    echo '</div>';
-                                    $conn->close();
-                                    ?>
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            echo '<td>';
+            echo '' . $row['course_name'] . '<br>';
+            // echo '( ' . $row['semester'] . ' )' . '<br>';
+            echo '( ' . $row['room_no'] . ' )';
+            echo '</td>';
+        } else {
+            echo '<td></td>';
+        }
+    }
+
+    echo '</tr>';
+}
+
+echo '</tbody>';
+echo '</table>';
+echo '</div>';
+$conn->close();
+?>
                                     <div class="col-md-6">
                                         <button onclick="generatePDF()" class="btn btn-primary" style="background-color: #e57639; border-color:#e57639">Download Timetable as PDF</button>
             
