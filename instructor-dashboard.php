@@ -219,6 +219,10 @@ if ($connection) {
             color: #fff !important;
         }
 
+        body .dark-mode td {
+            color: #fff !important;
+        }
+
         body .dark-mode .timetable tbody tr:nth-child(odd) {
             color: white;
         }
