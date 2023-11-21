@@ -941,6 +941,7 @@ if ($connection) {
                                 padding:50px;
                                 border-radius: 50px;
                                 background: #FAD5A5;
+                                padding-left: 72px;
                             }
 
                             .assignment-card {
