@@ -1,6 +1,7 @@
 <?php
 // Assuming you have a database connection established
-require_once('../config.php');
+require_once(__DIR__ . '/../config.php');
+
 
 $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 
