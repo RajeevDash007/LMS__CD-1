@@ -1,9 +1,6 @@
 <?php
 // Assuming you have a database connection established
-$dbHost = 'localhost';
-$dbUser = 'root';
-$dbPass = '';
-$dbName = 'lms';
+require_once('../config.php');
 
 $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 // Check connection

@@ -5,10 +5,7 @@ $redirect = false;
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Connect to your MySQL database
-    $dbHost = 'localhost';
-    $dbUser = 'root';
-    $dbPass = '';
-    $dbName = 'lms';
+    require_once('../config.php');
 
     $connection = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 

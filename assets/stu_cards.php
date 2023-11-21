@@ -5,10 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $selectedSemester = $_POST["selected_semester"]; // Change this according to your needs
 
     // Connect to your MySQL database (you should have these values defined)
-    $dbHost = 'localhost';
-    $dbUser = 'root';
-    $dbPass = '';
-    $dbName = 'lms';
+    require_once('../config.php');
 
     $connection = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 
