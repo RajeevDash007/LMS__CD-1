@@ -931,8 +931,8 @@ $conn->close();
 
 
 <div class="student-course-selection">
-                                    <label for="semester_Select">Select Semester:</label>
-                                    <select id="semester_Select">
+    <label for="semester_Select">Select Semester:</label>
+    <select id="semester_Select">
                                         <option value="1">Semester 1</option>
                                         <option value="2">Semester 2</option>
                                         <option value="3">Semester 3</option>
@@ -944,64 +944,48 @@ $conn->close();
                                         <option value="9">Semester 9</option>
                                         <option value="10">Semester 10</option>
         
-                                    </select>
-                                <button id ="stu-fetch" style="margin-bottom:30px">Fetch Time-Table</button>
-                                </div>
+                                        </select>
+</div>
+<div id="timetable-container-1" class="table-responsive timetable">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="6">Student Timetable</th>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+            </tr>
+        </thead>
+        <tbody class="timetable-tbody-1">
+            <!-- Timetable data will be dynamically inserted here -->
+        </tbody>
+    </table>
+</div>
+<script>
+    $(document).ready(function () {
+        // Listen for changes in the selected semester
+        $("#semester_Select").change(function () {
+            // Get the selected semester value
+            var selectedSemester = $(this).val();
 
-
-
-                                <?php
-require_once('./config.php');
-$conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$student_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
-$days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-$timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '14:00 PM - 15:00 PM', '15:00 PM - 16:00 PM', '16:00 PM - 17:00 PM'];
-$selectedSemester = isset($_POST['semester_Select']) ? $_POST['semester_Select'] : null;
-echo '<div id="timetable-container" class="table-responsive timetable">';
-echo '<table class="table table-bordered">';
-echo '<thead><tr><th colspan="6">Student Timetable</th></tr><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
-echo '<tbody class="timetable-tbody">';
-
-
-foreach ($timeSlots as $timeSlot) {
-    echo '<tr>';
-    echo '<td>' . $timeSlot . '</td>';
-
-    foreach ($days as $day) {
-        $query = "SELECT day, start_time, end_time, course_name, room_no 
-        FROM student_timetable
-        WHERE semester = '$selectedSemester'
-          AND day = '$day' 
-          AND start_time <= '$timeSlot' 
-          AND end_time > '$timeSlot'";
-        $result = $conn->query($query);
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            echo '<td>';
-            echo '' . $row['course_name'] . '<br>';
-            // echo '( ' . $row['semester'] . ' )' . '<br>';
-            echo '( ' . $row['room_no'] . ' )';
-            echo '</td>';
-        } else {
-            echo '<td></td>';
-        }
-    }
-
-    echo '</tr>';
-}
-
-echo '</tbody>';
-echo '</table>';
-echo '</div>';
-$conn->close();
-?>
-<!-- <button type="submit" class="btn btn-primary" id="submitTimetableButton">Add the time-table</button> -->
+            // Fetch timetable data for the selected semester using AJAX
+            $.ajax({
+                type: "POST",
+                url: "./assets/fetch_student_admin_timetable.php", // Adjust the URL to the file containing your PHP code
+                data: { semester_Select: selectedSemester },
+                success: function (data) {
+                    // Update the timetable container with the fetched data
+                    $("#timetable-container-1").html(data);
+                }
+            });
+        });
+    });
+</script>
 
 
                                 </div>
