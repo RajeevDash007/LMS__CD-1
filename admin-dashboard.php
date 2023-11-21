@@ -961,7 +961,7 @@ $conn->close();
                 <th>Friday</th>
             </tr>
         </thead>
-        <<tbody class="timetable-tbody-1">
+        <tbody class="timetable-tbody-1">
       <tr>
         <td>9:30 AM - 10:30 AM</td>
         <td></td>
