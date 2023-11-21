@@ -506,11 +506,7 @@ if ($connection) {
 
 
 // Database connection settings
-$dbHost = 'localhost';
-$dbUser = 'root';
-$dbPass = '';
-$dbName = 'lms';
-
+require_once('./config.php');
 
 
 if (isset($_SESSION['user_email'])) {
@@ -598,10 +594,7 @@ try {
 
 
 // Database connection settings
-$dbHost = 'localhost';
-$dbUser = 'root';
-$dbPass = '';
-$dbName = 'lms';
+require_once('./config.php');
 
 
 
