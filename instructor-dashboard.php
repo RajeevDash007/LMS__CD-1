@@ -602,7 +602,7 @@ if ($connection) {
                                 </script>
 
 
-                                <div class="container mt-4 col-md-6" style="margin-left:0px;">
+                                <div class="container mt-4 col-md-10" style="margin-left:0px;">
                                     <h2 style="margin-bottom:20px;">Create a Course</h2>
                                     <form method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
