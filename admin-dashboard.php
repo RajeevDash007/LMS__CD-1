@@ -961,9 +961,56 @@ $conn->close();
                 <th>Friday</th>
             </tr>
         </thead>
-        <tbody class="timetable-tbody-1">
-            <!-- Timetable data will be dynamically inserted here -->
-        </tbody>
+        <<tbody class="timetable-tbody-1">
+      <tr>
+        <td>9:30 AM - 10:30 AM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>10:30 AM - 11:30 AM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>11:30 AM - 12:30 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>14:00 PM - 15:00 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>15:00 PM - 16:00 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>16:00 PM - 17:00 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
     </table>
 </div>
 <script>
