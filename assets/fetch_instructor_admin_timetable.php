@@ -43,6 +43,7 @@ foreach ($timeSlots as $timeSlot) {
             $courseRow = $courseResult->fetch_assoc();
 
             echo '' . $courseRow['course_name'] . '<br>';
+            echo '( ' . $row['semester'] . ' )'. '<br>';
             echo '( ' . $row['room_no'] . ' )';
             echo '</td>';
         } else {
