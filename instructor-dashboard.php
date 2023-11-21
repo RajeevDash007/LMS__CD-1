@@ -223,6 +223,10 @@ if ($connection) {
             color: #fff !important;
         }
 
+        body .dark-mode .assglist td {
+            color: black !important;
+        }
+
         body .dark-mode .timetable tbody tr:nth-child(odd) {
             color: white;
         }

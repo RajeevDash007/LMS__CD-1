@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
         $deadline = strtotime($row['AssignmentDueDate']);
         $currentTime = time();
         if ($deadline > $currentTime) {
-            echo '<tr>' .
+            echo '<tr class="assglist">' .
                 '<td>' . $row['AssignmentTitle'] . '</td>' .
                 '<td>' . $row['batch'] . '</td>' .
                 '<td>' . $row['AssignmentDueDate'] . '</td>' .
