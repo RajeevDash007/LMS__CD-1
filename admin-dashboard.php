@@ -542,6 +542,55 @@ body {
 </html> -->
 
 
+<div>
+<h3 class="mt-4">Student List </h3>
+    <div id="semesterSelector">
+        <label for="admin_semester">Select Semester:</label>
+        <select id="admin_semester" onchange="fetchStudents()">
+            <?php
+                // Generate options for semesters from 1 to 10
+                for ($i = 1; $i <= 10; $i++) {
+                    echo "<option value='$i'>$i</option>";
+                }
+            ?>
+        </select>
+    </div>
+
+    <table id="studentTable" class="dynamic-table">
+        <thead>
+            <tr>
+                <th>Sl. No</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody_1"></tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    // Function to fetch students based on the selected semester
+    window.fetchStudents = function() {
+        const semesterSelector = document.getElementById('admin_semester');
+        const admin_selectedSemester = semesterSelector.value;
+
+        // Fetch student data based on the selected semester
+        fetch(`./assets/fetch_admin_student.php?semester=${admin_selectedSemester}`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('tableBody_1').innerHTML = data;
+            });
+    };
+
+    // Call the function to populate the table on page load
+    fetchStudents();
+});
+
+    </script>
+
+</div>
+
+
 
                                 
 
