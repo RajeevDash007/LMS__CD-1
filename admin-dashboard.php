@@ -859,75 +859,112 @@ body {
                                     <h3 class="my-4">Time Table</h3>
                                     <!-- add your code here -->
                                     <div class="instructor-course-selection">
-                                    <label for="instructor-select">Select Instructor:</label>
-                                    <select id="instructor-select">
-                                    <option value="">Select Instructor</option>
-                                                <?php
-                                                include_once('./config.php');
-                                                $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
-                                                if ($connection) {
-                                                    $query = "SELECT instructor_id, name FROM instructors";
-                                                    $result = mysqli_query($connection, $query);
-                                                    while ($row = mysqli_fetch_assoc($result)) {
-                                                        echo "<option value=\"{$row['instructor_id']}\">{$row['name']}</option>";
-                                                    }
-                                                    mysqli_close($connection);
-                                                }
-                                                ?> 
-        
-                                    </select>
-                                <button class ="fetchTimetableButton" style="margin-bottom:30px">Fetch Time-Table</button>
-                                </div>
-                                    <?php
-require_once('./config.php');
-$conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$student_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
-$days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-$timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '14:00 PM - 15:00 PM', '15:00 PM - 16:00 PM', '16:00 PM - 17:00 PM'];
-
-echo '<div id="timetable-container" class="table-responsive timetable">';
-echo '<table class="table table-bordered">';
-echo '<thead><tr><th colspan="6">Instructor Timetable</th></tr><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
-echo '<tbody class="timetable-tbody">';
-
-foreach ($timeSlots as $timeSlot) {
-    echo '<tr>';
-    echo '<td>' . $timeSlot . '</td>';
-
-    foreach ($days as $day) {
-        $query = "SELECT id, semester, day, start_time, end_time, course_name, room_no 
-                  FROM student_timetable
-                  WHERE day = '$day' 
-                      AND start_time <= '$timeSlot' 
-                      AND end_time > '$timeSlot'
-                      AND semester = (SELECT batch FROM students WHERE student_id = $student_id)";
-        $result = $conn->query($query);
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            echo '<td>';
-            echo '' . $row['course_name'] . '<br>';
-            // echo '( ' . $row['semester'] . ' )' . '<br>';
-            echo '( ' . $row['room_no'] . ' )';
-            echo '</td>';
-        } else {
-            echo '<td></td>';
+    <label for="instructor-select">Select Instructor:</label>
+    <select id="instructor-select">
+        <option value="">Select Instructor</option>
+        <?php
+        include_once('./config.php');
+        $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+        if ($connection) {
+            $query = "SELECT instructor_id, name FROM instructors";
+            $result = mysqli_query($connection, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<option value=\"{$row['instructor_id']}\">{$row['name']}</option>";
+            }
+            mysqli_close($connection);
         }
-    }
+        ?> 
+    </select>
+</div>
+<div id="timetable-container-2" class="table-responsive timetable">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="6">Instructor Timetable</th>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+            </tr>
+        </thead>
+        <tbody class="timetable-tbody-2">
+      <tr>
+        <td>9:30 AM - 10:30 AM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>10:30 AM - 11:30 AM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>11:30 AM - 12:30 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>14:00 PM - 15:00 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>15:00 PM - 16:00 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>16:00 PM - 17:00 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+    </table>
+</div>
 
-    echo '</tr>';
-}
+<script>
+    $(document).ready(function () {
+        // Listen for changes in the selected instructor
+        $("#instructor-select").change(function () {
+            // Get the selected instructor value
+            var selectedInstructor = $(this).val();
 
-echo '</tbody>';
-echo '</table>';
-echo '</div>';
-$conn->close();
-?>
+            // Fetch timetable data for the selected instructor using AJAX
+            $.ajax({
+                type: "POST",
+                url: "./assets/fetch_instructor_admin_timetable.php", // Adjust the URL to the file containing your PHP code
+                data: { instructor_id: selectedInstructor },
+                success: function (data) {
+                    // Update the timetable container with the fetched data
+                    $("#timetable-container-2").html(data);
+                }
+            });
+        });
+    });
+</script>
+
 
 
 <div class="student-course-selection">
