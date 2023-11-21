@@ -341,6 +341,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   background-color: #444444; /* Background color for even rows in dark mode */
   color: #FFFFFF; /* Text color for even rows in dark mode */
 }
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.dynamic-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.dynamic-table th, .dynamic-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.dynamic-table th {
+    background-color: #f2f2f2;
+}
+
+.dynamic-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
 
 </style>
 </head>
@@ -489,6 +514,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
                                     </div>
                                 </div>
+                                <!-- <!DOCTYPE html>
+                                <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Instructor Table</title>
+</head>
+<body> -->
+<h3 class="mt-4">Instructor List </h3>
+    <table id="instructorTable" class="dynamic-table">
+        <thead>
+            <tr>
+                <th>Sl. No</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <?php include('./assets/fetch_admin_instructors.php'); ?>
+        </tbody>
+    </table>
+
+<!-- </body>
+</html> -->
+
+
 
                                 
 
