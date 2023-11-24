@@ -15,7 +15,7 @@
             <form method="POST">
                 <label for="chk" aria-hidden="true">Sign up</label>
                 <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" required>
+                <input type="email" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                 <input type="password" name="password" placeholder="Password" required>
 
                 <div class="selectField">
