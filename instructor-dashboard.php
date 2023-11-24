@@ -1070,9 +1070,14 @@ if ($connection) {
 
                         <div class="row">
                             <div class="container mt-3">
-
+                                        <style>
+                                           .calendarCard{
+                                                border: 3px solid #666 !important;
+                                                background-color: #FFF5EE;
+                                           }
+                                        </style>
                                 <div class="my-4 mt-md-0">
-                                    <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4">
+                                    <div class="card shadow-card rounded-lg border-0 d-flex align-items-center justify-content-center p-4 calendarCard">
                                         <div id="calendar"></div>
                                     </div>
                                 </div>
