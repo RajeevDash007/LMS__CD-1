@@ -52,13 +52,29 @@ if ($connection) {
         .fc-today{
             background-color: #E35335 !important;
         }
-        
+        .btn-toggle {
+    background-color: #3498db; 
+    color: #fff; 
+    border: none;
+}
+
+.btn-toggle .handle {
+    background-color: #fff;
+}
+
+.btn-toggle[aria-pressed="true"] {
+    background-color: #000; 
+}
+
+.btn-toggle[aria-pressed="true"] .handle {
+    background-color: #fff;
+}
 
 
 #fetchCoursesButton {
   background-color: #007bff;
   border-radius: 8px;
-  border-style: none;
+  border: none;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
@@ -75,16 +91,19 @@ if ($connection) {
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: color 100ms;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
   vertical-align: baseline;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  transform-style: preserve-3d; /* Enable 3D transformations */
 }
 
 #fetchCoursesButton:hover,
 #fetchCoursesButton:focus {
   background-color: #7199ce;
+  transform: translateY(-2px); /* Lift the button on hover/focus */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
 }
 
 .dark-mode label {
@@ -99,6 +118,7 @@ if ($connection) {
     border: 3px solid #555;
     border-radius: 5px;
     font-size: 16px;
+    font-weight:bold;
   }
 
   .rwd-table {
@@ -381,7 +401,7 @@ if ($connection) {
                                 </div>
 
                                 <div class="student-course-selection">
-                                    <label for="semesterSelect">Select Semester:</label>
+                                    <label for="semesterSelect" style="font-weight:bold;">Select Semester:</label>
                                     <select id="semesterSelect">
                                         <option value="1">Semester 1</option>
                                         <option value="2">Semester 2</option>
