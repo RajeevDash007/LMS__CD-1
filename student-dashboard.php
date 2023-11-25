@@ -727,6 +727,7 @@ if (isset($_POST['submit'])) {
                         <th>Question File</th>
                         <th>Submission file</th>
                         <th>Submit</th>
+                        <th>Marks Given</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -764,6 +765,24 @@ if (isset($_POST['submit'])) {
                                 
                                 ?>
                             </td>
+
+                            <td>
+    <?php
+    $checkmarksQuery = "SELECT marks_given FROM assignmentsubmissions WHERE student_id = :student_id AND AssignmentID = :assignment_id";
+    $stmt = $pdo->prepare($checkmarksQuery);
+    $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
+    $stmt->bindParam(':assignment_id', $assignment['AssignmentID'], PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Check if a result was found
+    if ($result) {
+        echo $result['marks_given'];
+    } else {
+        echo "Marks not given"; // or any default value or message
+    }
+    ?>
+</td>
                     
                         </tr>
                         <?php $index++; // Increment the counter variable ?>
