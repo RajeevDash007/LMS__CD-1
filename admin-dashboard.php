@@ -149,12 +149,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   #instructor-select {
-    background-color: #7c87aa;
+    background-color: #3498db;
     color: white;
     padding: 5px;
     border: 3px solid #555;
     border-radius: 5px;
     font-size: 16px;
+
   }
   #semester_Select{
     background-color: #7c87aa;
