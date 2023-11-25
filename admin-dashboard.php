@@ -70,6 +70,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="./assets/swiper-bundle.min.css">
     <title>Admin Dashboard</title>
     <style>
+        .btn-toggle {
+    background-color: #3498db; 
+    color: #fff; 
+    border: none;
+}
+
+.btn-toggle .handle {
+    background-color: #fff;
+}
+
+.btn-toggle[aria-pressed="true"] {
+    background-color: #000; 
+}
+
+.btn-toggle[aria-pressed="true"] .handle {
+    background-color: #fff;
+}
     .fetchCoursesButton {
   background-color: #007bff;
   border-radius: 8px;
@@ -158,12 +175,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   }
   #semester_Select{
-    background-color: #7c87aa;
+    background-color: #3498db;
     color: white;
     padding: 5px;
     border: 3px solid #555;
     border-radius: 5px;
     font-size: 16px;
+    margin-bottom:5px;
   }
   #stu-fetch{ background-color: #007bff;
   border-radius: 8px;
