@@ -579,6 +579,7 @@ try {
     $stmt->execute();
     
     $assignments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $assignments = array_reverse($assignments);
 
 }
 }
