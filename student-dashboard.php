@@ -124,6 +124,7 @@ if ($connection) {
   .rwd-table {
             margin: auto;
             border-collapse: collapse;
+            overflow-y:auto;
         }
 
         .rwd-table thead tr:first-child {
@@ -248,6 +249,13 @@ if ($connection) {
                 padding: 1em !important;
             }
         }
+        @media (min-width: 200px){
+            #flow{
+    
+    overflow-x:auto;
+}
+        }
+        
 
         .fc-today {
             background-color: #E35335 !important;
@@ -273,6 +281,9 @@ button.substyle:disabled {
   color: #666666; /* Dark gray text color for disabled state */
   cursor: not-allowed;
 }
+
+
+
     </style>
 </head>
 
@@ -828,7 +839,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="adm display fadeInUp" style="display: none">
                             <h3 class="mt-4">Time Table</h3>
-                            <div class="container">
+                            <div class="container" id="flow">
                                 <div class="row mb-5">
                                 <!-- <div class="col-md-6">
                                         <label for="courseSearch">Search by Course Name:</label>
@@ -851,7 +862,7 @@ $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 $timeSlots = ['9:30 AM - 10:30 AM', '10:30 AM - 11:30 AM', '11:30 AM - 12:30 PM', '14:00 PM - 15:00 PM', '15:00 PM - 16:00 PM', '16:00 PM - 17:00 PM'];
 
 echo '<div id="timetable-container" class="table-responsive timetable">';
-echo '<table class="table table-bordered">';
+echo '<table class="table table-bordered table-striped">';
 echo '<thead><tr><th>Time</th><th>' . implode('</th><th>', $days) . '</th></tr></thead>';
 echo '<tbody class="timetable-tbody">';
 
