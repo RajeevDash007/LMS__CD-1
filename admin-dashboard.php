@@ -336,6 +336,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   color: #FFFFFF; /* Default text color for dark mode */
 
 }
+.dark-mode #tableBody{
+    color: #FFFFFF;
+    background-color: #444444; /* Background color for even rows in dark mode */
+ 
+}
+.dark-mode #tableBody_1{
+    color: #FFFFFF;
+    background-color: #444444;
+}
+.dark-mode #tableBody tr:hover,
+.dark-mode #tableBody_1 tr:hover {
+    color: #000000; /* Text color on hover for rows in dark mode */
+    background-color: #555555; /* Background color on hover for rows in dark mode */
+}
 
 .dark-mode .timetable tr:nth-child(odd) {
   background-color: #444444; /* Background color for even rows in dark mode */
