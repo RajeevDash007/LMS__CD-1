@@ -427,6 +427,48 @@ body {
 .dark-mode #admin_semester:hover {
     border-color: #777777; 
 }
+.student-course-selection {
+    display: flex;
+    align-items: center;
+}
+
+.student-course-selection label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#semesterSelect {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+#semesterSelect:hover {
+    border-color: #666;
+}
+
+#semesterSelect:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#fetchCoursesButton {
+    padding: 10px 15px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db; /* Blue color, you can change this */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#fetchCoursesButton:hover {
+    background-color: #2980b9; /* Darker blue on hover, you can change this */
+}
 
 </style>
 </head>
