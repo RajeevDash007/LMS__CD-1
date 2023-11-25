@@ -252,6 +252,27 @@ if ($connection) {
         .fc-today {
             background-color: #E35335 !important;
         }
+
+        button.substyle {
+  padding: 10px 20px;
+  background-color: #007bff; /* Green color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hover effect for the button */
+button.substyle:hover {
+  background-color: #1c6bc0; /* Darker green color on hover */
+}
+
+/* Disable styles for the button when it's in a disabled state */
+button.substyle:disabled {
+  background-color: #dddddd; /* Light gray background for disabled state */
+  color: #666666; /* Dark gray text color for disabled state */
+  cursor: not-allowed;
+}
     </style>
 </head>
 
@@ -760,7 +781,7 @@ if (isset($_POST['submit'])) {
                                if ($result && $result['Status'] == 'Closed') {
         echo "Submission Closed"; // Display "Submission Closed" message
     } else {
-        echo '<button type="submit" name="submit">Submit</button>';
+        echo '<button type="submit" name="submit" class="substyle">Submit</button>';
     }
                                 
                                 ?>
