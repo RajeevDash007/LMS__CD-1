@@ -380,6 +380,53 @@ body {
     background-color: #f5f5f5;
 }
 
+#admin_semester {
+    appearance: none; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    background-color: #fff; 
+    color: #333; 
+    cursor: pointer; 
+    width: 65px;
+}
+
+/* Style for the arrow icon indicating dropdown */
+#admin_semester::after {
+    content: '\25BC'; 
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+/* Hover styles for better feedback */
+#admin_semester:hover {
+    border-color: #666; 
+}
+
+/* Focus styles */
+#admin_semester:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode styles */
+.dark-mode #admin_semester {
+    background-color: #444444; 
+    color: #fff; 
+    border-color: #555555; 
+}
+
+/* Dark mode styles for arrow icon */
+.dark-mode #admin_semester::after {
+    color: #fff; 
+}
+
+/* Dark mode hover styles */
+.dark-mode #admin_semester:hover {
+    border-color: #777777; 
+}
 
 </style>
 </head>
@@ -558,8 +605,8 @@ body {
 
 <div>
 <h3 class="mt-4">Student List </h3>
-    <div id="semesterSelector">
-        <label for="admin_semester">Select Semester:</label>
+    <div id="semesterSelector" >
+        <label for="admin_semester" >Select Semester:</label>
         <select id="admin_semester" onchange="fetchStudents()">
             <?php
                 // Generate options for semesters from 1 to 10
