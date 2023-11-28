@@ -355,7 +355,7 @@ button.substyle:disabled {
         <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true" data-backdrop="false">
                 <div class="modal-dialog" role="document" style="min-width: 800px;">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header" style="background-color:#F06105;">
                             <h5 class="modal-title" id="profileModalLabel">My Profile</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
