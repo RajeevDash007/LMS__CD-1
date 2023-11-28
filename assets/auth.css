@@ -64,6 +64,9 @@ input{
 	border-radius: 5px;
 }
 
+select{
+	height: 30px;
+}
 button{
 	width: 25%;
 	height: 30px;
